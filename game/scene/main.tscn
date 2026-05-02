@@ -47,7 +47,7 @@ environment = SubResource("Environment_v0l8b")
 supersampling = true
 light_data = ExtResource("2_4j5ol")
 
-[node name="room_skeleton" parent="Environment" unique_id=2016167492 instance=ExtResource("5_0ha60")]
+[node name="room_skeleton" parent="Environment" unique_id=1990336352 instance=ExtResource("5_0ha60")]
 
 [node name="Lights" type="Node3D" parent="Environment" unique_id=1331986629]
 
