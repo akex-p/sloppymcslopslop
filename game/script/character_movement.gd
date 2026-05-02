@@ -6,7 +6,7 @@ extends CharacterBody3D
 @onready var head = $Head
 
 @onready var ray = $Head/Camera3D/RayCast3D
-@onready var interact_prompt = $"/root/Main/CanvasLayer/interactable prompt"
+@onready var interact_prompt = $"/root/Main/HUD/interactable prompt"
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

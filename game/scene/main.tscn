@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://deg5bda6vvnb4"]
 
 [ext_resource type="Script" uid="uid://dhkjnpc4dt0tf" path="res://script/main.gd" id="1_itxqv"]
-[ext_resource type="Script" uid="uid://dvodnsxicpou" path="res://script/character_movement.gd" id="2_v0l8b"]
+[ext_resource type="LightmapGIData" uid="uid://ch3ckbojir1l5" path="res://bake/main.lmbake" id="2_of57s"]
+[ext_resource type="Texture2D" uid="uid://b684tubkv0yrw" path="res://import/2d/sky/sky_001.png" id="3_p1hux"]
 [ext_resource type="Script" uid="uid://xii4q5pxsrb" path="res://script/ui_control.gd" id="3_wp4xf"]
+[ext_resource type="Texture2D" uid="uid://cn7lfywl5ggqr" path="res://import/2d/sky/sky_002.png" id="4_b5f6u"]
 [ext_resource type="Texture2D" uid="uid://b788fcu4wl5ua" path="res://icon.svg" id="4_brvut"]
 [ext_resource type="PackedScene" uid="uid://ng6q0qc7qjt5" path="res://import/3d/room_skeleton/room_skeleton.glb" id="5_0ha60"]
-[ext_resource type="Script" uid="uid://bt6de6kclehwo" path="res://script/interactable_object_area.gd" id="7_p1hux"]
+[ext_resource type="PackedScene" uid="uid://cdxk2rt82suho" path="res://scene/player.tscn" id="6_b5f6u"]
+[ext_resource type="Script" path="res://script/interactable_object_area.gd" id="7_p1hux"]
+[ext_resource type="LabelSettings" uid="uid://b5mocer2sin2i" path="res://resource/standard_label.tres" id="10_tqoya"]
+[ext_resource type="Shader" uid="uid://csextprrxtyne" path="res://resource/shader/crt.gdshader" id="11_k65ib"]
 
 [sub_resource type="Environment" id="Environment_v0l8b"]
 glow_enabled = true
@@ -13,15 +18,259 @@ glow_normalized = true
 glow_strength = 1.5
 glow_bloom = 0.5
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_of57s"]
+atlas = ExtResource("3_p1hux")
+region = Rect2(0, 0, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5f6u"]
+atlas = ExtResource("3_p1hux")
+region = Rect2(500, 0, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqoya"]
+atlas = ExtResource("3_p1hux")
+region = Rect2(1000, 0, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k65ib"]
+atlas = ExtResource("3_p1hux")
+region = Rect2(1500, 0, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wscrc"]
+atlas = ExtResource("3_p1hux")
+region = Rect2(2000, 0, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mswub"]
+atlas = ExtResource("3_p1hux")
+region = Rect2(0, 265, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hybxs"]
+atlas = ExtResource("3_p1hux")
+region = Rect2(500, 265, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2gmf"]
+atlas = ExtResource("3_p1hux")
+region = Rect2(1000, 265, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcbur"]
+atlas = ExtResource("3_p1hux")
+region = Rect2(1500, 265, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smf0o"]
+atlas = ExtResource("3_p1hux")
+region = Rect2(2000, 265, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tv8i1"]
+atlas = ExtResource("3_p1hux")
+region = Rect2(0, 530, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vlqb"]
+atlas = ExtResource("3_p1hux")
+region = Rect2(500, 530, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjnwh"]
+atlas = ExtResource("3_p1hux")
+region = Rect2(1000, 530, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdqew"]
+atlas = ExtResource("3_p1hux")
+region = Rect2(1500, 530, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0d4pv"]
+atlas = ExtResource("3_p1hux")
+region = Rect2(2000, 530, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtqqq"]
+atlas = ExtResource("3_p1hux")
+region = Rect2(0, 795, 500, 265)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gn2wi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_of57s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5f6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqoya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k65ib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wscrc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mswub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hybxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2gmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcbur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smf0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tv8i1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vlqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjnwh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdqew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0d4pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtqqq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gn2wi"]
+atlas = ExtResource("4_b5f6u")
+region = Rect2(0, 0, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8adh"]
+atlas = ExtResource("4_b5f6u")
+region = Rect2(500, 0, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oldxj"]
+atlas = ExtResource("4_b5f6u")
+region = Rect2(1000, 0, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jm02"]
+atlas = ExtResource("4_b5f6u")
+region = Rect2(1500, 0, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vneqc"]
+atlas = ExtResource("4_b5f6u")
+region = Rect2(2000, 0, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_io27d"]
+atlas = ExtResource("4_b5f6u")
+region = Rect2(0, 242, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa8t4"]
+atlas = ExtResource("4_b5f6u")
+region = Rect2(500, 242, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rg6nf"]
+atlas = ExtResource("4_b5f6u")
+region = Rect2(1000, 242, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjuaj"]
+atlas = ExtResource("4_b5f6u")
+region = Rect2(1500, 242, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gj7ui"]
+atlas = ExtResource("4_b5f6u")
+region = Rect2(2000, 242, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmc2w"]
+atlas = ExtResource("4_b5f6u")
+region = Rect2(0, 484, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ty4q"]
+atlas = ExtResource("4_b5f6u")
+region = Rect2(500, 484, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xrs8"]
+atlas = ExtResource("4_b5f6u")
+region = Rect2(1000, 484, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpobt"]
+atlas = ExtResource("4_b5f6u")
+region = Rect2(1500, 484, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_216wm"]
+atlas = ExtResource("4_b5f6u")
+region = Rect2(2000, 484, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jey2d"]
+atlas = ExtResource("4_b5f6u")
+region = Rect2(0, 726, 500, 242)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1hux"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gn2wi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8adh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oldxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jm02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vneqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_io27d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fa8t4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rg6nf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjuaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gj7ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmc2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ty4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xrs8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpobt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_216wm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jey2d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0ha60"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_v0l8b"]
-radius = 0.3
-height = 1.6
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_b5f6u"]
+radius = 0.28466797
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wp4xf"]
-radius = 0.3
-height = 1.6
+[sub_resource type="BoxShape3D" id="BoxShape3D_b5f6u"]
+size = Vector3(1.5405273, 1.5274658, 0.9741211)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4j5ol"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_p1hux"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4j5ol"]
 
 [sub_resource type="GDScript" id="GDScript_wp4xf"]
 script/source = "extends Node
@@ -37,11 +286,66 @@ func _process(delta: float) -> void:
 	pass
 "
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_4j5ol"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wscrc"]
+shader = ExtResource("11_k65ib")
+shader_parameter/overlay = true
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/brightness = 1.2
+shader_parameter/scanlines_opacity = 0.2000000095
+shader_parameter/scanlines_width = 0.1250000059375
+shader_parameter/grille_opacity = 0.150000007125
+shader_parameter/roll = false
+shader_parameter/roll_speed = 0.785
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 4.31000020146512
+shader_parameter/distort_intensity = 0.05
+shader_parameter/aberration = 0.03
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/pixelate = true
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.02000000095
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.1
+shader_parameter/vignette_opacity = 1.0
 
-[sub_resource type="SphereMesh" id="SphereMesh_p1hux"]
+[sub_resource type="Animation" id="Animation_tqoya"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlay/Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4j5ol"]
+[sub_resource type="Animation" id="Animation_b5f6u"]
+resource_name = "fade"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlay/Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 0.84089637),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tqoya"]
+_data = {
+&"RESET": SubResource("Animation_tqoya"),
+&"fade": SubResource("Animation_b5f6u")
+}
 
 [node name="Main" type="Node3D" unique_id=741590067]
 script = ExtResource("1_itxqv")
@@ -51,152 +355,73 @@ script = ExtResource("1_itxqv")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=746910441]
 environment = SubResource("Environment_v0l8b")
 
-[node name="room_skeleton" parent="Environment" unique_id=779069266 instance=ExtResource("5_0ha60")]
+[node name="LightmapGI" type="LightmapGI" parent="Environment" unique_id=678975291]
+supersampling = true
+directional = true
+interior = true
+generate_probes_subdiv = 3
+light_data = ExtResource("2_of57s")
 
-[node name="StaticFloor" type="StaticBody3D" parent="Environment" unique_id=192128270]
+[node name="Lights" type="Node3D" parent="Environment/LightmapGI" unique_id=1331986629]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/StaticFloor" unique_id=1772998159]
-shape = SubResource("WorldBoundaryShape3D_0ha60")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment" unique_id=1302579035]
-
-[node name="Lights" type="Node3D" parent="Environment" unique_id=1331986629]
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Environment/Lights" unique_id=1656542390]
+[node name="OmniLight3D" type="OmniLight3D" parent="Environment/LightmapGI/Lights" unique_id=1656542390]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9933028, 2.5322692, 1.4592962)
 light_energy = 0.396
-light_bake_mode = 1
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="Environment/Lights" unique_id=1831103734]
+[node name="OmniLight3D2" type="OmniLight3D" parent="Environment/LightmapGI/Lights" unique_id=1831103734]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0788455, 2.5322692, -1.3309236)
 light_energy = 0.396
-light_bake_mode = 1
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="Environment/Lights" unique_id=1343806334]
+[node name="OmniLight3D3" type="OmniLight3D" parent="Environment/LightmapGI/Lights" unique_id=1343806334]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9933028, 2.5322692, -1.3822141)
 light_energy = 0.396
-light_bake_mode = 1
 
-[node name="OmniLight3D4" type="OmniLight3D" parent="Environment/Lights" unique_id=2097999190]
+[node name="OmniLight3D4" type="OmniLight3D" parent="Environment/LightmapGI/Lights" unique_id=2097999190]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1096206, 2.5322692, 1.4592962)
 light_energy = 0.396
-light_bake_mode = 1
 
-[node name="Character" type="Node3D" parent="." unique_id=1839320438]
+[node name="Room" parent="Environment/LightmapGI" unique_id=86975089 instance=ExtResource("5_0ha60")]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="Character" unique_id=654735266]
-transform = Transform3D(0.99999976, -0.00022512084, -0.0006078875, 0.00022927535, 0.99997646, 0.0068647647, 0.0006063328, -0.006864901, 0.9999763, 0, 0.8942971, 0)
-script = ExtResource("2_v0l8b")
-SPEED = 2.0
+[node name="SpriteCeiling" type="AnimatedSprite3D" parent="Environment/LightmapGI" unique_id=309090008]
+transform = Transform3D(1.5473832e-07, 1.18, -5.157944e-08, -1.8324697e-22, -5.157944e-08, -1.18, -1.18, 1.5473832e-07, -6.7638266e-15, 0, 2.1850085, 0)
+sprite_frames = SubResource("SpriteFrames_gn2wi")
+autoplay = "default"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Character/CharacterBody3D" unique_id=260532984]
-mesh = SubResource("CapsuleMesh_v0l8b")
+[node name="SpriteWall" type="AnimatedSprite3D" parent="Environment/LightmapGI" unique_id=1332873649]
+transform = Transform3D(-0.713, 6.233245e-08, 1.0766001e-07, 6.233245e-08, 0.713, -2.146682e-15, -1.0766001e-07, 7.265255e-15, -0.713, 0, 1.0807327, -2.1248112)
+sprite_frames = SubResource("SpriteFrames_p1hux")
+autoplay = "default"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Character/CharacterBody3D" unique_id=1273280000]
-shape = SubResource("CapsuleShape3D_wp4xf")
+[node name="Collision" type="Node3D" parent="." unique_id=1379657883]
 
-[node name="Head" type="Node3D" parent="Character/CharacterBody3D" unique_id=660144874]
-transform = Transform3D(0.99999994, -8.185452e-12, -5.820766e-11, 4.5474735e-13, 0.99999994, 4.656613e-10, 0, -4.656613e-10, 0.99999994, 9.956729e-05, 0.4342342, 0.0029809922)
+[node name="StaticFloor" type="StaticBody3D" parent="Collision" unique_id=192128270]
 
-[node name="Camera3D" type="Camera3D" parent="Character/CharacterBody3D/Head" unique_id=420195989]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/StaticFloor" unique_id=1772998159]
+shape = SubResource("WorldBoundaryShape3D_0ha60")
 
-[node name="RayCast3D" type="RayCast3D" parent="Character/CharacterBody3D/Head/Camera3D" unique_id=2074975592]
-target_position = Vector3(0, -1, -10)
+[node name="StaticNightstand" type="StaticBody3D" parent="Collision" unique_id=1733634912]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3867275, 0, 0.3940344)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=245287832]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/StaticNightstand" unique_id=1473448880]
+shape = SubResource("CylinderShape3D_b5f6u")
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=1275879034]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("3_wp4xf")
+[node name="StaticFishtank" type="StaticBody3D" parent="Collision" unique_id=79936824]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48086, 0, -0.27483293)
 
-[node name="date" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=2022116352]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 80.0
-offset_right = 160.0
-offset_bottom = 140.0
-alignment = 1
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/StaticFishtank" unique_id=1192326744]
+shape = SubResource("CylinderShape3D_b5f6u")
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/date" unique_id=1642555644]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "DATE"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="StaticBed" type="StaticBody3D" parent="Collision" unique_id=1642123001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7238804, 2.3841858e-07, 1.625761)
 
-[node name="time" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=1059872955]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 40.0
-offset_right = 160.0
-offset_bottom = 100.0
-alignment = 1
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/StaticBed" unique_id=880336304]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27026367, 0.2637329, 0.012939453)
+shape = SubResource("BoxShape3D_b5f6u")
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/time" unique_id=1743990999]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "TIME"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Objects" type="Node3D" parent="." unique_id=1839320438]
 
-[node name="ask_bob" type="Control" parent="CanvasLayer/Control" unique_id=963621301]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = 1030.0
-offset_right = 1210.0
-offset_bottom = 180.0
-grow_horizontal = 0
-script = SubResource("GDScript_wp4xf")
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/ask_bob" unique_id=1216228362]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-texture = ExtResource("4_brvut")
-
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control/ask_bob" unique_id=728440568]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="CanvasLayer/Control/ask_bob/CenterContainer" unique_id=1145862448]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "ASK BOB"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="interactable prompt" type="BoxContainer" parent="CanvasLayer" unique_id=1642178562]
-visible = false
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -120.0
-offset_bottom = -92.0
-grow_horizontal = 2
-grow_vertical = 0
-alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/interactable prompt" unique_id=1582984365]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Press E to Interact"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="CharacterBody3D" parent="Objects" unique_id=767690251 instance=ExtResource("6_b5f6u")]
+transform = Transform3D(0.99999976, -0.00022510758, -0.00060789246, 0.00022927535, 0.99997646, 0.006864763, 0.0006063328, -0.0068649007, 0.9999763, 0, 0.8942971, 0)
 
 [node name="interactable_model" type="StaticBody3D" parent="." unique_id=2015907529 groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.082342744, 0.8753965, 5.1337852)
@@ -214,4 +439,125 @@ script = ExtResource("7_p1hux")
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_4j5ol")
 
-[editable path="Environment/room_skeleton"]
+[node name="HUD" type="CanvasLayer" parent="." unique_id=245287832]
+
+[node name="Control" type="Control" parent="HUD" unique_id=1275879034]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_wp4xf")
+
+[node name="date" type="HBoxContainer" parent="HUD/Control" unique_id=2022116352]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 80.0
+offset_right = 160.0
+offset_bottom = 140.0
+alignment = 1
+
+[node name="Label" type="Label" parent="HUD/Control/date" unique_id=1642555644]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "DATE"
+label_settings = ExtResource("10_tqoya")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="time" type="HBoxContainer" parent="HUD/Control" unique_id=1059872955]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 40.0
+offset_right = 160.0
+offset_bottom = 100.0
+alignment = 1
+
+[node name="Label" type="Label" parent="HUD/Control/time" unique_id=1743990999]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "TIME"
+label_settings = ExtResource("10_tqoya")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ask_bob" type="Control" parent="HUD/Control" unique_id=963621301]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1030.0
+offset_right = 1210.0
+offset_bottom = 180.0
+grow_horizontal = 0
+script = SubResource("GDScript_wp4xf")
+
+[node name="TextureRect" type="TextureRect" parent="HUD/Control/ask_bob" unique_id=1216228362]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_brvut")
+
+[node name="CenterContainer" type="CenterContainer" parent="HUD/Control/ask_bob" unique_id=728440568]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HUD/Control/ask_bob/CenterContainer" unique_id=1145862448]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "ASK BOB"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="interactable prompt" type="BoxContainer" parent="HUD" unique_id=1642178562]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -120.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="HUD/interactable prompt" unique_id=1582984365]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "PRESS E TO INTERACT"
+label_settings = ExtResource("10_tqoya")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Overlay" type="CanvasLayer" parent="." unique_id=1424464730]
+
+[node name="Fade" type="ColorRect" parent="Overlay" unique_id=107960969]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Effect" type="ColorRect" parent="Overlay" unique_id=1368341439]
+material = SubResource("ShaderMaterial_wscrc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Overlay" unique_id=1398390595]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_tqoya")

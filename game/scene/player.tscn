@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://cdxk2rt82suho"]
+
+[ext_resource type="Script" uid="uid://dvodnsxicpou" path="res://script/character_movement.gd" id="1_xo3ru"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_v0l8b"]
+radius = 0.2
+height = 1.6
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wp4xf"]
+radius = 0.2
+height = 1.6
+
+[sub_resource type="Animation" id="Animation_hjaqi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.45, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xo3ru"]
+resource_name = "headbop"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.45, 0), Vector3(0, 0.52, 0), Vector3(0, 0.45, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hjaqi"]
+_data = {
+&"RESET": SubResource("Animation_hjaqi"),
+&"headbop": SubResource("Animation_xo3ru")
+}
+
+[node name="Player" type="CharacterBody3D" unique_id=767690251]
+transform = Transform3D(0.99999976, -0.00022512084, -0.0006078875, 0.00022927535, 0.99997646, 0.0068647647, 0.0006063328, -0.006864901, 0.9999763, 0, 0, 0)
+script = ExtResource("1_xo3ru")
+SPEED = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=566802219]
+mesh = SubResource("CapsuleMesh_v0l8b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=782050971]
+shape = SubResource("CapsuleShape3D_wp4xf")
+
+[node name="Head" type="Node3D" parent="." unique_id=207643433]
+transform = Transform3D(0.99999994, -8.185452e-12, -5.820766e-11, 4.5474735e-13, 0.99999994, 4.656613e-10, 0, -4.656613e-10, 0.99999994, 0, 0.45, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=777561247]
+
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D" unique_id=938849419]
+target_position = Vector3(0, -1, -10)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1082033506]
+libraries/ = SubResource("AnimationLibrary_hjaqi")
+autoplay = &"headbop"
