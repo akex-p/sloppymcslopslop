@@ -1,6 +1,134 @@
 [gd_scene format=3 uid="uid://deg5bda6vvnb4"]
 
 [ext_resource type="Script" uid="uid://dhkjnpc4dt0tf" path="res://script/main.gd" id="1_itxqv"]
+[ext_resource type="Script" uid="uid://dvodnsxicpou" path="res://script/character_movement.gd" id="2_v0l8b"]
+[ext_resource type="Script" uid="uid://xii4q5pxsrb" path="res://script/ui_control.gd" id="3_wp4xf"]
+[ext_resource type="Texture2D" uid="uid://b788fcu4wl5ua" path="res://icon.svg" id="4_brvut"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_v0l8b"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wp4xf"]
+
+[sub_resource type="Environment" id="Environment_v0l8b"]
+
+[sub_resource type="GDScript" id="GDScript_wp4xf"]
+script/source = "extends Node
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="Main" type="Node3D" unique_id=741590067]
 script = ExtResource("1_itxqv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=280653489]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 13.623795, 0)
+shadow_enabled = true
+
+[node name="Character" type="Node3D" parent="." unique_id=1839320438]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.269287, 0)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Character" unique_id=654735266]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6559154, 0)
+script = ExtResource("2_v0l8b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Character/CharacterBody3D" unique_id=260532984]
+mesh = SubResource("CapsuleMesh_v0l8b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Character/CharacterBody3D" unique_id=1273280000]
+shape = SubResource("CapsuleShape3D_wp4xf")
+
+[node name="Head" type="Node3D" parent="Character/CharacterBody3D" unique_id=660144874]
+
+[node name="Camera3D" type="Camera3D" parent="Character/CharacterBody3D/Head" unique_id=420195989]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=728332530]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+use_collision = true
+size = Vector3(20, 1, 20)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=746910441]
+environment = SubResource("Environment_v0l8b")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=245287832]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1275879034]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_wp4xf")
+
+[node name="date" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=2022116352]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 80.0
+offset_right = 160.0
+offset_bottom = 140.0
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/date" unique_id=1642555644]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "DATE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="time" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=1059872955]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 40.0
+offset_right = 160.0
+offset_bottom = 100.0
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/time" unique_id=1743990999]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "TIME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ask_bob" type="Control" parent="CanvasLayer/Control" unique_id=963621301]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1030.0
+offset_right = 1210.0
+offset_bottom = 180.0
+grow_horizontal = 0
+script = SubResource("GDScript_wp4xf")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/ask_bob" unique_id=1216228362]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_brvut")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control/ask_bob" unique_id=728440568]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/ask_bob/CenterContainer" unique_id=1145862448]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "ASK BOB"
+horizontal_alignment = 1
+vertical_alignment = 1
