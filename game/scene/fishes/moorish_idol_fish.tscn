@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://pd8pm5o347pq"]
+
+[ext_resource type="PackedScene" uid="uid://byfhpc025nyrt" path="res://import/3d/fishes/MoorishIdolFish.glb" id="1_n4td1"]
+[ext_resource type="Shader" uid="uid://lv6soat5xye6" path="res://resource/shader/fish_wobble.gdshader" id="2_2q57s"]
+[ext_resource type="Texture2D" uid="uid://u70nr5ogiof" path="res://import/2d/fishes/MoorishIdol/MoorishIdolA.PNG" id="3_2rc7r"]
+[ext_resource type="Texture2D" uid="uid://bixoi33bb0nob" path="res://import/2d/fishes/MoorishIdol/MoorishIdolB.png" id="4_chgtt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_opju8"]
+render_priority = 0
+shader = ExtResource("2_2q57s")
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("3_2rc7r")
+shader_parameter/albedo_texture_size = Vector2i(0, 0)
+shader_parameter/point_size = 0.0
+shader_parameter/wave_height = 0.06
+shader_parameter/speed = 5.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/texture_roughness = ExtResource("4_chgtt")
+shader_parameter/specular = 0.499999988824
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
+[node name="MoorishIdolFish" unique_id=707864820 instance=ExtResource("1_n4td1")]
+
+[node name="Plane" parent="." index="0" unique_id=366770486]
+transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, 0, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_opju8")
