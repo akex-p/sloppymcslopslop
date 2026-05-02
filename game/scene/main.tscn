@@ -1,15 +1,25 @@
 [gd_scene format=3 uid="uid://deg5bda6vvnb4"]
 
 [ext_resource type="Script" uid="uid://dhkjnpc4dt0tf" path="res://script/main.gd" id="1_itxqv"]
+[ext_resource type="LightmapGIData" uid="uid://ch3ckbojir1l5" path="res://bake/main.lmbake" id="2_4j5ol"]
 [ext_resource type="Script" uid="uid://dvodnsxicpou" path="res://script/character_movement.gd" id="2_v0l8b"]
 [ext_resource type="Script" uid="uid://xii4q5pxsrb" path="res://script/ui_control.gd" id="3_wp4xf"]
 [ext_resource type="Texture2D" uid="uid://b788fcu4wl5ua" path="res://icon.svg" id="4_brvut"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_v0l8b"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wp4xf"]
+[ext_resource type="PackedScene" uid="uid://ng6q0qc7qjt5" path="res://import/3d/room_skeleton/room_skeleton.glb" id="5_0ha60"]
 
 [sub_resource type="Environment" id="Environment_v0l8b"]
+glow_enabled = true
+glow_normalized = true
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0ha60"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_v0l8b"]
+radius = 0.3
+height = 1.6
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wp4xf"]
+radius = 0.3
+height = 1.6
 
 [sub_resource type="GDScript" id="GDScript_wp4xf"]
 script/source = "extends Node
@@ -28,16 +38,48 @@ func _process(delta: float) -> void:
 [node name="Main" type="Node3D" unique_id=741590067]
 script = ExtResource("1_itxqv")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=280653489]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 13.623795, 0)
-shadow_enabled = true
+[node name="Environment" type="Node3D" parent="." unique_id=112082376]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=746910441]
+environment = SubResource("Environment_v0l8b")
+
+[node name="LightmapGI" type="LightmapGI" parent="Environment" unique_id=2068755409]
+supersampling = true
+light_data = ExtResource("2_4j5ol")
+
+[node name="room_skeleton" parent="Environment" unique_id=2016167492 instance=ExtResource("5_0ha60")]
+
+[node name="Lights" type="Node3D" parent="Environment" unique_id=1331986629]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Environment/Lights" unique_id=1656542390]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9933028, 2.5322692, 1.4592962)
+light_energy = 0.396
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Environment/Lights" unique_id=1831103734]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0788455, 2.5322692, -1.3309236)
+light_energy = 0.396
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Environment/Lights" unique_id=1343806334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9933028, 2.5322692, -1.3822141)
+light_energy = 0.396
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Environment/Lights" unique_id=2097999190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1096206, 2.5322692, 1.4592962)
+light_energy = 0.396
+
+[node name="StaticFloor" type="StaticBody3D" parent="Environment" unique_id=192128270]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/StaticFloor" unique_id=1772998159]
+shape = SubResource("WorldBoundaryShape3D_0ha60")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment" unique_id=1302579035]
 
 [node name="Character" type="Node3D" parent="." unique_id=1839320438]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.269287, 0)
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="Character" unique_id=654735266]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6559154, 0)
+transform = Transform3D(0.99999976, -0.00022512084, -0.0006078875, 0.00022927535, 0.99997646, 0.0068647647, 0.0006063328, -0.006864901, 0.9999763, 0, 0.8942971, 0)
 script = ExtResource("2_v0l8b")
+SPEED = 2.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Character/CharacterBody3D" unique_id=260532984]
 mesh = SubResource("CapsuleMesh_v0l8b")
@@ -46,16 +88,9 @@ mesh = SubResource("CapsuleMesh_v0l8b")
 shape = SubResource("CapsuleShape3D_wp4xf")
 
 [node name="Head" type="Node3D" parent="Character/CharacterBody3D" unique_id=660144874]
+transform = Transform3D(0.99999994, -8.185452e-12, -5.820766e-11, 4.5474735e-13, 0.99999994, 4.656613e-10, 0, -4.656613e-10, 0.99999994, 9.956729e-05, 0.4342342, 0.0029809922)
 
 [node name="Camera3D" type="Camera3D" parent="Character/CharacterBody3D/Head" unique_id=420195989]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=728332530]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-use_collision = true
-size = Vector3(20, 1, 20)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=746910441]
-environment = SubResource("Environment_v0l8b")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=245287832]
 

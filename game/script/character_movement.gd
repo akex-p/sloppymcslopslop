@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-const SPEED = 5.0
-const MOUSE_SENSITIVITY = 0.003
+@export var SPEED: float = 5.0
+@export var MOUSE_SENSITIVITY: float = 0.003
 
 @onready var head = $Head
 
