@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnb7dysf8fw6v"
-path.s3tc="res://.godot/imported/PiranhaA.png-970932f400943893736bb78863263087.s3tc.ctex"
+uid="uid://ckc854cxj2ju0"
+path.s3tc="res://.godot/imported/GoldFishA.png.png-a2b7d471bf13de8cc2576fbfc5fa2196.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://import/2d/fishes/Piranha/PiranhaA.png"
-dest_files=["res://.godot/imported/PiranhaA.png-970932f400943893736bb78863263087.s3tc.ctex"]
+source_file="res://import/2d/fishes/GoldFish/GoldFishA.png.png"
+dest_files=["res://.godot/imported/GoldFishA.png.png-a2b7d471bf13de8cc2576fbfc5fa2196.s3tc.ctex"]
 
 [params]
 

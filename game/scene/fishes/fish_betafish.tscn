@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://6vyh6cnhdwva"]
+
+[ext_resource type="PackedScene" uid="uid://dcd6nmataffbd" path="res://import/3d/fishes/BetaFish.glb" id="1_afl5v"]
+[ext_resource type="Shader" uid="uid://lv6soat5xye6" path="res://resource/shader/fish_wobble.gdshader" id="2_xkbak"]
+[ext_resource type="Texture2D" uid="uid://batij7sxeggjp" path="res://import/2d/fishes/BetaFish/BetaFishA.PNG" id="3_yeg5k"]
+[ext_resource type="Texture2D" uid="uid://chc5mdno3542u" path="res://import/2d/fishes/BetaFish/BetaFishB.png" id="4_fiuq1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_761lc"]
+render_priority = 0
+shader = ExtResource("2_xkbak")
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("3_yeg5k")
+shader_parameter/albedo_texture_size = Vector2i(0, 0)
+shader_parameter/point_size = 0.0
+shader_parameter/wave_height = 0.04
+shader_parameter/speed = 5.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/texture_roughness = ExtResource("4_fiuq1")
+shader_parameter/specular = 0.499999988824
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
+[node name="BetaFish" unique_id=1354260324 instance=ExtResource("1_afl5v")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Plane" parent="." index="0" unique_id=1548084221]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_761lc")

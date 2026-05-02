@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://ciukkslkobyml"]
+
+[ext_resource type="PackedScene" uid="uid://def6kdw6ukxwn" path="res://import/3d/fishes/GoldFish.glb" id="1_swfos"]
+[ext_resource type="Shader" uid="uid://lv6soat5xye6" path="res://resource/shader/fish_wobble.gdshader" id="2_q63x3"]
+[ext_resource type="Texture2D" uid="uid://ckc854cxj2ju0" path="res://import/2d/fishes/GoldFish/GoldFishA.png.png" id="3_vhwp3"]
+[ext_resource type="Texture2D" uid="uid://ct874tu6eqcg8" path="res://import/2d/fishes/GoldFish/GoldFishB.png" id="4_bvxtn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2vu6e"]
+render_priority = 0
+shader = ExtResource("2_q63x3")
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("3_vhwp3")
+shader_parameter/albedo_texture_size = Vector2i(0, 0)
+shader_parameter/point_size = 0.0
+shader_parameter/wave_height = 0.1
+shader_parameter/speed = 5.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/texture_roughness = ExtResource("4_bvxtn")
+shader_parameter/specular = 0.499999988824
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
+[node name="GoldFish" unique_id=550094524 instance=ExtResource("1_swfos")]
+
+[node name="Plane" parent="." index="0" unique_id=49493568]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_2vu6e")
