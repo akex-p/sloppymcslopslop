@@ -1,56 +1,93 @@
 extends CharacterBody3D
+class_name Player
 
 @export var SPEED: float = 5.0
 @export var MOUSE_SENSITIVITY: float = 0.003
+@export var MOVEMENT_SMOOTHING: float = 10.0
+@export var CAMERA_SMOOTHING: float = 15.0
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var head = $Head
-
 @onready var ray = $Head/Camera3D/RayCast3D
-@onready var interact_prompt = $"/root/Main/HUD/interactable prompt"
+@onready var interact_prompt = $HUD/Control/InteractableContainer/MarginContainer/Label
+@onready var audio_player_steps: AudioStreamPlayer3D = $AudioPlayerSteps
+
+var focused: bool = true
+var awake: bool = false
+var _target_yaw: float = 0.0
+var _target_pitch: float = 0.0
+
+signal wake_up
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	print("ray: ", ray)
-	print("interact_prompt: ", interact_prompt)
+	focused = true
+	_target_yaw = rotation.y
+	_target_pitch = head.rotation.x
 
 func _unhandled_input(event):
-	# Mouse look
-	if event is InputEventMouseMotion:
-		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
-		head.rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
-		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-89), deg_to_rad(89))
-	
-	# Release mouse with Escape
+	if event is InputEventMouseMotion and focused and awake:
+		_target_yaw -= event.relative.x * MOUSE_SENSITIVITY
+		_target_pitch -= event.relative.y * MOUSE_SENSITIVITY
+		_target_pitch = clamp(_target_pitch, deg_to_rad(-89), deg_to_rad(89))
+
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		focused = false
+	
+	if event.is_action_pressed("interact"):
+		if not awake:
+			wake_up.emit()
+		else:
+			if focused:
+				_try_interact()
+			else:
+				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+				focused = true
+
 
 func _physics_process(delta):
-	# Gravity
+	_update_prompt()
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	# Movement
+	
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var is_moving = direction.length() > 0 and focused and awake
 	
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+	if is_moving:
+		velocity.x = lerp(velocity.x, direction.x * SPEED, MOVEMENT_SMOOTHING * delta)
+		velocity.z = lerp(velocity.z, direction.z * SPEED, MOVEMENT_SMOOTHING * delta)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
-
-	move_and_slide()
+		velocity.x = lerp(velocity.x, 0.0, MOVEMENT_SMOOTHING * delta)
+		velocity.z = lerp(velocity.z, 0.0, MOVEMENT_SMOOTHING * delta)
 	
-func _process(_delta):
-	check_interaction()
+	_handle_headbob(is_moving)
+	
+	rotation.y = lerp_angle(rotation.y, _target_yaw, CAMERA_SMOOTHING * delta)
+	head.rotation.x = lerp_angle(head.rotation.x, _target_pitch, CAMERA_SMOOTHING * delta)
+	
+	move_and_slide()
 
-func check_interaction():
+func _handle_headbob(is_moving: bool):
+	if is_moving:
+		if not animation_player.is_playing():
+			animation_player.play("headbop")
+			audio_player_steps.play()
+
+func _try_interact() -> void:
+	if not ray.is_colliding():
+		return
+	var hit = ray.get_collider()
+	if hit is Interactable and hit.enabled and hit.player_nearby:
+		hit.interact()
+
+func _update_prompt() -> void:
 	if ray.is_colliding():
 		var hit = ray.get_collider()
-		if hit.has_node("Area3D"):
-			var area = hit.get_node("Area3D")
-			if area.player_nearby:
-				interact_prompt.visible = true
-				return
+		if hit is Interactable and hit.enabled and hit.player_nearby:
+			interact_prompt.text = hit.prompt_text
+			interact_prompt.visible = true
+			return
 	interact_prompt.visible = false

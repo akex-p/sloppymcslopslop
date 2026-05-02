@@ -1,8 +1,8 @@
 extends Control
 
-@onready var date_label = $date/Label
-@onready var time_label = $time/Label
-@onready var ask_bob = $ask_bob
+@onready var date_label = $InfoContainer/MarginContainer/VBoxContainer/LabelDate
+@onready var time_label = $InfoContainer/MarginContainer/VBoxContainer/LabelTime
+@onready var ask_bob = $BobContainer
 
 # Game day tracker - increment this as game days pass
 var game_day = 05
