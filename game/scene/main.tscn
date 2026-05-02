@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://deg5bda6vvnb4"]
 
 [ext_resource type="Script" uid="uid://dhkjnpc4dt0tf" path="res://script/main.gd" id="1_itxqv"]
-[ext_resource type="LightmapGIData" uid="uid://ch3ckbojir1l5" path="res://bake/main.lmbake" id="2_4j5ol"]
 [ext_resource type="Script" uid="uid://dvodnsxicpou" path="res://script/character_movement.gd" id="2_v0l8b"]
 [ext_resource type="Script" uid="uid://xii4q5pxsrb" path="res://script/ui_control.gd" id="3_wp4xf"]
 [ext_resource type="Texture2D" uid="uid://b788fcu4wl5ua" path="res://icon.svg" id="4_brvut"]
@@ -10,6 +9,8 @@
 [sub_resource type="Environment" id="Environment_v0l8b"]
 glow_enabled = true
 glow_normalized = true
+glow_strength = 1.5
+glow_bloom = 0.5
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0ha60"]
 
@@ -43,29 +44,7 @@ script = ExtResource("1_itxqv")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=746910441]
 environment = SubResource("Environment_v0l8b")
 
-[node name="LightmapGI" type="LightmapGI" parent="Environment" unique_id=2068755409]
-supersampling = true
-light_data = ExtResource("2_4j5ol")
-
-[node name="room_skeleton" parent="Environment" unique_id=1990336352 instance=ExtResource("5_0ha60")]
-
-[node name="Lights" type="Node3D" parent="Environment" unique_id=1331986629]
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Environment/Lights" unique_id=1656542390]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9933028, 2.5322692, 1.4592962)
-light_energy = 0.396
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="Environment/Lights" unique_id=1831103734]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0788455, 2.5322692, -1.3309236)
-light_energy = 0.396
-
-[node name="OmniLight3D3" type="OmniLight3D" parent="Environment/Lights" unique_id=1343806334]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9933028, 2.5322692, -1.3822141)
-light_energy = 0.396
-
-[node name="OmniLight3D4" type="OmniLight3D" parent="Environment/Lights" unique_id=2097999190]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1096206, 2.5322692, 1.4592962)
-light_energy = 0.396
+[node name="room_skeleton" parent="Environment" unique_id=779069266 instance=ExtResource("5_0ha60")]
 
 [node name="StaticFloor" type="StaticBody3D" parent="Environment" unique_id=192128270]
 
@@ -73,6 +52,28 @@ light_energy = 0.396
 shape = SubResource("WorldBoundaryShape3D_0ha60")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Environment" unique_id=1302579035]
+
+[node name="Lights" type="Node3D" parent="Environment" unique_id=1331986629]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Environment/Lights" unique_id=1656542390]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9933028, 2.5322692, 1.4592962)
+light_energy = 0.396
+light_bake_mode = 1
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Environment/Lights" unique_id=1831103734]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0788455, 2.5322692, -1.3309236)
+light_energy = 0.396
+light_bake_mode = 1
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Environment/Lights" unique_id=1343806334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9933028, 2.5322692, -1.3822141)
+light_energy = 0.396
+light_bake_mode = 1
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Environment/Lights" unique_id=2097999190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1096206, 2.5322692, 1.4592962)
+light_energy = 0.396
+light_bake_mode = 1
 
 [node name="Character" type="Node3D" parent="." unique_id=1839320438]
 
