@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://xii4q5pxsrb" path="res://script/ui_control.gd" id="3_wp4xf"]
 [ext_resource type="Texture2D" uid="uid://b788fcu4wl5ua" path="res://icon.svg" id="4_brvut"]
 [ext_resource type="PackedScene" uid="uid://ng6q0qc7qjt5" path="res://import/3d/room_skeleton/room_skeleton.glb" id="5_0ha60"]
+[ext_resource type="Script" uid="uid://bt6de6kclehwo" path="res://script/interactable_object_area.gd" id="7_p1hux"]
 
 [sub_resource type="Environment" id="Environment_v0l8b"]
 glow_enabled = true
@@ -35,6 +36,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 "
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4j5ol"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_p1hux"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4j5ol"]
 
 [node name="Main" type="Node3D" unique_id=741590067]
 script = ExtResource("1_itxqv")
@@ -92,6 +99,9 @@ shape = SubResource("CapsuleShape3D_wp4xf")
 transform = Transform3D(0.99999994, -8.185452e-12, -5.820766e-11, 4.5474735e-13, 0.99999994, 4.656613e-10, 0, -4.656613e-10, 0.99999994, 9.956729e-05, 0.4342342, 0.0029809922)
 
 [node name="Camera3D" type="Camera3D" parent="Character/CharacterBody3D/Head" unique_id=420195989]
+
+[node name="RayCast3D" type="RayCast3D" parent="Character/CharacterBody3D/Head/Camera3D" unique_id=2074975592]
+target_position = Vector3(0, -1, -10)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=245287832]
 
@@ -168,3 +178,40 @@ theme_override_font_sizes/font_size = 20
 text = "ASK BOB"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="interactable prompt" type="BoxContainer" parent="CanvasLayer" unique_id=1642178562]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -120.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/interactable prompt" unique_id=1582984365]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Press E to Interact"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="interactable_model" type="StaticBody3D" parent="." unique_id=2015907529 groups=["Interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.082342744, 0.8753965, 5.1337852)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="interactable_model" unique_id=556807344]
+shape = SubResource("SphereShape3D_4j5ol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="interactable_model" unique_id=1303538934]
+mesh = SubResource("SphereMesh_p1hux")
+
+[node name="Area3D" type="Area3D" parent="interactable_model" unique_id=286940260]
+script = ExtResource("7_p1hux")
+
+[node name="interactable area" type="CollisionShape3D" parent="interactable_model/Area3D" unique_id=1844572766]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_4j5ol")
+
+[editable path="Environment/room_skeleton"]

@@ -5,8 +5,13 @@ extends CharacterBody3D
 
 @onready var head = $Head
 
+@onready var ray = $Head/Camera3D/RayCast3D
+@onready var interact_prompt = $"/root/Main/CanvasLayer/interactable prompt"
+
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	print("ray: ", ray)
+	print("interact_prompt: ", interact_prompt)
 
 func _unhandled_input(event):
 	# Mouse look
@@ -36,3 +41,16 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	
+func _process(_delta):
+	check_interaction()
+
+func check_interaction():
+	if ray.is_colliding():
+		var hit = ray.get_collider()
+		if hit.has_node("Area3D"):
+			var area = hit.get_node("Area3D")
+			if area.player_nearby:
+				interact_prompt.visible = true
+				return
+	interact_prompt.visible = false
