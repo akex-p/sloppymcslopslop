@@ -3,20 +3,23 @@
 [ext_resource type="Script" uid="uid://dhkjnpc4dt0tf" path="res://script/main.gd" id="1_itxqv"]
 [ext_resource type="LightmapGIData" uid="uid://ch3ckbojir1l5" path="res://bake/main.lmbake" id="2_of57s"]
 [ext_resource type="Texture2D" uid="uid://b684tubkv0yrw" path="res://import/2d/sky/sky_001.png" id="3_p1hux"]
-[ext_resource type="Script" uid="uid://xii4q5pxsrb" path="res://script/ui_control.gd" id="3_wp4xf"]
 [ext_resource type="Texture2D" uid="uid://cn7lfywl5ggqr" path="res://import/2d/sky/sky_002.png" id="4_b5f6u"]
-[ext_resource type="Texture2D" uid="uid://b788fcu4wl5ua" path="res://icon.svg" id="4_brvut"]
 [ext_resource type="PackedScene" uid="uid://ng6q0qc7qjt5" path="res://import/3d/room_skeleton/room_skeleton.glb" id="5_0ha60"]
 [ext_resource type="PackedScene" uid="uid://cdxk2rt82suho" path="res://scene/player.tscn" id="6_b5f6u"]
-[ext_resource type="Script" path="res://script/interactable_object_area.gd" id="7_p1hux"]
+[ext_resource type="PackedScene" uid="uid://dx63ih5nbjb20" path="res://scene/radio.tscn" id="8_b5f6u"]
 [ext_resource type="LabelSettings" uid="uid://b5mocer2sin2i" path="res://resource/standard_label.tres" id="10_tqoya"]
 [ext_resource type="Shader" uid="uid://csextprrxtyne" path="res://resource/shader/crt.gdshader" id="11_k65ib"]
+[ext_resource type="AudioStream" uid="uid://0wfqvf6o4sik" path="res://import/audio/track_002.ogg" id="11_wscrc"]
+[ext_resource type="PackedScene" uid="uid://wnj2pupsycxg" path="res://scene/pills.tscn" id="13_mswub"]
 
 [sub_resource type="Environment" id="Environment_v0l8b"]
 glow_enabled = true
 glow_normalized = true
 glow_strength = 1.5
 glow_bloom = 0.5
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 0.15
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_of57s"]
 atlas = ExtResource("3_p1hux")
@@ -266,26 +269,6 @@ radius = 0.28466797
 [sub_resource type="BoxShape3D" id="BoxShape3D_b5f6u"]
 size = Vector3(1.5405273, 1.5274658, 0.9741211)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_4j5ol"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_p1hux"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_4j5ol"]
-
-[sub_resource type="GDScript" id="GDScript_wp4xf"]
-script/source = "extends Node
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wscrc"]
 shader = ExtResource("11_k65ib")
 shader_parameter/overlay = true
@@ -324,6 +307,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Overlay/LabelWakeup:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_b5f6u"]
 resource_name = "fade"
@@ -340,14 +335,42 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Overlay/LabelWakeup:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_k65ib"]
+resource_name = "fade_label"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlay/LabelWakeup:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tqoya"]
 _data = {
 &"RESET": SubResource("Animation_tqoya"),
-&"fade": SubResource("Animation_b5f6u")
+&"fade": SubResource("Animation_b5f6u"),
+&"fade_label": SubResource("Animation_k65ib")
 }
 
-[node name="Main" type="Node3D" unique_id=741590067]
+[node name="Main" type="Node" unique_id=192885984]
 script = ExtResource("1_itxqv")
 
 [node name="Environment" type="Node3D" parent="." unique_id=112082376]
@@ -420,123 +443,17 @@ shape = SubResource("BoxShape3D_b5f6u")
 
 [node name="Objects" type="Node3D" parent="." unique_id=1839320438]
 
-[node name="CharacterBody3D" parent="Objects" unique_id=767690251 instance=ExtResource("6_b5f6u")]
+[node name="Player" parent="Objects" unique_id=767690251 instance=ExtResource("6_b5f6u")]
 transform = Transform3D(0.99999976, -0.00022510758, -0.00060789246, 0.00022927535, 0.99997646, 0.006864763, 0.0006063328, -0.0068649007, 0.9999763, 0, 0.8942971, 0)
 
-[node name="interactable_model" type="StaticBody3D" parent="." unique_id=2015907529 groups=["Interactable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.082342744, 0.8753965, 5.1337852)
+[node name="Pills" parent="Objects" unique_id=1794016338 instance=ExtResource("13_mswub")]
+transform = Transform3D(0.9999871, -0.004659611, -0.0019992886, 0.004657628, 0.9999887, -0.000994616, 0.0020039028, 0.0009852864, 0.9999975, 1.3522351, 0.8264863, 0.18981469)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="interactable_model" unique_id=556807344]
-shape = SubResource("SphereShape3D_4j5ol")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="interactable_model" unique_id=1303538934]
-mesh = SubResource("SphereMesh_p1hux")
-
-[node name="Area3D" type="Area3D" parent="interactable_model" unique_id=286940260]
-script = ExtResource("7_p1hux")
-
-[node name="interactable area" type="CollisionShape3D" parent="interactable_model/Area3D" unique_id=1844572766]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
-shape = SubResource("BoxShape3D_4j5ol")
-
-[node name="HUD" type="CanvasLayer" parent="." unique_id=245287832]
-
-[node name="Control" type="Control" parent="HUD" unique_id=1275879034]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("3_wp4xf")
-
-[node name="date" type="HBoxContainer" parent="HUD/Control" unique_id=2022116352]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 80.0
-offset_right = 160.0
-offset_bottom = 140.0
-alignment = 1
-
-[node name="Label" type="Label" parent="HUD/Control/date" unique_id=1642555644]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "DATE"
-label_settings = ExtResource("10_tqoya")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="time" type="HBoxContainer" parent="HUD/Control" unique_id=1059872955]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 40.0
-offset_right = 160.0
-offset_bottom = 100.0
-alignment = 1
-
-[node name="Label" type="Label" parent="HUD/Control/time" unique_id=1743990999]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "TIME"
-label_settings = ExtResource("10_tqoya")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="ask_bob" type="Control" parent="HUD/Control" unique_id=963621301]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = 1030.0
-offset_right = 1210.0
-offset_bottom = 180.0
-grow_horizontal = 0
-script = SubResource("GDScript_wp4xf")
-
-[node name="TextureRect" type="TextureRect" parent="HUD/Control/ask_bob" unique_id=1216228362]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-texture = ExtResource("4_brvut")
-
-[node name="CenterContainer" type="CenterContainer" parent="HUD/Control/ask_bob" unique_id=728440568]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="HUD/Control/ask_bob/CenterContainer" unique_id=1145862448]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "ASK BOB"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="interactable prompt" type="BoxContainer" parent="HUD" unique_id=1642178562]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -120.0
-offset_bottom = -92.0
-grow_horizontal = 2
-grow_vertical = 0
-alignment = 1
-
-[node name="Label" type="Label" parent="HUD/interactable prompt" unique_id=1582984365]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "PRESS E TO INTERACT"
-label_settings = ExtResource("10_tqoya")
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Radio" parent="Objects" unique_id=656601071 instance=ExtResource("8_b5f6u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3002027, 0.80089045, 0.5963405)
 
 [node name="Overlay" type="CanvasLayer" parent="." unique_id=1424464730]
+layer = 10
 
 [node name="Fade" type="ColorRect" parent="Overlay" unique_id=107960969]
 anchors_preset = 15
@@ -547,6 +464,22 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="LabelWakeup" type="Label" parent="Overlay" unique_id=1750452576]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = -19.5
+offset_right = 196.0
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "PRESS E TO WAKE UP"
+label_settings = ExtResource("10_tqoya")
 
 [node name="Effect" type="ColorRect" parent="Overlay" unique_id=1368341439]
 material = SubResource("ShaderMaterial_wscrc")
@@ -561,3 +494,10 @@ metadata/_edit_use_anchors_ = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Overlay" unique_id=1398390595]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_tqoya")
+
+[node name="Node" type="Node" parent="." unique_id=975526230]
+
+[node name="AudioPlayerWakeup" type="AudioStreamPlayer" parent="Node" unique_id=193470975]
+stream = ExtResource("11_wscrc")
+volume_db = -15.0
+bus = &"SFX"
