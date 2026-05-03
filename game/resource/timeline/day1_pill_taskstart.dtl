@@ -1,0 +1,2 @@
+bob: You should take your pills.
+do GameManager.enable_current()

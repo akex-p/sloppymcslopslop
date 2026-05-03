@@ -1,0 +1,4 @@
+if {work_count} > 5.0:
+	bob: SUPER GREAT JOB !!!!
+else:
+	bob: nah man \:(

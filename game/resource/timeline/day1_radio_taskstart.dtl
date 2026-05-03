@@ -1,0 +1,2 @@
+bob: You should listen to radio!
+do GameManager.enable_current()

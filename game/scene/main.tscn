@@ -17,7 +17,7 @@
 [ext_resource type="Shader" uid="uid://csextprrxtyne" path="res://resource/shader/crt.gdshader" id="11_k65ib"]
 [ext_resource type="AudioStream" uid="uid://0wfqvf6o4sik" path="res://import/audio/track_002.ogg" id="11_wscrc"]
 [ext_resource type="PackedScene" uid="uid://wnj2pupsycxg" path="res://scene/pills.tscn" id="13_mswub"]
-[ext_resource type="Script" path="res://script/workstation.gd" id="15_tv8i1"]
+[ext_resource type="PackedScene" uid="uid://bn4855fg4c4hq" path="res://scene/workstation.tscn" id="15_0vlqb"]
 [ext_resource type="VideoStream" uid="uid://dhikx5iujqudf" path="res://import/video/export002.ogv" id="18_0vlqb"]
 
 [sub_resource type="Environment" id="Environment_v0l8b"]
@@ -662,9 +662,8 @@ transform = Transform3D(0.9999871, -0.004659611, -0.0019992886, 0.004657628, 0.9
 [node name="Radio" parent="Objects" unique_id=656601071 instance=ExtResource("8_b5f6u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3002027, 0.80089045, 0.5963405)
 
-[node name="Workstation" parent="Objects" unique_id=83387929 instance=ExtResource("13_mswub")]
-transform = Transform3D(0.9999871, -0.004659611, -0.0019992886, 0.004657628, 0.9999887, -0.000994616, 0.0020039028, 0.0009852864, 0.9999975, 1.3522351, 0.8264863, -1.4009038)
-script = ExtResource("15_tv8i1")
+[node name="Workstation" parent="Objects" unique_id=547737699 instance=ExtResource("15_0vlqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4026055, 0, -1.0149379)
 
 [node name="Overlay" type="CanvasLayer" parent="." unique_id=1424464730]
 layer = 10
@@ -722,6 +721,34 @@ stream = ExtResource("18_0vlqb")
 autoplay = true
 expand = true
 metadata/_edit_use_anchors_ = true
+
+[node name="SkipContainer" type="PanelContainer" parent="Commercial" unique_id=514059422]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -215.0
+offset_top = -148.0
+offset_right = 215.0
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Commercial/SkipContainer" unique_id=1383824367]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Label" type="Label" parent="Commercial/SkipContainer/MarginContainer" unique_id=870830125]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "SKIP (S)"
+label_settings = ExtResource("10_tqoya")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Node" type="Node" parent="." unique_id=975526230]
 

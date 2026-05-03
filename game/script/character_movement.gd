@@ -9,8 +9,8 @@ class_name Player
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var head = $Head
 @onready var ray = $Head/Camera3D/RayCast3D
-@onready var interact_prompt = $HUD/Control/InteractableContainer/MarginContainer/Label
-@onready var interact_container = $HUD/Control/InteractableContainer
+@onready var interact_prompt = $HUD/Misc/InteractableContainer/MarginContainer/Label
+@onready var interact_container = $HUD/Misc/InteractableContainer
 @onready var audio_player_steps: AudioStreamPlayer3D = $AudioPlayerSteps
 
 var focused: bool = true
@@ -47,6 +47,9 @@ func _unhandled_input(event):
 			else:
 				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 				focused = true
+	
+	if event.is_action_pressed("ask_bob"):
+		GameManager.ask_bob()
 
 func _physics_process(delta):
 	_update_prompt()

@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://wnj2pupsycxg"]
+[gd_scene format=3 uid="uid://bn4855fg4c4hq"]
 
-[ext_resource type="Script" uid="uid://cgqe6gk8aa3q5" path="res://script/pills.gd" id="1_ldtu6"]
+[ext_resource type="Script" uid="uid://dn1pslxkmf3c8" path="res://script/workstation.gd" id="1_1u4rh"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_f8rg6"]
 top_radius = 0.1
@@ -14,10 +14,10 @@ radius = 0.1
 [sub_resource type="SphereShape3D" id="SphereShape3D_f8rg6"]
 radius = 0.8877286
 
-[node name="Pills" type="StaticBody3D" unique_id=1794016338 node_paths=PackedStringArray("area_interact") groups=["Interactable"]]
+[node name="Workstation" type="StaticBody3D" unique_id=1794016338 node_paths=PackedStringArray("area_interact") groups=["Interactable"]]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("1_ldtu6")
+script = ExtResource("1_1u4rh")
 area_interact = NodePath("Area3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=316282081]
@@ -30,3 +30,7 @@ shape = SubResource("CylinderShape3D_f8rg6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=71477644]
 shape = SubResource("SphereShape3D_f8rg6")
+
+[node name="Timer" type="Timer" parent="." unique_id=1381390310]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
