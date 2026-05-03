@@ -639,7 +639,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7238804, 2.3841858e-07, 1.6
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27026367, 0.2637329, 0.012939453)
 shape = SubResource("BoxShape3D_b5f6u")
 
-[node name="Objects" parent="." unique_id=666778257 instance=ExtResource("12_tv8i1")]
+[node name="Day1" parent="." unique_id=666778257 instance=ExtResource("12_tv8i1")]
 
 [node name="Player" parent="." unique_id=767690251 instance=ExtResource("6_b5f6u")]
 transform = Transform3D(0.99999976, -0.00022510758, -0.00060789246, 0.00022927535, 0.99997646, 0.006864763, 0.0006063328, -0.0068649007, 0.9999763, 0.5514717, 0.8942971, 0.8382653)
