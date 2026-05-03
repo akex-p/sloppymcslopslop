@@ -1,5 +1,25 @@
+bob: Open those peepers, another great day awaits...
+[signal arg="open_eyes"]
+bob: Rise and shine! It is {date}, {time} , and we will have a warm, sunny day like we always do!
 bob: Up you get, let's get some work done, shall we?
 bob: What about putting on your favorite music?
+[signal arg="start_radio"]
+bob: Oh, have you taken your "Everything Capsules" yet?
 [signal arg="take_pills"]
 bob: Great job for taking your daily intake of "Everything Capsules"!
 bob: Alright, enough procrastinating. Looks like it’s time to get some work done.
+if {work_count} <= 1.0:
+	bob: I think we should work a little bit more, don't you agree?
+elif {work_count} >= 2.0:
+	bob: Nice job today, tomorrow we will take it to the next level!
+elif {work_count}  >= 5.0:
+	bob: What an incredible job you did today! Let's keep up the amazing work tomorrow as well...
+[signal arg="work_done"]
+bob: Your fish sure are looking hungry. Why don't we give them something to eat?
+bob: Go ahead and grab the newest formula of FishChow! The most nutritious and delicious meal any fish could think of.
+bob: Pour two shakes into the water for the little guys to chow on. That'll do them for today.
+[signal arg="feed_fish"]
+bob: My indicators tell me that you should get some rest now.
+[signal arg="ask_bob"]
+bob: Close your eyes and relax. BOB will provide you with dreams shortly.
+[signal arg="close_eyes"]
