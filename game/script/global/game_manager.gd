@@ -17,4 +17,18 @@ func advance_step() -> void:
 
 func _enable_current() -> void:
 	for step in interactables:
-		interactables[step].enabled = (step == current_step)
+		if is_instance_valid(interactables[step]):
+			interactables[step].enabled = (step == current_step)
+
+func _ready():
+	Dialogic.signal_event.connect(_on_dialogic_signal)
+
+func _on_dialogic_signal(argument):
+	if argument == "take_pills":
+		var pill = interactables.get(Step.PILL)
+		if is_instance_valid(pill):
+			# pills still exist, pause and wait for player
+			Dialogic.paused = true
+			current_step = Step.PILL
+			_enable_current()
+		# if pill is gone (already taken), dialog just continues

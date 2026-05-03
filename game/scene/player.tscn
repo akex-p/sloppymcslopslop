@@ -158,18 +158,16 @@ size_flags_horizontal = 3
 texture = ExtResource("4_hp4bs")
 
 [node name="InteractableContainer" type="PanelContainer" parent="HUD/Control" unique_id=188821062]
+visible = false
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
 offset_left = -215.0
-offset_top = -94.0
+offset_top = 100.0
 offset_right = 215.0
-offset_bottom = -31.0
+offset_bottom = 163.0
 grow_horizontal = 2
-grow_vertical = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/Control/InteractableContainer" unique_id=1403078399]
 layout_mode = 2

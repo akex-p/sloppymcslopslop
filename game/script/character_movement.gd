@@ -10,6 +10,7 @@ class_name Player
 @onready var head = $Head
 @onready var ray = $Head/Camera3D/RayCast3D
 @onready var interact_prompt = $HUD/Control/InteractableContainer/MarginContainer/Label
+@onready var interact_container = $HUD/Control/InteractableContainer
 @onready var audio_player_steps: AudioStreamPlayer3D = $AudioPlayerSteps
 
 var focused: bool = true
@@ -24,12 +25,15 @@ func _ready():
 	focused = true
 	_target_yaw = rotation.y
 	_target_pitch = head.rotation.x
+	interact_container.visible = false
 
-func _unhandled_input(event):
+func _input(event):
 	if event is InputEventMouseMotion and focused and awake:
 		_target_yaw -= event.relative.x * MOUSE_SENSITIVITY
 		_target_pitch -= event.relative.y * MOUSE_SENSITIVITY
 		_target_pitch = clamp(_target_pitch, deg_to_rad(-89), deg_to_rad(89))
+
+func _unhandled_input(event):
 
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -87,7 +91,9 @@ func _update_prompt() -> void:
 	if ray.is_colliding():
 		var hit = ray.get_collider()
 		if hit is Interactable and hit.enabled and hit.player_nearby:
+			interact_container.visible = true
 			interact_prompt.text = hit.prompt_text
 			interact_prompt.visible = true
 			return
 	interact_prompt.visible = false
+	interact_container.visible = false
