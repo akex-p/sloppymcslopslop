@@ -27,5 +27,5 @@ shader_parameter/uv2_offset = Vector3(0, 0, 0)
 [node name="MoorishIdolFish" unique_id=707864820 instance=ExtResource("1_n4td1")]
 
 [node name="Plane" parent="." index="0" unique_id=366770486]
-transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, 0, 0)
+transform = Transform3D(0.05, 0, 0, 0, -2.1855695e-09, -0.05, 0, 0.05, -2.1855695e-09, 0, 0, 0)
 surface_material_override/0 = SubResource("ShaderMaterial_opju8")
