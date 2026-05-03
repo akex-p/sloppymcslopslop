@@ -1,0 +1,613 @@
+[gd_scene format=3 uid="uid://3w5j4pdfntyd"]
+
+[ext_resource type="Script" uid="uid://dhkjnpc4dt0tf" path="res://script/main.gd" id="1_6qfyl"]
+[ext_resource type="LightmapGIData" uid="uid://ch3ckbojir1l5" path="res://bake/main.lmbake" id="2_pnjqn"]
+[ext_resource type="PackedScene" uid="uid://ng6q0qc7qjt5" path="res://import/3d/room_skeleton/room_skeleton.glb" id="3_ma0c7"]
+[ext_resource type="Texture2D" uid="uid://b684tubkv0yrw" path="res://import/2d/sky/sky_001.png" id="4_qbap3"]
+[ext_resource type="Texture2D" uid="uid://cn7lfywl5ggqr" path="res://import/2d/sky/sky_002.png" id="5_jkn46"]
+[ext_resource type="PackedScene" uid="uid://cdxk2rt82suho" path="res://scene/player.tscn" id="6_wdbty"]
+[ext_resource type="PackedScene" path="res://scene/pills.tscn" id="7_4khsd"]
+[ext_resource type="PackedScene" path="res://scene/radio.tscn" id="8_nywra"]
+[ext_resource type="LabelSettings" uid="uid://b5mocer2sin2i" path="res://resource/standard_label.tres" id="9_cesao"]
+[ext_resource type="Shader" uid="uid://csextprrxtyne" path="res://resource/shader/crt.gdshader" id="10_jb02d"]
+[ext_resource type="AudioStream" uid="uid://0wfqvf6o4sik" path="res://import/audio/track_002.ogg" id="11_4m8k7"]
+[ext_resource type="PackedScene" uid="uid://6vyh6cnhdwva" path="res://scene/fishes/fish_betafish.tscn" id="12_qh307"]
+[ext_resource type="PackedScene" uid="uid://ciukkslkobyml" path="res://scene/fishes/gold_fish.tscn" id="13_c0aup"]
+[ext_resource type="PackedScene" uid="uid://pd8pm5o347pq" path="res://scene/fishes/moorish_idol_fish.tscn" id="14_7gssp"]
+[ext_resource type="PackedScene" uid="uid://botd7dfmej78w" path="res://scene/fishes/neon_tetra_fish.tscn" id="15_i080q"]
+[ext_resource type="Shader" uid="uid://1u0iq0tend62" path="res://resource/shader/waterv2.gdshader" id="16_14vw1"]
+[ext_resource type="Shader" uid="uid://lxrrc3vrprpx" path="res://resource/shader/waterv3.gdshader" id="17_y5tt4"]
+[ext_resource type="Shader" uid="uid://bk7sls701ffko" path="res://resource/shader/waterv4.gdshader" id="18_onmg4"]
+
+[sub_resource type="Environment" id="Environment_v0l8b"]
+glow_enabled = true
+glow_normalized = true
+glow_strength = 1.5
+glow_bloom = 0.5
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 0.15
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_of57s"]
+atlas = ExtResource("4_qbap3")
+region = Rect2(0, 0, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5f6u"]
+atlas = ExtResource("4_qbap3")
+region = Rect2(500, 0, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqoya"]
+atlas = ExtResource("4_qbap3")
+region = Rect2(1000, 0, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k65ib"]
+atlas = ExtResource("4_qbap3")
+region = Rect2(1500, 0, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wscrc"]
+atlas = ExtResource("4_qbap3")
+region = Rect2(2000, 0, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mswub"]
+atlas = ExtResource("4_qbap3")
+region = Rect2(0, 265, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hybxs"]
+atlas = ExtResource("4_qbap3")
+region = Rect2(500, 265, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2gmf"]
+atlas = ExtResource("4_qbap3")
+region = Rect2(1000, 265, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcbur"]
+atlas = ExtResource("4_qbap3")
+region = Rect2(1500, 265, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smf0o"]
+atlas = ExtResource("4_qbap3")
+region = Rect2(2000, 265, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tv8i1"]
+atlas = ExtResource("4_qbap3")
+region = Rect2(0, 530, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vlqb"]
+atlas = ExtResource("4_qbap3")
+region = Rect2(500, 530, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjnwh"]
+atlas = ExtResource("4_qbap3")
+region = Rect2(1000, 530, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdqew"]
+atlas = ExtResource("4_qbap3")
+region = Rect2(1500, 530, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0d4pv"]
+atlas = ExtResource("4_qbap3")
+region = Rect2(2000, 530, 500, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtqqq"]
+atlas = ExtResource("4_qbap3")
+region = Rect2(0, 795, 500, 265)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gn2wi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_of57s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5f6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqoya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k65ib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wscrc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mswub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hybxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2gmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcbur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smf0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tv8i1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vlqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjnwh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdqew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0d4pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtqqq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gn2wi"]
+atlas = ExtResource("5_jkn46")
+region = Rect2(0, 0, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8adh"]
+atlas = ExtResource("5_jkn46")
+region = Rect2(500, 0, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oldxj"]
+atlas = ExtResource("5_jkn46")
+region = Rect2(1000, 0, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jm02"]
+atlas = ExtResource("5_jkn46")
+region = Rect2(1500, 0, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vneqc"]
+atlas = ExtResource("5_jkn46")
+region = Rect2(2000, 0, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_io27d"]
+atlas = ExtResource("5_jkn46")
+region = Rect2(0, 242, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa8t4"]
+atlas = ExtResource("5_jkn46")
+region = Rect2(500, 242, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rg6nf"]
+atlas = ExtResource("5_jkn46")
+region = Rect2(1000, 242, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjuaj"]
+atlas = ExtResource("5_jkn46")
+region = Rect2(1500, 242, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gj7ui"]
+atlas = ExtResource("5_jkn46")
+region = Rect2(2000, 242, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmc2w"]
+atlas = ExtResource("5_jkn46")
+region = Rect2(0, 484, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ty4q"]
+atlas = ExtResource("5_jkn46")
+region = Rect2(500, 484, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xrs8"]
+atlas = ExtResource("5_jkn46")
+region = Rect2(1000, 484, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpobt"]
+atlas = ExtResource("5_jkn46")
+region = Rect2(1500, 484, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_216wm"]
+atlas = ExtResource("5_jkn46")
+region = Rect2(2000, 484, 500, 242)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jey2d"]
+atlas = ExtResource("5_jkn46")
+region = Rect2(0, 726, 500, 242)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1hux"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gn2wi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8adh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oldxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jm02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vneqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_io27d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fa8t4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rg6nf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjuaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gj7ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmc2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ty4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xrs8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpobt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_216wm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jey2d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0ha60"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_b5f6u"]
+radius = 0.28466797
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b5f6u"]
+size = Vector3(1.5405273, 1.5274658, 0.9741211)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wscrc"]
+shader = ExtResource("10_jb02d")
+shader_parameter/overlay = true
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/brightness = 1.2
+shader_parameter/scanlines_opacity = 0.2000000095
+shader_parameter/scanlines_width = 0.1250000059375
+shader_parameter/grille_opacity = 0.150000007125
+shader_parameter/roll = false
+shader_parameter/roll_speed = 0.785
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 4.31000020146512
+shader_parameter/distort_intensity = 0.05
+shader_parameter/aberration = 0.03
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/pixelate = true
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.02000000095
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.1
+shader_parameter/vignette_opacity = 1.0
+
+[sub_resource type="Animation" id="Animation_tqoya"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlay/Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Overlay/LabelWakeup:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_b5f6u"]
+resource_name = "fade"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlay/Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 0.84089637),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Overlay/LabelWakeup:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_k65ib"]
+resource_name = "fade_label"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlay/LabelWakeup:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tqoya"]
+_data = {
+&"RESET": SubResource("Animation_tqoya"),
+&"fade": SubResource("Animation_b5f6u"),
+&"fade_label": SubResource("Animation_k65ib")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_smf0o"]
+render_priority = 0
+shader = ExtResource("16_14vw1")
+shader_parameter/primary_color = Color(0, 1, 0.3764706, 1)
+shader_parameter/secondary_color = Color(0.8156863, 0.011764706, 0.19215687, 1)
+shader_parameter/roughness = 0.2
+shader_parameter/depth_distance = 4.0
+shader_parameter/beers_law = 12.0
+shader_parameter/water_transparency = 0.51999998837696
+
+[sub_resource type="BoxMesh" id="BoxMesh_0vlqb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_smf0o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tv8i1"]
+render_priority = 0
+shader = ExtResource("16_14vw1")
+shader_parameter/primary_color = Color(0.81097317, 0.9999997, 0.83112997, 1)
+shader_parameter/secondary_color = Color(0.47369426, 0.91583705, 0.99999994, 1)
+shader_parameter/roughness = 0.2
+shader_parameter/depth_distance = 4.0
+shader_parameter/beers_law = 12.0
+shader_parameter/water_transparency = 0.05
+
+[sub_resource type="BoxMesh" id="BoxMesh_tv8i1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0vlqb"]
+render_priority = 0
+shader = ExtResource("17_y5tt4")
+shader_parameter/primary_color = Color(0.43303287, 1, 0.97133607, 1)
+shader_parameter/secondary_color = Color(0.28470218, 0, 0.020557329, 1)
+shader_parameter/roughness = 0.2
+shader_parameter/depth_distance = 10.000000149012
+shader_parameter/beers_law = 10.000000149012
+shader_parameter/water_transparency = 0.81999998167136
+shader_parameter/alpha_amount = 0.90999997965968
+
+[sub_resource type="BoxMesh" id="BoxMesh_gjnwh"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fdqew"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0d4pv"]
+noise = SubResource("FastNoiseLite_fdqew")
+seamless = true
+in_3d_space = true
+as_normal_map = true
+bump_strength = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gtqqq"]
+render_priority = 0
+shader = ExtResource("18_onmg4")
+shader_parameter/water_color = Color(2.9841065e-06, 0.63312274, 0.7653229, 1)
+shader_parameter/fresnel_color = Color(0, 0.6313726, 0.7647059, 1)
+shader_parameter/depth_color = Color(4.3413937e-05, 0.21188435, 0.6426108, 1)
+shader_parameter/roughness = 0.05
+shader_parameter/normalmap_a_str = 0.2999999932944
+shader_parameter/normalmap_b_str = 0.25
+shader_parameter/normalmap_a = SubResource("NoiseTexture2D_0d4pv")
+shader_parameter/movement_direction = Vector2(0.2, 0.1)
+shader_parameter/movement_strength = 0.103
+shader_parameter/time_scale = 0.025
+shader_parameter/noise_scale = 10.0
+shader_parameter/height_scale = 0.05
+shader_parameter/fresnel_scale = 0.05
+shader_parameter/near = 1.0
+shader_parameter/far = 100.0
+shader_parameter/uv_scale = 1.0
+shader_parameter/depth_distance = 2.0
+shader_parameter/beers_law = 3.5000000521542
+shader_parameter/water_transparency = 0.999999977648
+shader_parameter/refraction_strength = 0.05
+
+[node name="Main" type="Node" unique_id=192885984]
+script = ExtResource("1_6qfyl")
+
+[node name="Environment" type="Node3D" parent="." unique_id=112082376]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=746910441]
+environment = SubResource("Environment_v0l8b")
+
+[node name="LightmapGI" type="LightmapGI" parent="Environment" unique_id=678975291]
+supersampling = true
+directional = true
+interior = true
+generate_probes_subdiv = 3
+light_data = ExtResource("2_pnjqn")
+
+[node name="Lights" type="Node3D" parent="Environment/LightmapGI" unique_id=1331986629]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Environment/LightmapGI/Lights" unique_id=1656542390]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9933028, 2.5322692, 1.4592962)
+light_energy = 0.396
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Environment/LightmapGI/Lights" unique_id=1831103734]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0788455, 2.5322692, -1.3309236)
+light_energy = 0.396
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Environment/LightmapGI/Lights" unique_id=1343806334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9933028, 2.5322692, -1.3822141)
+light_energy = 0.396
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Environment/LightmapGI/Lights" unique_id=2097999190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1096206, 2.5322692, 1.4592962)
+light_energy = 0.396
+
+[node name="Room" parent="Environment/LightmapGI" unique_id=86975089 instance=ExtResource("3_ma0c7")]
+
+[node name="SpriteCeiling" type="AnimatedSprite3D" parent="Environment/LightmapGI" unique_id=309090008]
+transform = Transform3D(1.5473832e-07, 1.18, -5.157944e-08, -1.8324697e-22, -5.157944e-08, -1.18, -1.18, 1.5473832e-07, -6.7638266e-15, 0, 2.1850085, 0)
+sprite_frames = SubResource("SpriteFrames_gn2wi")
+autoplay = "default"
+
+[node name="SpriteWall" type="AnimatedSprite3D" parent="Environment/LightmapGI" unique_id=1332873649]
+transform = Transform3D(-0.713, 6.233245e-08, 1.0766001e-07, 6.233245e-08, 0.713, -2.146682e-15, -1.0766001e-07, 7.265255e-15, -0.713, 0, 1.0807327, -2.1248112)
+sprite_frames = SubResource("SpriteFrames_p1hux")
+autoplay = "default"
+
+[node name="Collision" type="Node3D" parent="." unique_id=1379657883]
+
+[node name="StaticFloor" type="StaticBody3D" parent="Collision" unique_id=192128270]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/StaticFloor" unique_id=1772998159]
+shape = SubResource("WorldBoundaryShape3D_0ha60")
+
+[node name="StaticNightstand" type="StaticBody3D" parent="Collision" unique_id=1733634912]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3867275, 0, 0.3940344)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/StaticNightstand" unique_id=1473448880]
+shape = SubResource("CylinderShape3D_b5f6u")
+
+[node name="StaticFishtank" type="StaticBody3D" parent="Collision" unique_id=79936824]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48086, 0, -0.27483293)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/StaticFishtank" unique_id=1192326744]
+shape = SubResource("CylinderShape3D_b5f6u")
+
+[node name="StaticBed" type="StaticBody3D" parent="Collision" unique_id=1642123001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7238804, 2.3841858e-07, 1.625761)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/StaticBed" unique_id=880336304]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27026367, 0.2637329, 0.012939453)
+shape = SubResource("BoxShape3D_b5f6u")
+
+[node name="Objects" type="Node3D" parent="." unique_id=1839320438]
+
+[node name="Player" parent="Objects" unique_id=767690251 instance=ExtResource("6_wdbty")]
+transform = Transform3D(0.99999976, -0.00022510758, -0.00060789246, 0.00022927535, 0.99997646, 0.006864763, 0.0006063328, -0.0068649007, 0.9999763, 0, 0.8942971, 0)
+
+[node name="Pills" parent="Objects" unique_id=1794016338 instance=ExtResource("7_4khsd")]
+transform = Transform3D(0.9999871, -0.004659611, -0.0019992886, 0.004657628, 0.9999887, -0.000994616, 0.0020039028, 0.0009852864, 0.9999975, 1.3522351, 0.8264863, 0.18981469)
+
+[node name="Radio" parent="Objects" unique_id=656601071 instance=ExtResource("8_nywra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3002027, 0.80089045, 0.5963405)
+
+[node name="Overlay" type="CanvasLayer" parent="." unique_id=1424464730]
+layer = 10
+
+[node name="Fade" type="ColorRect" parent="Overlay" unique_id=107960969]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LabelWakeup" type="Label" parent="Overlay" unique_id=1750452576]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = -19.5
+offset_right = 196.0
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "PRESS E TO WAKE UP"
+label_settings = ExtResource("9_cesao")
+
+[node name="Effect" type="ColorRect" parent="Overlay" unique_id=1368341439]
+material = SubResource("ShaderMaterial_wscrc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Overlay" unique_id=1398390595]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_tqoya")
+
+[node name="Node" type="Node" parent="." unique_id=975526230]
+
+[node name="AudioPlayerWakeup" type="AudioStreamPlayer" parent="Node" unique_id=193470975]
+stream = ExtResource("11_4m8k7")
+volume_db = -15.0
+
+[node name="BetaFish" parent="." unique_id=1354260324 instance=ExtResource("12_qh307")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.038322836, 0.9922466, -1.4091054)
+
+[node name="GoldFish" parent="." unique_id=550094524 instance=ExtResource("13_c0aup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27719995, 0.9922466, -1.4091054)
+
+[node name="MoorishIdolFish" parent="." unique_id=707864820 instance=ExtResource("14_7gssp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.401593, 0.9922466, -1.4091054)
+
+[node name="NeonTetraFish" parent="." unique_id=1919137318 instance=ExtResource("15_i080q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33877936, 1.2600358, -1.4941982)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=105841296]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23864555, 0.50888824, -0.58129394)
+material_override = SubResource("ShaderMaterial_smf0o")
+mesh = SubResource("BoxMesh_0vlqb")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1245774234]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76405185, 0.58011055, 0.54337555)
+mesh = SubResource("BoxMesh_smf0o")
+surface_material_override/0 = SubResource("ShaderMaterial_tv8i1")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1713127478]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8609786, 0.50888824, -0.28474283)
+mesh = SubResource("BoxMesh_tv8i1")
+surface_material_override/0 = SubResource("ShaderMaterial_0vlqb")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1971795789]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2419492, -1.5642085)
+mesh = SubResource("BoxMesh_gjnwh")
+surface_material_override/0 = SubResource("ShaderMaterial_gtqqq")
