@@ -403,7 +403,7 @@ light_energy = 0.396
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1096206, 2.5322692, 1.4592962)
 light_energy = 0.396
 
-[node name="Room" parent="Environment/LightmapGI" unique_id=86975089 instance=ExtResource("5_0ha60")]
+[node name="Room" parent="Environment/LightmapGI" unique_id=1718583313 instance=ExtResource("5_0ha60")]
 
 [node name="SpriteCeiling" type="AnimatedSprite3D" parent="Environment/LightmapGI" unique_id=309090008]
 transform = Transform3D(1.5473832e-07, 1.18, -5.157944e-08, -1.8324697e-22, -5.157944e-08, -1.18, -1.18, 1.5473832e-07, -6.7638266e-15, 0, 2.1850085, 0)
@@ -478,7 +478,7 @@ offset_right = 196.0
 offset_bottom = 19.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "PRESS E TO WAKE UP"
+text = "ASK BOB (B)"
 label_settings = ExtResource("10_tqoya")
 
 [node name="Effect" type="ColorRect" parent="Overlay" unique_id=1368341439]

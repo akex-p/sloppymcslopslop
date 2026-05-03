@@ -1,8 +1,9 @@
 extends Node
 
 enum Step {
-	RADIO, 
-	PILL, 
+	
+	RADIO,
+	PILL,
 	WINDOW, 
 	FISH_TANK, 
 	BED 
@@ -38,7 +39,6 @@ func wake_up():
 	await get_tree().create_timer(2.6).timeout
 	$Objects/Player/HUD.visible = true
 	Dialogic.start("first_day") 
-	
 
 func go_to_sleep():
 	player.awake = false
