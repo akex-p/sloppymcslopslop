@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://byfhpc025nyrt" path="res://import/3d/fishes/MoorishIdolFish.glb" id="1_n4td1"]
 [ext_resource type="Shader" uid="uid://lv6soat5xye6" path="res://resource/shader/fish_wobble.gdshader" id="2_2q57s"]
+[ext_resource type="Script" uid="uid://bt0j5gdwixkr1" path="res://scene/fishes/prey_fish.gd" id="2_2rc7r"]
 [ext_resource type="Texture2D" uid="uid://u70nr5ogiof" path="res://import/2d/fishes/MoorishIdol/MoorishIdolA.PNG" id="3_2rc7r"]
 [ext_resource type="Texture2D" uid="uid://bixoi33bb0nob" path="res://import/2d/fishes/MoorishIdol/MoorishIdolB.png" id="4_chgtt"]
 
@@ -24,8 +25,20 @@ shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/uv2_scale = Vector3(0, 0, 0)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_n4td1"]
+size = Vector3(0.104304194, 0.07804443, 0.019885253)
+
 [node name="MoorishIdolFish" unique_id=707864820 instance=ExtResource("1_n4td1")]
+script = ExtResource("2_2rc7r")
 
 [node name="Plane" parent="." index="0" unique_id=366770486]
 transform = Transform3D(0.05, 0, 0, 0, -2.1855695e-09, -0.05, 0, 0.05, -2.1855695e-09, 0, 0, 0)
 surface_material_override/0 = SubResource("ShaderMaterial_opju8")
+
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=1810448727]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=348453603]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0007043481, 0, -0.0029846206)
+shape = SubResource("BoxShape3D_n4td1")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

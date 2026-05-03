@@ -16,6 +16,7 @@
 [ext_resource type="LabelSettings" uid="uid://b5mocer2sin2i" path="res://resource/standard_label.tres" id="10_tqoya"]
 [ext_resource type="Shader" uid="uid://csextprrxtyne" path="res://resource/shader/crt.gdshader" id="11_k65ib"]
 [ext_resource type="AudioStream" uid="uid://0wfqvf6o4sik" path="res://import/audio/track_002.ogg" id="11_wscrc"]
+[ext_resource type="PackedScene" uid="uid://e2a7thwexs4j" path="res://scene/hunting_piranha.tscn" id="12_tv8i1"]
 [ext_resource type="PackedScene" path="res://scene/pills.tscn" id="13_mswub"]
 
 [sub_resource type="Environment" id="Environment_v0l8b"]
@@ -679,7 +680,7 @@ speed = 0.05
 transform = Transform3D(-4.37116e-08, 0, -1.0000054, 0, 1.0000079, 0, 1.0000049, 0, -4.3711623e-08, 0, 0, 0)
 
 [node name="Path_4" type="Path3D" parent="Environment/Fishes" unique_id=1895661109]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3127153, 0.77065927, 0.11543904)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3127153, 0.96971893, 0.11543904)
 curve = SubResource("Curve3D_gjnwh")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Environment/Fishes/Path_4" unique_id=448341271]
@@ -688,7 +689,11 @@ script = ExtResource("10_smf0o")
 speed = 0.2
 
 [node name="NeonTetraFish" parent="Environment/Fishes/Path_4/PathFollow3D" unique_id=1919137318 instance=ExtResource("6_tv8i1")]
-transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 0, 0, 0)
+transform = Transform3D(-1.4901161e-08, 1.8626451e-09, -0.3509034, -1.8626451e-09, 0.3509034, 0, 0.35090345, 9.313226e-10, -1.4901161e-08, 0, 0, 0)
+
+[node name="Piranha" parent="Environment/Fishes" unique_id=766760212 node_paths=PackedStringArray("targets") instance=ExtResource("12_tv8i1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.346957, 0.7592341, -0.6156479)
+targets = [NodePath("../Path_1/PathFollow3D/BetaFish"), NodePath("../Path_2/PathFollow3D/GoldFish"), NodePath("../Path_3/PathFollow3D/MoorishIdolFish"), NodePath("../Path_4/PathFollow3D/NeonTetraFish")]
 
 [node name="Collision" type="Node3D" parent="." unique_id=1379657883]
 

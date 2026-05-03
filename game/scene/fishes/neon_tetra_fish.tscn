@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dkq55kbhqtgjt" path="res://import/3d/fishes/NeonTetraFish.glb" id="1_42qiu"]
 [ext_resource type="Shader" uid="uid://lv6soat5xye6" path="res://resource/shader/fish_wobble.gdshader" id="2_2np6q"]
+[ext_resource type="Script" uid="uid://bt0j5gdwixkr1" path="res://scene/fishes/prey_fish.gd" id="2_tga1o"]
 [ext_resource type="Texture2D" uid="uid://bk87abyyhlppa" path="res://import/2d/fishes/NeonTetra/NeonTetraA.png" id="3_tga1o"]
 [ext_resource type="Texture2D" uid="uid://btdiva5ovrydv" path="res://import/2d/fishes/NeonTetra/NeonTetraB.png" id="4_3qfsi"]
 
@@ -24,8 +25,20 @@ shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/uv2_scale = Vector3(0, 0, 0)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_42qiu"]
+size = Vector3(0.09728515, 0.034647826, 0.025744628)
+
 [node name="NeonTetraFish" unique_id=1919137318 instance=ExtResource("1_42qiu")]
+script = ExtResource("2_tga1o")
 
 [node name="Plane" parent="." index="0" unique_id=302917996]
 transform = Transform3D(0.05, 0, 0, 0, -2.1855695e-09, -0.05, 0, 0.05, -2.1855695e-09, 0, 0, 0)
 surface_material_override/0 = SubResource("ShaderMaterial_7gxar")
+
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=1295353131]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=29456739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0046972632, 0.0031838994, -0.0020080581)
+shape = SubResource("BoxShape3D_42qiu")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

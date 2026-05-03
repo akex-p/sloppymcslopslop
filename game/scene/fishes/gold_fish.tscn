@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://def6kdw6ukxwn" path="res://import/3d/fishes/GoldFish.glb" id="1_swfos"]
 [ext_resource type="Shader" uid="uid://lv6soat5xye6" path="res://resource/shader/fish_wobble.gdshader" id="2_q63x3"]
+[ext_resource type="Script" uid="uid://bt0j5gdwixkr1" path="res://scene/fishes/prey_fish.gd" id="2_vhwp3"]
 [ext_resource type="Texture2D" uid="uid://ckc854cxj2ju0" path="res://import/2d/fishes/GoldFish/GoldFishA.png.png" id="3_vhwp3"]
 [ext_resource type="Texture2D" uid="uid://ct874tu6eqcg8" path="res://import/2d/fishes/GoldFish/GoldFishB.png" id="4_bvxtn"]
 
@@ -24,8 +25,20 @@ shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/uv2_scale = Vector3(0, 0, 0)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_swfos"]
+size = Vector3(0.106806636, 0.07804443, 0.05)
+
 [node name="GoldFish" unique_id=550094524 instance=ExtResource("1_swfos")]
+script = ExtResource("2_vhwp3")
 
 [node name="Plane" parent="." index="0" unique_id=49493568]
 transform = Transform3D(0.05, 0, 0, 0, -2.1855695e-09, -0.05, 0, 0.05, -2.1855695e-09, 0, 0, 0)
 surface_material_override/0 = SubResource("ShaderMaterial_2vu6e")
+
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=407102024]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1182997870]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004575193, 0, 0)
+shape = SubResource("BoxShape3D_swfos")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

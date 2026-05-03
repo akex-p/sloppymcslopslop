@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dcd6nmataffbd" path="res://import/3d/fishes/BetaFish.glb" id="1_afl5v"]
 [ext_resource type="Shader" uid="uid://lv6soat5xye6" path="res://resource/shader/fish_wobble.gdshader" id="2_xkbak"]
+[ext_resource type="Script" uid="uid://bt0j5gdwixkr1" path="res://scene/fishes/prey_fish.gd" id="2_yeg5k"]
 [ext_resource type="Texture2D" uid="uid://batij7sxeggjp" path="res://import/2d/fishes/BetaFish/BetaFishA.PNG" id="3_yeg5k"]
 [ext_resource type="Texture2D" uid="uid://chc5mdno3542u" path="res://import/2d/fishes/BetaFish/BetaFishB.png" id="4_fiuq1"]
 
@@ -24,8 +25,19 @@ shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/uv2_scale = Vector3(0, 0, 0)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_afl5v"]
+size = Vector3(0.12986328, 0.07804443, 0.05)
+
 [node name="BetaFish" unique_id=1354260324 instance=ExtResource("1_afl5v")]
+script = ExtResource("2_yeg5k")
 
 [node name="Plane" parent="." index="0" unique_id=1548084221]
 transform = Transform3D(0.05, 0, 0, 0, -2.1855695e-09, -0.05, 0, 0.05, -2.1855695e-09, 0, 0, 0)
 surface_material_override/0 = SubResource("ShaderMaterial_761lc")
+
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=924020661]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=833744316]
+shape = SubResource("BoxShape3D_afl5v")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
