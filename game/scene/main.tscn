@@ -419,6 +419,7 @@ light_energy = 0.396
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.4, 1.3235433, 0.59472466, 0.3905229)
 
 [node name="Day1" parent="Environment/LightmapGI" unique_id=666778257 instance=ExtResource("12_tv8i1")]
+transform = Transform3D(0.9999999, -0.00021647551, 0.0003316589, 0.00021656055, 0.99999994, -0.00022145805, -0.00033160337, 0.0002215412, 0.9999999, 0, 0, 0)
 
 [node name="Decoration" type="Node3D" parent="Environment/LightmapGI" unique_id=1502442482]
 

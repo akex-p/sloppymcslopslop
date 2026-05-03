@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bpv7fq2yulq6j"]
 
 [ext_resource type="PackedScene" uid="uid://dol31r5ltivwm" path="res://import/3d/explosion/explosion.glb" id="1_70y5m"]
-[ext_resource type="Shader" uid="uid://lv6soat5xye6" path="res://resource/shader/fish_wobble.gdshader" id="2_bgrfy"]
+[ext_resource type="Shader" uid="uid://cxdnqlv5bbnri" path="res://resource/shader/blooooood.gdshader" id="2_bgrfy"]
 [ext_resource type="Script" uid="uid://ruuqdbi4xggw" path="res://script/fish_gone.gd" id="2_xvq45"]
 [ext_resource type="Texture2D" uid="uid://cyg8ug8pghmdc" path="res://import/2d/explosion/explosion_01_8x8.tga" id="3_xvq45"]
 

@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bbkyqknv437kk"]
 
-[ext_resource type="Script" path="res://script/fishtank.gd" id="1_fk8l4"]
+[ext_resource type="Script" uid="uid://bk2htbir1g8mb" path="res://script/fishtank.gd" id="1_fk8l4"]
 [ext_resource type="PackedScene" uid="uid://bqqsqocju2r2" path="res://import/3d/fishtank/fishtank.glb" id="2_b66a4"]
+[ext_resource type="PackedScene" uid="uid://e2a7thwexs4j" path="res://scene/fishes/hunting_piranha.tscn" id="2_gw6h2"]
 [ext_resource type="Shader" uid="uid://bk7sls701ffko" path="res://resource/shader/waterv4.gdshader" id="3_kribh"]
 [ext_resource type="PackedScene" uid="uid://b57dhngxjxete" path="res://scene/fishes.tscn" id="4_b1avd"]
 
@@ -45,10 +46,13 @@ shader_parameter/beers_law = 1.0
 shader_parameter/water_transparency = 0.71999998390656
 shader_parameter/refraction_strength = 0.05
 
-[node name="Fishtank" type="StaticBody3D" unique_id=1794016338 node_paths=PackedStringArray("area_interact") groups=["Interactable"]]
+[node name="Fishtank" type="StaticBody3D" unique_id=1794016338 node_paths=PackedStringArray("piranha_spawnpoint", "piranha_food", "area_interact") groups=["Interactable"]]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_fk8l4")
+piranha_scene = ExtResource("2_gw6h2")
+piranha_spawnpoint = NodePath("PiranhaSpawn")
+piranha_food = [NodePath("Fishes/Path_1/PathFollow3D/BetaFish"), NodePath("Fishes/Path_2/PathFollow3D/GoldFish"), NodePath("Fishes/Path_3/PathFollow3D/MoorishIdolFish"), NodePath("Fishes/Path_4/PathFollow3D/NeonTetraFish")]
 area_interact = NodePath("Area3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=923374784]
@@ -71,6 +75,9 @@ surface_material_override/0 = SubResource("ShaderMaterial_b1avd")
 transform = Transform3D(0.26538137, 0, 0, 0, 0.21783847, 0, 0, 0, 0.22220445, -1.3869835, 0.5347553, 0.0037623644)
 
 [node name="Fishes" parent="." unique_id=1932245005 instance=ExtResource("4_b1avd")]
+
+[node name="PiranhaSpawn" type="Node3D" parent="." unique_id=1237686096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.346957, 0.7592341, -0.6156479)
 
 [editable path="fishtank"]
 [editable path="Fishes"]
