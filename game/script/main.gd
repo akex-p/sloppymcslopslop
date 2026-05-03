@@ -1,4 +1,5 @@
 extends Node
+class_name Main
 
 @export var day1_scene: PackedScene
 @export var day2_scene: PackedScene
@@ -14,6 +15,7 @@ extends Node
 var ad_played: bool = false
 
 func _ready() -> void:
+	GameManager.main = self
 	player.wake_up.connect(wake_up)
 	animation_player_overlay.play("fade_label")
 
@@ -40,7 +42,6 @@ func go_to_sleep():
 	await animation_player_overlay.animation_finished
 	
 	# update game manager and player
-	GameManager.next_day()
 	$Player.reset(Vector3(0.551, 0.894, 0.838), 0.0)
 	
 	# delete stuff
@@ -66,7 +67,3 @@ func _on_video_stream_player_finished() -> void:
 
 func _on_timer_timeout() -> void:
 	container_skip.visible = false
-
-
-func _on_timer_debug_timeout() -> void:
-	go_to_sleep()

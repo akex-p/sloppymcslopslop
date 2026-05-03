@@ -21,6 +21,7 @@ signal step_changed(step: int)
 var current_day: int = 1
 var current_step: int = 0
 var interactables: Dictionary = {}
+var main: Main
 
 func _ready():
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
@@ -53,6 +54,7 @@ func ask_bob() -> void:
 func next_day() -> void:
 	current_day += 1
 	current_step = 0
+	main.go_to_sleep()
 
 func _on_timeline_ended() -> void:
 	# taskstart ended → world is now interactive

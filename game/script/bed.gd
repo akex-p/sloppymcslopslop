@@ -7,3 +7,4 @@ func _ready():
 
 func interact() -> void:
 	GameManager.advance_step()
+	GameManager.next_day()
