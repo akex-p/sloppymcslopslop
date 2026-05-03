@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b43raf6hj1h73"]
 
 [ext_resource type="Script" path="res://script/bed.gd" id="1_af1er"]
+[ext_resource type="PackedScene" uid="uid://bumyu3e1lpyxn" path="res://import/3d/bed/bed.glb" id="2_s25x3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fk8l4"]
 size = Vector3(2, 0.5, 1)
@@ -15,9 +16,14 @@ script = ExtResource("1_af1er")
 area_interact = NodePath("Area3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=923374784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5489614, 0, 1.5423203)
 shape = SubResource("BoxShape3D_fk8l4")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=622664198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5489614, 0, 1.5423203)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=71477644]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.150311)
 shape = SubResource("SphereShape3D_f8rg6")
+
+[node name="bed" parent="." unique_id=1228602249 instance=ExtResource("2_s25x3")]

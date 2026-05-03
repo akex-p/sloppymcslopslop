@@ -45,7 +45,7 @@ func go_to_sleep():
 	$Player.reset(Vector3(0.551, 0.894, 0.838), 0.0)
 	
 	# delete stuff
-	var old = $Objects
+	var old = $Environment/LightmapGI/Day1
 	old.queue_free()
 	await old.tree_exited
 	

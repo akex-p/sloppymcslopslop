@@ -1,11 +1,38 @@
-[gd_scene format=3 uid="uid://de3etjmoxgo1j"]
+[gd_scene format=3 uid="uid://bqat3r67vh555"]
 
-[ext_resource type="Script" uid="uid://bk2htbir1g8mb" path="res://script/fishtank.gd" id="1_fk8l4"]
+[ext_resource type="Script" path="res://script/fishtank.gd" id="1_fk8l4"]
+[ext_resource type="PackedScene" uid="uid://bqqsqocju2r2" path="res://import/3d/fishtank/fishtank.glb" id="2_b66a4"]
+[ext_resource type="Shader" path="res://resource/shader/waterv4.gdshader" id="3_kribh"]
+[ext_resource type="PackedScene" uid="uid://bxogckpuxydkq" path="res://scene/fishes.tscn" id="4_b1avd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fk8l4"]
+size = Vector3(0.6265869, 0.5569153, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_f8rg6"]
 radius = 0.8877286
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b1avd"]
+render_priority = 0
+shader = ExtResource("3_kribh")
+shader_parameter/water_color = Color(0, 0, 0, 1)
+shader_parameter/fresnel_color = Color(0, 0, 0, 1)
+shader_parameter/depth_color = Color(0, 0, 0, 1)
+shader_parameter/roughness = 0.05
+shader_parameter/normalmap_a_str = 0.5
+shader_parameter/normalmap_b_str = 0.25
+shader_parameter/movement_direction = Vector2(0.2, 0.1)
+shader_parameter/movement_strength = 0.12
+shader_parameter/time_scale = 0.025
+shader_parameter/noise_scale = 10.0
+shader_parameter/height_scale = 0.05
+shader_parameter/fresnel_scale = 0.05
+shader_parameter/near = 1.0
+shader_parameter/far = 100.0
+shader_parameter/uv_scale = 1.0
+shader_parameter/depth_distance = 2.0
+shader_parameter/beers_law = 1.0
+shader_parameter/water_transparency = 0.1
+shader_parameter/refraction_strength = 0.05
 
 [node name="Fishtank" type="StaticBody3D" unique_id=1794016338 node_paths=PackedStringArray("area_interact") groups=["Interactable"]]
 collision_layer = 4
@@ -14,9 +41,22 @@ script = ExtResource("1_fk8l4")
 area_interact = NodePath("Area3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=923374784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3906393, 0.71106905, -0.22884253)
 shape = SubResource("BoxShape3D_fk8l4")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=622664198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3997335, 0.59584993, -0.22884253)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=71477644]
 shape = SubResource("SphereShape3D_f8rg6")
+
+[node name="fishtank" parent="." unique_id=1492558571 instance=ExtResource("2_b66a4")]
+
+[node name="Tank" parent="fishtank" index="1" unique_id=1687478837]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3327743, 0.6972399, -0.2473988)
+surface_material_override/0 = SubResource("ShaderMaterial_b1avd")
+
+[node name="Fishes" parent="." unique_id=1932245005 instance=ExtResource("4_b1avd")]
+
+[editable path="fishtank"]
+[editable path="Fishes"]

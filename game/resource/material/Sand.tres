@@ -1,7 +1,10 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://burn7cirv34pd"]
 
+[ext_resource type="Texture2D" uid="uid://xfnydqbg0jwr" path="res://import/2d/sand/SandTile.png" id="1_cb0ms"]
+
 [resource]
 resource_name = "Sand"
 cull_mode = 2
-albedo_color = Color(0.9063355, 0.44131956, 0, 1)
+albedo_texture = ExtResource("1_cb0ms")
 roughness = 0.5
+uv1_scale = Vector3(19.12, 19.12, 19.12)
