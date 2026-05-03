@@ -5,17 +5,18 @@
 [ext_resource type="Texture2D" uid="uid://b684tubkv0yrw" path="res://import/2d/sky/sky_001.png" id="3_p1hux"]
 [ext_resource type="Texture2D" uid="uid://cn7lfywl5ggqr" path="res://import/2d/sky/sky_002.png" id="4_b5f6u"]
 [ext_resource type="PackedScene" uid="uid://ciukkslkobyml" path="res://scene/fishes/gold_fish.tscn" id="4_jcbur"]
+[ext_resource type="Texture2D" uid="uid://xfnydqbg0jwr" path="res://import/2d/sand/SandTile.png" id="4_smf0o"]
 [ext_resource type="PackedScene" uid="uid://6vyh6cnhdwva" path="res://scene/fishes/fish_betafish.tscn" id="4_wscrc"]
 [ext_resource type="PackedScene" uid="uid://ng6q0qc7qjt5" path="res://import/3d/room_skeleton/room_skeleton.glb" id="5_0ha60"]
 [ext_resource type="PackedScene" uid="uid://pd8pm5o347pq" path="res://scene/fishes/moorish_idol_fish.tscn" id="5_smf0o"]
 [ext_resource type="PackedScene" uid="uid://cdxk2rt82suho" path="res://scene/player.tscn" id="6_b5f6u"]
 [ext_resource type="PackedScene" uid="uid://botd7dfmej78w" path="res://scene/fishes/neon_tetra_fish.tscn" id="6_tv8i1"]
 [ext_resource type="PackedScene" uid="uid://kb7iellok8dg" path="res://scene/fishes/piranha_fish.tscn" id="7_0vlqb"]
-[ext_resource type="PackedScene" uid="uid://dx63ih5nbjb20" path="res://scene/radio.tscn" id="8_b5f6u"]
+[ext_resource type="PackedScene" path="res://scene/radio.tscn" id="8_b5f6u"]
 [ext_resource type="LabelSettings" uid="uid://b5mocer2sin2i" path="res://resource/standard_label.tres" id="10_tqoya"]
 [ext_resource type="Shader" uid="uid://csextprrxtyne" path="res://resource/shader/crt.gdshader" id="11_k65ib"]
 [ext_resource type="AudioStream" uid="uid://0wfqvf6o4sik" path="res://import/audio/track_002.ogg" id="11_wscrc"]
-[ext_resource type="PackedScene" uid="uid://wnj2pupsycxg" path="res://scene/pills.tscn" id="13_mswub"]
+[ext_resource type="PackedScene" path="res://scene/pills.tscn" id="13_mswub"]
 
 [sub_resource type="Environment" id="Environment_v0l8b"]
 glow_enabled = true
@@ -174,11 +175,12 @@ noise = SubResource("FastNoiseLite_mswub")
 seamless = true
 in_3d_space = true
 as_normal_map = true
+bump_strength = 18.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mswub"]
 render_priority = 0
 shader = SubResource("Shader_k65ib")
-shader_parameter/water_color = Color(0, 0.6313726, 0.7647059, 1)
+shader_parameter/water_color = Color(0, 0.63978815, 0.7161874, 1)
 shader_parameter/fresnel_color = Color(0, 0.6313726, 0.7647059, 1)
 shader_parameter/depth_color = Color(0, 0.21176471, 0.6431373, 1)
 shader_parameter/roughness = 0.05
@@ -186,9 +188,9 @@ shader_parameter/normalmap_a_str = 0.5
 shader_parameter/normalmap_b_str = 0.25
 shader_parameter/normalmap_a = SubResource("NoiseTexture2D_hybxs")
 shader_parameter/movement_direction = Vector2(0.2, 0.1)
-shader_parameter/movement_strength = 0.04
+shader_parameter/movement_strength = 0.015
 shader_parameter/time_scale = 0.025
-shader_parameter/noise_scale = 10.0
+shader_parameter/noise_scale = 1.0
 shader_parameter/height_scale = 0.05
 shader_parameter/fresnel_scale = 0.05
 shader_parameter/near = 1.0
@@ -196,8 +198,13 @@ shader_parameter/far = 100.0
 shader_parameter/uv_scale = 1.0
 shader_parameter/depth_distance = 2.0
 shader_parameter/beers_law = 3.5000000521542
-shader_parameter/water_transparency = 0.999999977648
-shader_parameter/refraction_strength = 0.06999999843536
+shader_parameter/water_transparency = 0.749999983236
+shader_parameter/refraction_strength = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tv8i1"]
+albedo_texture = ExtResource("4_smf0o")
+uv1_scale = Vector3(20, 20, 20)
+texture_filter = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_of57s"]
 atlas = ExtResource("3_p1hux")
@@ -583,9 +590,13 @@ light_energy = 0.396
 
 [node name="Room" parent="Environment/LightmapGI" unique_id=114707768 instance=ExtResource("5_0ha60")]
 
-[node name="Tank" parent="Environment/LightmapGI/Room" index="6" unique_id=1075156473]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3327743, 0.67307097, -0.2473988)
+[node name="Tank" parent="Environment/LightmapGI/Room" index="6" unique_id=1987946039]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3327743, 0.69382423, -0.2473988)
 surface_material_override/0 = SubResource("ShaderMaterial_mswub")
+
+[node name="Tank_Sand" parent="Environment/LightmapGI/Room" index="7" unique_id=1784079940]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.225, -1.3754524, 0.54007435, 0.011415839)
+surface_material_override/0 = SubResource("StandardMaterial3D_tv8i1")
 
 [node name="GoldFish" parent="Environment/LightmapGI/Room" unique_id=550094524 instance=ExtResource("4_jcbur")]
 transform = Transform3D(-0.12524663, 0, 0.99212563, 0, 1, 0, -0.99212563, 0, -0.12524663, -1.2168106, 0.7707779, -0.3031773)
