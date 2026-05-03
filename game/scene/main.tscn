@@ -13,6 +13,8 @@
 [ext_resource type="AudioStream" uid="uid://0wfqvf6o4sik" path="res://import/audio/track_002.ogg" id="11_wscrc"]
 [ext_resource type="PackedScene" uid="uid://dywql7cwr4cmq" path="res://scene/day_1.tscn" id="12_tv8i1"]
 [ext_resource type="FontFile" uid="uid://hdx4v8pw8765" path="res://import/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="16_gjnwh"]
+[ext_resource type="PackedScene" uid="uid://db7k4peqnnukm" path="res://import/3d/EverythingCapsules/EverythingCapsules.glb" id="16_smf0o"]
+[ext_resource type="PackedScene" uid="uid://cjfao0vtm2olw" path="res://everything_capsules.tscn" id="17_tv8i1"]
 [ext_resource type="VideoStream" uid="uid://dhikx5iujqudf" path="res://import/video/export002.ogv" id="18_0vlqb"]
 [ext_resource type="PackedScene" path="res://scene/fishes.tscn" id="19_0vlqb"]
 
@@ -748,7 +750,12 @@ bus = &"SFX"
 [node name="Fishes" parent="." unique_id=1932245005 instance=ExtResource("19_0vlqb")]
 
 [node name="Radio" parent="." unique_id=1794016338 instance=ExtResource("8_b5f6u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0256903, 0.78638405, 0.23589626)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0331448, 0.79132855, 0.3120029)
+
+[node name="EverythingCapsules" parent="." unique_id=544956313 instance=ExtResource("16_smf0o")]
+
+[node name="EverythingCapsules2" parent="." unique_id=731755442 instance=ExtResource("17_tv8i1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9683078, 0.7860963, 0.51448286)
 
 [connection signal="finished" from="Commercial/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
 [connection signal="timeout" from="Commercial/Timer" to="." method="_on_timer_timeout"]
