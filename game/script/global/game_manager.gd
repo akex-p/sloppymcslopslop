@@ -1,51 +1,62 @@
 extends Node
 
+enum Step {
+	RADIO,
+	PILL,
+	WORKSTATION,
+	FISHTANK,
+	BED
+}
+
+const STEP_NAMES: Dictionary = {
+	Step.RADIO: "radio",
+	Step.PILL:  "pill",
+	Step.WORKSTATION: "workstation",
+	Step.FISHTANK: "fishtank",
+	Step.BED: "bed",
+}
+
 signal step_changed(step: int)
 
-enum Step { WAKE_UP, RADIO, PILL, WORK, FISH_TANK, BED }
-
-var current_step: int = Step.WAKE_UP
+var current_day: int = 1
+var current_step: int = 0
 var interactables: Dictionary = {}
+var main: Main
+
+func _ready():
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
 
 func register(step: int, node: Interactable) -> void:
 	interactables[step] = node
+	print(interactables)
 
 func advance_step() -> void:
+	disable_all()
+	var step_name = STEP_NAMES.get(current_step, "unknown")
+	var timeline = "day%d_%s_%s" % [current_day, step_name, "taskend"]
 	current_step += 1
-	emit_signal("step_changed", current_step)
-	_enable_current()
+	Dialogic.start(timeline)
 
-func _enable_current() -> void:
+func enable_current() -> void:
+	for step in interactables:
+		interactables[step].enabled = (step == current_step)
+
+func disable_all() -> void:
 	for step in interactables:
 		if is_instance_valid(interactables[step]):
-			interactables[step].enabled = (step == current_step)
+			interactables[step].enabled = false
 
-func _ready():
-	Dialogic.signal_event.connect(_on_dialogic_signal)
+func ask_bob() -> void:
+	var step_name = STEP_NAMES.get(current_step, "unknown")
+	var timeline = "day%d_%s_taskstart" % [current_day, step_name]
+	Dialogic.start(timeline)
 
-func _on_dialogic_signal(argument):
-	if argument == "start_radio":
-		var radio = interactables.get(Step.RADIO)
-		if is_instance_valid(radio):
-			Dialogic.paused = true
-			current_step = Step.RADIO
-			_enable_current()
-	
-	if argument == "take_pills":
-		var pill = interactables.get(Step.PILL)
-		if is_instance_valid(pill):
-			# pills still exist, pause and wait for player
-			Dialogic.paused = true
-			current_step = Step.PILL
-			_enable_current()
-		# if pill is gone (already taken), dialog just continues
+func next_day() -> void:
+	current_day += 1
+	current_step = 0
+	main.go_to_sleep()
 
-	if argument == "need_more_work":
-		Dialogic.paused = true
-		current_step = Step.WORK
-		_enable_current()
-	
-	if argument == "work_done":
-		print(argument)
-		Dialogic.paused = false
-	
+func _on_timeline_ended() -> void:
+	# taskstart ended → world is now interactive
+	# taskend ended → next step's taskstart will be triggered by ask_bob
+	pass

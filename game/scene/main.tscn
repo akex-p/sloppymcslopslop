@@ -12,18 +12,14 @@
 [ext_resource type="PackedScene" uid="uid://cdxk2rt82suho" path="res://scene/player.tscn" id="6_b5f6u"]
 [ext_resource type="PackedScene" uid="uid://botd7dfmej78w" path="res://scene/fishes/neon_tetra_fish.tscn" id="6_tv8i1"]
 [ext_resource type="PackedScene" uid="uid://kb7iellok8dg" path="res://scene/fishes/piranha_fish.tscn" id="7_0vlqb"]
-[ext_resource type="PackedScene" uid="uid://dx63ih5nbjb20" path="res://scene/radio.tscn" id="8_b5f6u"]
 [ext_resource type="LabelSettings" uid="uid://b5mocer2sin2i" path="res://resource/standard_label.tres" id="10_tqoya"]
 [ext_resource type="Shader" uid="uid://csextprrxtyne" path="res://resource/shader/crt.gdshader" id="11_k65ib"]
 [ext_resource type="AudioStream" uid="uid://0wfqvf6o4sik" path="res://import/audio/track_002.ogg" id="11_wscrc"]
-[ext_resource type="PackedScene" uid="uid://e2a7thwexs4j" path="res://scene/hunting_piranha.tscn" id="12_tv8i1"]
-[ext_resource type="PackedScene" path="res://scene/pills.tscn" id="13_mswub"]
-[ext_resource type="PackedScene" uid="uid://wnj2pupsycxg" path="res://scene/pills.tscn" id="13_mswub"]
-[ext_resource type="Script" path="res://script/workstation.gd" id="15_tv8i1"]
+[ext_resource type="PackedScene" uid="uid://dvjhmo80f6g62" path="res://scene/day_1.tscn" id="12_tv8i1"]
+[ext_resource type="FontFile" uid="uid://hdx4v8pw8765" path="res://import/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="16_gjnwh"]
 [ext_resource type="VideoStream" uid="uid://dhikx5iujqudf" path="res://import/video/export002.ogv" id="18_0vlqb"]
 
 [sub_resource type="Environment" id="Environment_v0l8b"]
-glow_enabled = true
 glow_normalized = true
 glow_strength = 1.5
 glow_bloom = 0.5
@@ -458,6 +454,13 @@ radius = 0.28466797
 [sub_resource type="BoxShape3D" id="BoxShape3D_b5f6u"]
 size = Vector3(1.5405273, 1.5274658, 0.9741211)
 
+[sub_resource type="LabelSettings" id="LabelSettings_fdqew"]
+font = ExtResource("16_gjnwh")
+font_size = 128
+outline_color = Color(0.21950102, 0.21950102, 0.21950102, 1)
+shadow_size = 24
+shadow_color = Color(1, 1, 1, 0.101960786)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wscrc"]
 shader = ExtResource("11_k65ib")
 shader_parameter/overlay = true
@@ -561,6 +564,8 @@ _data = {
 
 [node name="Main" type="Node" unique_id=192885984]
 script = ExtResource("1_itxqv")
+day1_scene = ExtResource("12_tv8i1")
+day2_scene = ExtResource("12_tv8i1")
 
 [node name="Environment" type="Node3D" parent="." unique_id=112082376]
 
@@ -627,60 +632,6 @@ transform = Transform3D(-0.713, 6.233245e-08, 1.0766001e-07, 6.233245e-08, 0.713
 sprite_frames = SubResource("SpriteFrames_p1hux")
 autoplay = "default"
 
-[node name="Fishes" type="Node3D" parent="Environment" unique_id=1950087077]
-
-[node name="Path_1" type="Path3D" parent="Environment/Fishes" unique_id=744506635]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3127153, 0.6355999, 0.11543904)
-curve = SubResource("Curve3D_tv8i1")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Environment/Fishes/Path_1" unique_id=538160188]
-transform = Transform3D(-0.94665074, -0.015654348, 0.32186425, -9.313175e-10, 0.99881136, 0.048578978, -0.32224452, 0.04598743, -0.9455336, 0.060339093, -0.03344673, -0.018945977)
-use_model_front = true
-script = ExtResource("10_smf0o")
-
-[node name="BetaFish" parent="Environment/Fishes/Path_1/PathFollow3D" unique_id=1354260324 instance=ExtResource("4_wscrc")]
-transform = Transform3D(0.19742084, 1.8626451e-09, 0.9803189, -0.04762312, 0.99881935, 0.009590547, -0.97916144, -0.048579216, 0.19718775, 0, 0, 0)
-
-[node name="Path_2" type="Path3D" parent="Environment/Fishes" unique_id=2066586571]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3127153, 0.78861076, 0.11543904)
-curve = SubResource("Curve3D_smf0o")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Environment/Fishes/Path_2" unique_id=1147388545]
-transform = Transform3D(0.99961233, 0.0133322785, -0.024148386, -9.313159e-10, 0.8754253, 0.48332798, 0.02758434, -0.48314038, 0.8750988, 0.1311779, 0.058956742, -0.22704756)
-script = ExtResource("10_smf0o")
-speed = -0.03
-
-[node name="GoldFish" parent="Environment/Fishes/Path_2/PathFollow3D" unique_id=550094524 instance=ExtResource("4_jcbur")]
-transform = Transform3D(-4.37116e-08, 0, 1.0000049, 0, 1.0000067, 0, -1.0000049, 0, -4.37116e-08, 0, 0, 0)
-
-[node name="Path_3" type="Path3D" parent="Environment/Fishes" unique_id=1015113815]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.3127153, 0.9330216, -0.65578055)
-curve = SubResource("Curve3D_0vlqb")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Environment/Fishes/Path_3" unique_id=1115395822]
-transform = Transform3D(0.9260896, 0.018963646, 0.3765406, -9.3120633e-10, 0.9986392, -0.05030331, -0.37697285, 0.046587005, 0.9250278, 0.024664879, 0.0010143518, 0.11585188)
-script = ExtResource("10_smf0o")
-speed = 0.05
-
-[node name="MoorishIdolFish" parent="Environment/Fishes/Path_3/PathFollow3D" unique_id=707864820 instance=ExtResource("5_smf0o")]
-transform = Transform3D(-4.37116e-08, 0, -1.0000054, 0, 1.0000079, 0, 1.0000049, 0, -4.3711623e-08, 0, 0, 0)
-
-[node name="Path_4" type="Path3D" parent="Environment/Fishes" unique_id=1895661109]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3127153, 0.96971893, 0.11543904)
-curve = SubResource("Curve3D_gjnwh")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Environment/Fishes/Path_4" unique_id=448341271]
-transform = Transform3D(0.4505273, -0.19587627, -0.87099886, -7.4505127e-09, 0.97561234, -0.21940787, 0.8927523, 0.09884895, 0.43954948, 0.0019927025, -0.038273156, -0.052139074)
-script = ExtResource("10_smf0o")
-speed = 0.2
-
-[node name="NeonTetraFish" parent="Environment/Fishes/Path_4/PathFollow3D" unique_id=1919137318 instance=ExtResource("6_tv8i1")]
-transform = Transform3D(-1.4901161e-08, 1.8626451e-09, -0.3509034, -1.8626451e-09, 0.3509034, 0, 0.35090345, 9.313226e-10, -1.4901161e-08, 0, 0, 0)
-
-[node name="Piranha" parent="Environment/Fishes" unique_id=766760212 node_paths=PackedStringArray("targets") instance=ExtResource("12_tv8i1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.346957, 0.7592341, -0.6156479)
-targets = [NodePath("../Path_1/PathFollow3D/BetaFish"), NodePath("../Path_2/PathFollow3D/GoldFish"), NodePath("../Path_3/PathFollow3D/MoorishIdolFish"), NodePath("../Path_4/PathFollow3D/NeonTetraFish")]
-
 [node name="Collision" type="Node3D" parent="." unique_id=1379657883]
 
 [node name="StaticFloor" type="StaticBody3D" parent="Collision" unique_id=192128270]
@@ -707,20 +658,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7238804, 2.3841858e-07, 1.6
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27026367, 0.2637329, 0.012939453)
 shape = SubResource("BoxShape3D_b5f6u")
 
-[node name="Objects" type="Node3D" parent="." unique_id=1839320438]
+[node name="Objects" parent="." unique_id=666778257 instance=ExtResource("12_tv8i1")]
 
-[node name="Player" parent="Objects" unique_id=767690251 instance=ExtResource("6_b5f6u")]
-transform = Transform3D(0.99999976, -0.00022510758, -0.00060789246, 0.00022927535, 0.99997646, 0.006864763, 0.0006063328, -0.0068649007, 0.9999763, 0, 0.8942971, 0)
-
-[node name="Pills" parent="Objects" unique_id=1794016338 instance=ExtResource("13_mswub")]
-transform = Transform3D(0.9999871, -0.004659611, -0.0019992886, 0.004657628, 0.9999887, -0.000994616, 0.0020039028, 0.0009852864, 0.9999975, 1.3522351, 0.8264863, 0.18981469)
-
-[node name="Radio" parent="Objects" unique_id=656601071 instance=ExtResource("8_b5f6u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3002027, 0.80089045, 0.5963405)
-
-[node name="Workstation" parent="Objects" unique_id=83387929 instance=ExtResource("13_mswub")]
-transform = Transform3D(0.9999871, -0.004659611, -0.0019992886, 0.004657628, 0.9999887, -0.000994616, 0.0020039028, 0.0009852864, 0.9999975, 1.3522351, 0.8264863, -1.4009038)
-script = ExtResource("15_tv8i1")
+[node name="Player" parent="." unique_id=767690251 instance=ExtResource("6_b5f6u")]
+transform = Transform3D(0.99999976, -0.00022510758, -0.00060789246, 0.00022927535, 0.99997646, 0.006864763, 0.0006063328, -0.0068649007, 0.9999763, 0.5514717, 0.8942971, 0.8382653)
 
 [node name="Overlay" type="CanvasLayer" parent="." unique_id=1424464730]
 layer = 10
@@ -742,14 +683,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -196.0
+offset_left = -110.0
 offset_top = -19.5
-offset_right = 196.0
+offset_right = 110.0
 offset_bottom = 19.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "ASK BOB (B)"
-label_settings = ExtResource("10_tqoya")
+label_settings = SubResource("LabelSettings_fdqew")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Effect" type="ColorRect" parent="Overlay" unique_id=1368341439]
 material = SubResource("ShaderMaterial_wscrc")
@@ -774,10 +717,44 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 stream = ExtResource("18_0vlqb")
 autoplay = true
 expand = true
 metadata/_edit_use_anchors_ = true
+
+[node name="SkipContainer" type="PanelContainer" parent="Commercial" unique_id=514059422]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -215.0
+offset_top = -148.0
+offset_right = 215.0
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Commercial/SkipContainer" unique_id=1383824367]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Label" type="Label" parent="Commercial/SkipContainer/MarginContainer" unique_id=870830125]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "CLICK TO SKIP"
+label_settings = ExtResource("10_tqoya")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="Commercial" unique_id=1808076891]
+wait_time = 3.0
 
 [node name="Node" type="Node" parent="." unique_id=975526230]
 
@@ -787,5 +764,6 @@ volume_db = -15.0
 bus = &"SFX"
 
 [connection signal="finished" from="Commercial/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="timeout" from="Commercial/Timer" to="." method="_on_timer_timeout"]
 
 [editable path="Environment/LightmapGI/Room"]

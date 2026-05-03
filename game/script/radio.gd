@@ -10,7 +10,4 @@ func _ready():
 
 func interact() -> void:
 	audio_player_music.play()
-	cleared.emit()
-	Dialogic.paused = false
 	GameManager.advance_step()
-	

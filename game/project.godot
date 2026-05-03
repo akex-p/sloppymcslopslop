@@ -31,7 +31,16 @@ directories/dch_directory={
 "player": "res://character/player.dch"
 }
 directories/dtl_directory={
-"day1_wakeup": "res://resource/timeline/day1_wakeup.dtl",
+"day1_bed_taskend": "res://resource/timeline/day1_bed_taskend.dtl",
+"day1_bed_taskstart": "res://resource/timeline/day1_bed_taskstart.dtl",
+"day1_fishtank_taskend": "res://resource/timeline/day1_fishtank_taskend.dtl",
+"day1_fishtank_taskstart": "res://resource/timeline/day1_fishtank_taskstart.dtl",
+"day1_pill_taskend": "res://resource/timeline/day1_pill_taskend.dtl",
+"day1_pill_taskstart": "res://resource/timeline/day1_pill_taskstart.dtl",
+"day1_radio_taskend": "res://resource/timeline/day1_radio_taskend.dtl",
+"day1_radio_taskstart": "res://resource/timeline/day1_radio_taskstart.dtl",
+"day1_workstation_taskend": "res://resource/timeline/day1_workstation_taskend.dtl",
+"day1_workstation_taskstart": "res://resource/timeline/day1_workstation_taskstart.dtl",
 "first_day": "res://character/timeline/first_day.dtl",
 "second_day": "res://character/timeline/second_day.dtl"
 }
@@ -122,17 +131,22 @@ grow_bob_delete_later={
 }
 interact={
 "deadzone": 0.2,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(404, 25),"global_position":Vector2(413, 73),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
 dialogic_default_action={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":32,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
 ]
 }
 ask_bob={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":66,"key_label":0,"unicode":98,"location":0,"echo":false,"script":null)
+]
+}
+skip={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
 ]
 }
 

@@ -66,6 +66,9 @@ stream_3/stream = ExtResource("9_dk1vr")
 transform = Transform3D(0.99999976, -0.00022512084, -0.0006078875, 0.00022927535, 0.99997646, 0.0068647647, 0.0006063328, -0.006864901, 0.9999763, 0, 0, 0)
 script = ExtResource("1_xo3ru")
 SPEED = 2.0
+MOUSE_SENSITIVITY = null
+MOVEMENT_SMOOTHING = null
+CAMERA_SMOOTHING = null
 
 [node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=1526649180]
 transform = Transform3D(0.99999994, -8.185452e-12, -5.820766e-11, 4.5474735e-13, 0.99999994, 4.656613e-10, 0, -4.656613e-10, 0.99999994, 0, 0, 0)
@@ -90,9 +93,8 @@ collision_mask = 4
 libraries/ = SubResource("AnimationLibrary_hjaqi")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1219293801]
-visible = false
 
-[node name="Control" type="Control" parent="HUD" unique_id=565593282]
+[node name="Bob" type="Control" parent="HUD" unique_id=332793023]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -100,41 +102,35 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("2_s4jxa")
 metadata/_edit_use_anchors_ = true
 
-[node name="InfoContainer" type="PanelContainer" parent="HUD/Control" unique_id=942174878]
-layout_mode = 0
-offset_left = 35.0
-offset_top = 51.0
-offset_right = 129.0
-offset_bottom = 133.0
+[node name="AskContainer" type="PanelContainer" parent="HUD/Bob" unique_id=55536338]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -464.0
+offset_top = 214.0
+offset_right = -34.0
+offset_bottom = 277.0
+grow_horizontal = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD/Control/InfoContainer" unique_id=338776244]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Bob/AskContainer" unique_id=1195063242]
 layout_mode = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/Control/InfoContainer/MarginContainer" unique_id=648306895]
-layout_mode = 2
-
-[node name="LabelDate" type="Label" parent="HUD/Control/InfoContainer/MarginContainer/VBoxContainer" unique_id=241238632]
+[node name="Label" type="Label" parent="HUD/Bob/AskContainer/MarginContainer" unique_id=1139038846]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "DATE"
+text = "ASK BOB (B)"
 label_settings = ExtResource("3_oh5ij")
+horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LabelTime" type="Label" parent="HUD/Control/InfoContainer/MarginContainer/VBoxContainer" unique_id=1495263531]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "TIME"
-label_settings = ExtResource("3_oh5ij")
-vertical_alignment = 1
-
-[node name="BobContainer" type="PanelContainer" parent="HUD/Control" unique_id=366878631]
+[node name="BobContainer" type="PanelContainer" parent="HUD/Bob" unique_id=366878631]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -145,38 +141,82 @@ offset_right = -35.0
 offset_bottom = 200.0
 grow_horizontal = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD/Control/BobContainer" unique_id=2034284837]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Bob/BobContainer" unique_id=2034284837]
 layout_mode = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="TextureRect" type="TextureRect" parent="HUD/Control/BobContainer/MarginContainer" unique_id=1474753327]
+[node name="TextureRect" type="TextureRect" parent="HUD/Bob/BobContainer/MarginContainer" unique_id=1474753327]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("4_hp4bs")
 
-[node name="InteractableContainer" type="PanelContainer" parent="HUD/Control" unique_id=188821062]
-visible = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -215.0
-offset_top = 100.0
-offset_right = 215.0
-offset_bottom = 163.0
+[node name="Misc" type="Control" parent="HUD" unique_id=565593282]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_s4jxa")
+metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD/Control/InteractableContainer" unique_id=1403078399]
+[node name="InfoContainer" type="PanelContainer" parent="HUD/Misc" unique_id=942174878]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 51.0
+offset_right = 129.0
+offset_bottom = 133.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Misc/InfoContainer" unique_id=338776244]
 layout_mode = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="Label" type="Label" parent="HUD/Control/InteractableContainer/MarginContainer" unique_id=1031997667]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/Misc/InfoContainer/MarginContainer" unique_id=648306895]
+layout_mode = 2
+
+[node name="LabelDate" type="Label" parent="HUD/Misc/InfoContainer/MarginContainer/VBoxContainer" unique_id=241238632]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "DATE"
+label_settings = ExtResource("3_oh5ij")
+vertical_alignment = 1
+
+[node name="LabelTime" type="Label" parent="HUD/Misc/InfoContainer/MarginContainer/VBoxContainer" unique_id=1495263531]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "TIME"
+label_settings = ExtResource("3_oh5ij")
+vertical_alignment = 1
+
+[node name="InteractableContainer" type="PanelContainer" parent="HUD/Misc" unique_id=188821062]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -215.0
+offset_top = -148.0
+offset_right = 215.0
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Misc/InteractableContainer" unique_id=1403078399]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Label" type="Label" parent="HUD/Misc/InteractableContainer/MarginContainer" unique_id=1031997667]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "PRESS E TO INTERACT"
@@ -184,7 +224,8 @@ label_settings = ExtResource("3_oh5ij")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="HUD" unique_id=2093565150]
+[node name="TextureRect" type="TextureRect" parent="HUD/Misc" unique_id=2093565150]
+layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0

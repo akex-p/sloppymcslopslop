@@ -9,8 +9,8 @@ class_name Player
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var head = $Head
 @onready var ray = $Head/Camera3D/RayCast3D
-@onready var interact_prompt = $HUD/Control/InteractableContainer/MarginContainer/Label
-@onready var interact_container = $HUD/Control/InteractableContainer
+@onready var interact_prompt = $HUD/Misc/InteractableContainer/MarginContainer/Label
+@onready var interact_container = $HUD/Misc/InteractableContainer
 @onready var audio_player_steps: AudioStreamPlayer3D = $AudioPlayerSteps
 
 var focused: bool = true
@@ -39,14 +39,17 @@ func _unhandled_input(event):
 		focused = false
 	
 	if event.is_action_pressed("interact"):
+		if focused:
+			_try_interact()
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			focused = true
+	
+	if event.is_action_pressed("ask_bob"):
 		if not awake:
 			wake_up.emit()
 		else:
-			if focused:
-				_try_interact()
-			else:
-				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-				focused = true
+			GameManager.ask_bob()
 
 func _physics_process(delta):
 	_update_prompt()
@@ -71,6 +74,17 @@ func _physics_process(delta):
 	head.rotation.x = lerp_angle(head.rotation.x, _target_pitch, CAMERA_SMOOTHING * delta)
 	
 	move_and_slide()
+
+func reset(spawn_position: Vector3, spawn_yaw: float) -> void:
+	global_position = spawn_position
+	velocity = Vector3.ZERO
+	awake = false
+	focused = true
+	_target_yaw = spawn_yaw
+	_target_pitch = 0.0
+	rotation.y = spawn_yaw
+	head.rotation.x = 0.0
+	animation_player.stop()
 
 func _handle_headbob(is_moving: bool):
 	if is_moving:

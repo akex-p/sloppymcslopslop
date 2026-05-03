@@ -1,0 +1,2 @@
+bob: What about putting on your favorite music?
+do GameManager.enable_current()
