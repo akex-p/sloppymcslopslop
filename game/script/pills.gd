@@ -3,7 +3,7 @@ extends Interactable
 func _ready():
 	super()
 	prompt_text = "Take pill"
-	GameManager.register(GameManager.Step.PILL, self)  # THIS goes here
+	GameManager.register(GameManager.Step.PILL, self)
 
 
 func interact() -> void:

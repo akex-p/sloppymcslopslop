@@ -49,7 +49,6 @@ func _unhandled_input(event):
 				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 				focused = true
 
-
 func _physics_process(delta):
 	_update_prompt()
 	
