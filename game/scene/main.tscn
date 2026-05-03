@@ -174,11 +174,12 @@ noise = SubResource("FastNoiseLite_mswub")
 seamless = true
 in_3d_space = true
 as_normal_map = true
+bump_strength = 18.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mswub"]
 render_priority = 0
 shader = SubResource("Shader_k65ib")
-shader_parameter/water_color = Color(0, 0.6313726, 0.7647059, 1)
+shader_parameter/water_color = Color(0, 0.63978815, 0.7161874, 1)
 shader_parameter/fresnel_color = Color(0, 0.6313726, 0.7647059, 1)
 shader_parameter/depth_color = Color(0, 0.21176471, 0.6431373, 1)
 shader_parameter/roughness = 0.05
@@ -186,7 +187,7 @@ shader_parameter/normalmap_a_str = 0.5
 shader_parameter/normalmap_b_str = 0.25
 shader_parameter/normalmap_a = SubResource("NoiseTexture2D_hybxs")
 shader_parameter/movement_direction = Vector2(0.2, 0.1)
-shader_parameter/movement_strength = 0.04
+shader_parameter/movement_strength = 0.015
 shader_parameter/time_scale = 0.025
 shader_parameter/noise_scale = 10.0
 shader_parameter/height_scale = 0.05
@@ -196,8 +197,8 @@ shader_parameter/far = 100.0
 shader_parameter/uv_scale = 1.0
 shader_parameter/depth_distance = 2.0
 shader_parameter/beers_law = 3.5000000521542
-shader_parameter/water_transparency = 0.999999977648
-shader_parameter/refraction_strength = 0.06999999843536
+shader_parameter/water_transparency = 0.749999983236
+shader_parameter/refraction_strength = 0.05
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_of57s"]
 atlas = ExtResource("3_p1hux")
@@ -584,8 +585,11 @@ light_energy = 0.396
 [node name="Room" parent="Environment/LightmapGI" unique_id=114707768 instance=ExtResource("5_0ha60")]
 
 [node name="Tank" parent="Environment/LightmapGI/Room" index="6" unique_id=1987946039]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3327743, 0.67307097, -0.2473988)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3327743, 0.69791603, -0.2473988)
 surface_material_override/0 = SubResource("ShaderMaterial_mswub")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Environment/LightmapGI/Room/Tank" index="0" unique_id=1645170447]
+transform = Transform3D(-0.50600594, -0.69966274, 0.5044107, -0.08086572, 0.62071, 0.7798588, -0.8587309, 0.3538237, -0.37066168, 0.4101175, 0.8065282, -0.33576673)
 
 [node name="GoldFish" parent="Environment/LightmapGI/Room" unique_id=550094524 instance=ExtResource("4_jcbur")]
 transform = Transform3D(-0.12524663, 0, 0.99212563, 0, 1, 0, -0.99212563, 0, -0.12524663, -1.2168106, 0.7707779, -0.3031773)
