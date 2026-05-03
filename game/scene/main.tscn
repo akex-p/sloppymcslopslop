@@ -11,8 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://pd8pm5o347pq" path="res://scene/fishes/moorish_idol_fish.tscn" id="5_smf0o"]
 [ext_resource type="PackedScene" uid="uid://cdxk2rt82suho" path="res://scene/player.tscn" id="6_b5f6u"]
 [ext_resource type="PackedScene" uid="uid://botd7dfmej78w" path="res://scene/fishes/neon_tetra_fish.tscn" id="6_tv8i1"]
-[ext_resource type="PackedScene" uid="uid://kb7iellok8dg" path="res://scene/fishes/piranha_fish.tscn" id="7_0vlqb"]
 [ext_resource type="PackedScene" path="res://scene/radio.tscn" id="8_b5f6u"]
+[ext_resource type="Script" uid="uid://b12521pgq1sed" path="res://scene/fishes_path_follow.gd" id="10_smf0o"]
 [ext_resource type="LabelSettings" uid="uid://b5mocer2sin2i" path="res://resource/standard_label.tres" id="10_tqoya"]
 [ext_resource type="Shader" uid="uid://csextprrxtyne" path="res://resource/shader/crt.gdshader" id="11_k65ib"]
 [ext_resource type="AudioStream" uid="uid://0wfqvf6o4sik" path="res://import/audio/track_002.ogg" id="11_wscrc"]
@@ -446,6 +446,38 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Curve3D" id="Curve3D_tv8i1"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.060339093, -0.03344673, -0.018945977, 0, 0, 0, 0, 0, 0, 0.1311779, -0.022755027, -0.22704756, 0.26331604, -0.051737547, -0.022038698, -0.26331604, 0.051737547, 0.022038698, -0.004373431, 0.008469045, -0.57204956, 0, 0, 0, 0, 0, 0, -0.24096096, -0.049265087, -0.45556802, -0.1811533, -0.047018886, -0.10193907, 0.1811533, 0.047018886, 0.10193907, -0.18750596, 0.019344628, -0.059653506),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="Curve3D" id="Curve3D_smf0o"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.1311779, 0.058956742, -0.22704756, 0, 0, 0, 0, 0, 0, 0.13900185, -0.097638845, -0.5105747, 0.26331604, -0.051737547, -0.022038698, -0.26331604, 0.051737547, 0.022038698, -0.004373431, 0.008469045, -0.8478559, 0, 0, 0, 0, 0, 0, -0.24096096, 0.059744716, -0.45556802, -0.18026257, -0.026434064, -0.11747751, 0.18026257, 0.026434064, 0.11747751, -0.18750596, 0.019344628, -0.059653506),
+"tilts": PackedFloat32Array(0, 0, 0.82566214, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="Curve3D" id="Curve3D_0vlqb"]
+closed = true
+_data = {
+"points": PackedVector3Array(0.06538725, -0.008735299, 0.16063344, -0.06538725, 0.008735299, -0.16063344, 0.024664879, 0.0010143518, 0.11585188, -0.027315736, 0.053323507, 0.06587982, 0.027315736, -0.053323507, -0.06587982, 0.095182896, -0.043442905, -0.081480145, -0.015485227, -0.08456993, -0.11554611, 0.015485227, 0.08456993, 0.11554611, 0.783178, -0.23282117, -0.049467325, 0, 0, 0, 0, 0, 0, 0.8125525, -0.16439539, 0.18047369, 0, 0, 0, 0, 0, 0, 0.46480477, -0.02619642, 0.16430092),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="Curve3D" id="Curve3D_gjnwh"]
+closed = true
+_data = {
+"points": PackedVector3Array(-0.12805486, -0.032257497, 0.06462288, 0.12805486, 0.032257497, -0.06462288, 0.0019927025, -0.038273156, -0.052139074, 0.14269042, -0.031882644, -0.07684183, -0.14269042, 0.031882644, 0.07684183, -0.0063095093, -0.04895097, -0.8038367, 0.15527141, -0.034116566, -0.13452852, -0.15527141, 0.034116566, 0.13452852, -0.08817971, -0.04512739, -0.7959343, -0.0001348257, 0.03655982, -0.20836045, 0.0001348257, -0.03655982, 0.20836045, -0.06697762, -0.0457229, -0.04286562),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0ha60"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_b5f6u"]
@@ -598,21 +630,6 @@ surface_material_override/0 = SubResource("ShaderMaterial_mswub")
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.225, -1.3754524, 0.54007435, 0.011415839)
 surface_material_override/0 = SubResource("StandardMaterial3D_tv8i1")
 
-[node name="GoldFish" parent="Environment/LightmapGI/Room" unique_id=550094524 instance=ExtResource("4_jcbur")]
-transform = Transform3D(-0.12524663, 0, 0.99212563, 0, 1, 0, -0.99212563, 0, -0.12524663, -1.2168106, 0.7707779, -0.3031773)
-
-[node name="MoorishIdolFish" parent="Environment/LightmapGI/Room" unique_id=707864820 instance=ExtResource("5_smf0o")]
-transform = Transform3D(-0.12524663, 0, 0.99212563, 0, 1, 0, -0.99212563, 0, -0.12524663, -1.2168106, 0.8758537, 0.047628164)
-
-[node name="NeonTetraFish" parent="Environment/LightmapGI/Room" unique_id=1919137318 instance=ExtResource("6_tv8i1")]
-transform = Transform3D(-0.12524663, 0, 0.99212563, 0, 1, 0, -0.99212563, 0, -0.12524663, -1.0977521, 0.68022174, -0.11259298)
-
-[node name="PiranhaFish" parent="Environment/LightmapGI/Room" unique_id=1578015832 instance=ExtResource("7_0vlqb")]
-transform = Transform3D(-0.12524663, 0, 0.99212563, 0, 1, 0, -0.99212563, 0, -0.12524663, -1.2168106, 0.76686096, -0.06436406)
-
-[node name="BetaFish" parent="Environment/LightmapGI/Room" unique_id=1354260324 instance=ExtResource("4_wscrc")]
-transform = Transform3D(0.50279367, 0, 0.86440647, 0, 1, 0, -0.86440647, 0, 0.50279367, -1.2701054, 0.80520797, 0.15221432)
-
 [node name="SpriteCeiling" type="AnimatedSprite3D" parent="Environment/LightmapGI" unique_id=309090008]
 transform = Transform3D(1.5473832e-07, 1.18, -5.157944e-08, -1.8324697e-22, -5.157944e-08, -1.18, -1.18, 1.5473832e-07, -6.7638266e-15, 0, 2.1850085, 0)
 sprite_frames = SubResource("SpriteFrames_gn2wi")
@@ -622,6 +639,56 @@ autoplay = "default"
 transform = Transform3D(-0.713, 6.233245e-08, 1.0766001e-07, 6.233245e-08, 0.713, -2.146682e-15, -1.0766001e-07, 7.265255e-15, -0.713, 0, 1.0807327, -2.1248112)
 sprite_frames = SubResource("SpriteFrames_p1hux")
 autoplay = "default"
+
+[node name="Fishes" type="Node3D" parent="Environment" unique_id=1950087077]
+
+[node name="Path_1" type="Path3D" parent="Environment/Fishes" unique_id=744506635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3127153, 0.6355999, 0.11543904)
+curve = SubResource("Curve3D_tv8i1")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Environment/Fishes/Path_1" unique_id=538160188]
+transform = Transform3D(-0.94665074, -0.015654348, 0.32186425, -9.313175e-10, 0.99881136, 0.048578978, -0.32224452, 0.04598743, -0.9455336, 0.060339093, -0.03344673, -0.018945977)
+use_model_front = true
+script = ExtResource("10_smf0o")
+
+[node name="BetaFish" parent="Environment/Fishes/Path_1/PathFollow3D" unique_id=1354260324 instance=ExtResource("4_wscrc")]
+transform = Transform3D(0.19742084, 1.8626451e-09, 0.9803189, -0.04762312, 0.99881935, 0.009590547, -0.97916144, -0.048579216, 0.19718775, 0, 0, 0)
+
+[node name="Path_2" type="Path3D" parent="Environment/Fishes" unique_id=2066586571]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3127153, 0.78861076, 0.11543904)
+curve = SubResource("Curve3D_smf0o")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Environment/Fishes/Path_2" unique_id=1147388545]
+transform = Transform3D(0.99961233, 0.0133322785, -0.024148386, -9.313159e-10, 0.8754253, 0.48332798, 0.02758434, -0.48314038, 0.8750988, 0.1311779, 0.058956742, -0.22704756)
+script = ExtResource("10_smf0o")
+speed = -0.03
+
+[node name="GoldFish" parent="Environment/Fishes/Path_2/PathFollow3D" unique_id=550094524 instance=ExtResource("4_jcbur")]
+transform = Transform3D(-4.37116e-08, 0, 1.0000049, 0, 1.0000067, 0, -1.0000049, 0, -4.37116e-08, 0, 0, 0)
+
+[node name="Path_3" type="Path3D" parent="Environment/Fishes" unique_id=1015113815]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.3127153, 0.9330216, -0.65578055)
+curve = SubResource("Curve3D_0vlqb")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Environment/Fishes/Path_3" unique_id=1115395822]
+transform = Transform3D(0.9260896, 0.018963646, 0.3765406, -9.3120633e-10, 0.9986392, -0.05030331, -0.37697285, 0.046587005, 0.9250278, 0.024664879, 0.0010143518, 0.11585188)
+script = ExtResource("10_smf0o")
+speed = 0.05
+
+[node name="MoorishIdolFish" parent="Environment/Fishes/Path_3/PathFollow3D" unique_id=707864820 instance=ExtResource("5_smf0o")]
+transform = Transform3D(-4.37116e-08, 0, -1.0000054, 0, 1.0000079, 0, 1.0000049, 0, -4.3711623e-08, 0, 0, 0)
+
+[node name="Path_4" type="Path3D" parent="Environment/Fishes" unique_id=1895661109]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3127153, 0.77065927, 0.11543904)
+curve = SubResource("Curve3D_gjnwh")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Environment/Fishes/Path_4" unique_id=448341271]
+transform = Transform3D(0.4505273, -0.19587627, -0.87099886, -7.4505127e-09, 0.97561234, -0.21940787, 0.8927523, 0.09884895, 0.43954948, 0.0019927025, -0.038273156, -0.052139074)
+script = ExtResource("10_smf0o")
+speed = 0.2
+
+[node name="NeonTetraFish" parent="Environment/Fishes/Path_4/PathFollow3D" unique_id=1919137318 instance=ExtResource("6_tv8i1")]
+transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 0, 0, 0)
 
 [node name="Collision" type="Node3D" parent="." unique_id=1379657883]
 
