@@ -11,11 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://cdxk2rt82suho" path="res://scene/player.tscn" id="6_b5f6u"]
 [ext_resource type="PackedScene" uid="uid://botd7dfmej78w" path="res://scene/fishes/neon_tetra_fish.tscn" id="6_tv8i1"]
 [ext_resource type="PackedScene" uid="uid://kb7iellok8dg" path="res://scene/fishes/piranha_fish.tscn" id="7_0vlqb"]
-[ext_resource type="PackedScene" path="res://scene/radio.tscn" id="8_b5f6u"]
+[ext_resource type="PackedScene" uid="uid://dx63ih5nbjb20" path="res://scene/radio.tscn" id="8_b5f6u"]
 [ext_resource type="LabelSettings" uid="uid://b5mocer2sin2i" path="res://resource/standard_label.tres" id="10_tqoya"]
 [ext_resource type="Shader" uid="uid://csextprrxtyne" path="res://resource/shader/crt.gdshader" id="11_k65ib"]
 [ext_resource type="AudioStream" uid="uid://0wfqvf6o4sik" path="res://import/audio/track_002.ogg" id="11_wscrc"]
-[ext_resource type="PackedScene" path="res://scene/pills.tscn" id="13_mswub"]
+[ext_resource type="PackedScene" uid="uid://wnj2pupsycxg" path="res://scene/pills.tscn" id="13_mswub"]
 
 [sub_resource type="Environment" id="Environment_v0l8b"]
 glow_enabled = true
@@ -583,7 +583,7 @@ light_energy = 0.396
 
 [node name="Room" parent="Environment/LightmapGI" unique_id=114707768 instance=ExtResource("5_0ha60")]
 
-[node name="Tank" parent="Environment/LightmapGI/Room" index="6" unique_id=1987946039]
+[node name="Tank" parent="Environment/LightmapGI/Room" index="6" unique_id=1075156473]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3327743, 0.67307097, -0.2473988)
 surface_material_override/0 = SubResource("ShaderMaterial_mswub")
 
