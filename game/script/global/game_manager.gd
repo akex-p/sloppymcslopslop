@@ -1,16 +1,19 @@
 extends Node
 
-
 enum Step {
 	RADIO,
 	PILL,
 	WORKSTATION,
+	FISHTANK,
+	BED
 }
 
 const STEP_NAMES: Dictionary = {
 	Step.RADIO: "radio",
 	Step.PILL:  "pill",
 	Step.WORKSTATION: "workstation",
+	Step.FISHTANK: "fishtank",
+	Step.BED: "bed",
 }
 
 signal step_changed(step: int)

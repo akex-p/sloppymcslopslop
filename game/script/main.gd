@@ -3,6 +3,8 @@ extends Node
 @onready var animation_player_overlay: AnimationPlayer = $Overlay/AnimationPlayer
 @onready var player: Player = $Objects/Player
 @onready var audio_player_wakeup: AudioStreamPlayer = $Node/AudioPlayerWakeup
+@onready var container_skip: PanelContainer = $Commercial/SkipContainer
+@onready var timer_skip: Timer = $Commercial/Timer
 
 var ad_played: bool = false
 
@@ -11,9 +13,13 @@ func _ready() -> void:
 	animation_player_overlay.play("fade_label")
 
 func _unhandled_input(event):
-	if event.is_action_pressed("skip"):
-		$Commercial/VideoStreamPlayer.stop()
-		_on_video_stream_player_finished()
+	if event.is_action_pressed("interact"):
+		if container_skip.visible:
+			$Commercial/VideoStreamPlayer.stop()
+			_on_video_stream_player_finished()
+		else:
+			container_skip.visible = true
+			timer_skip.start()
 
 func wake_up():
 	if not ad_played: return
@@ -31,3 +37,6 @@ func go_to_sleep():
 func _on_video_stream_player_finished() -> void:
 	ad_played = true
 	$Commercial.visible = false
+
+func _on_timer_timeout() -> void:
+	container_skip.visible = false

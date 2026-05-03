@@ -39,17 +39,17 @@ func _unhandled_input(event):
 		focused = false
 	
 	if event.is_action_pressed("interact"):
+		if focused:
+			_try_interact()
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			focused = true
+	
+	if event.is_action_pressed("ask_bob"):
 		if not awake:
 			wake_up.emit()
 		else:
-			if focused:
-				_try_interact()
-			else:
-				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-				focused = true
-	
-	if event.is_action_pressed("ask_bob"):
-		GameManager.ask_bob()
+			GameManager.ask_bob()
 
 func _physics_process(delta):
 	_update_prompt()
