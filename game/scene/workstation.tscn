@@ -32,5 +32,6 @@ shape = SubResource("CylinderShape3D_f8rg6")
 shape = SubResource("SphereShape3D_f8rg6")
 
 [node name="Timer" type="Timer" parent="." unique_id=1381390310]
+one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

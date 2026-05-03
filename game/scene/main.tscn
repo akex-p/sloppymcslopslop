@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bn4855fg4c4hq" path="res://scene/workstation.tscn" id="15_0vlqb"]
 [ext_resource type="PackedScene" uid="uid://de3etjmoxgo1j" path="res://scene/fishtank.tscn" id="16_fdqew"]
 [ext_resource type="FontFile" uid="uid://hdx4v8pw8765" path="res://import/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="16_gjnwh"]
+[ext_resource type="PackedScene" uid="uid://dq04xdudy8gpf" path="res://scene/bed.tscn" id="17_0d4pv"]
 [ext_resource type="VideoStream" uid="uid://dhikx5iujqudf" path="res://import/video/export002.ogv" id="18_0vlqb"]
 
 [sub_resource type="Environment" id="Environment_v0l8b"]
@@ -675,6 +676,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4026055, 0, -1.0149379)
 
 [node name="Fishtank" parent="Objects" unique_id=1225465334 instance=ExtResource("16_fdqew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6245118, 0.73107797, -0.25228485)
+
+[node name="Bed" parent="Objects" unique_id=1286097276 instance=ExtResource("17_0d4pv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5806704, 0.23077261, 1.4593711)
 
 [node name="Overlay" type="CanvasLayer" parent="." unique_id=1424464730]
 layer = 10
