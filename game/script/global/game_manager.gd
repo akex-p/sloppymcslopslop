@@ -24,6 +24,14 @@ func _ready():
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 
 func _on_dialogic_signal(argument):
+	
+	if argument == "start_radio":
+		var radio = interactables.get(Step.RADIO)
+		if is_instance_valid(radio):
+			Dialogic.paused = true
+			current_step = Step.RADIO
+			_enable_current()
+	
 	if argument == "take_pills":
 		var pill = interactables.get(Step.PILL)
 		if is_instance_valid(pill):

@@ -31,6 +31,10 @@ func update_time():
 	
 	# Date uses game day instead of real date
 	date_label.text = "%02d/%02d/%04d" % [game_day, game_month, game_year]
+	
+	# Keep Dialogic variables in sync
+	Dialogic.VAR.date = "%02d/%02d/%04d" % [game_day, game_month, game_year]
+	Dialogic.VAR.time = "%02d:%02d" % [t.hour, t.minute]
 
 # Call this function whenever a game day passes
 func advance_day():

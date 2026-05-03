@@ -1,12 +1,5 @@
-bob: Open those peepers, another great day is waiting...
-update player
-bob: Rise and shine! It is (date & day), and we will have a warm sunny day like we always do!
 bob: Up you get, let's get some work done, shall we?
 bob: What about putting on your favorite music?
-bob: Oh, have you taken your daily capsules yet?
 [signal arg="take_pills"]
 bob: Great job for taking your daily intake of "Everything Capsules"!
 bob: Alright, enough procrastinating. Looks like it’s time to get some work done.
-if :
-if :
-if :
