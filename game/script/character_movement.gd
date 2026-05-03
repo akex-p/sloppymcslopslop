@@ -75,6 +75,17 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
+func reset(spawn_position: Vector3, spawn_yaw: float) -> void:
+	global_position = spawn_position
+	velocity = Vector3.ZERO
+	awake = false
+	focused = true
+	_target_yaw = spawn_yaw
+	_target_pitch = 0.0
+	rotation.y = spawn_yaw
+	head.rotation.x = 0.0
+	animation_player.stop()
+
 func _handle_headbob(is_moving: bool):
 	if is_moving:
 		if not animation_player.is_playing():

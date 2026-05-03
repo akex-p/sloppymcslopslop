@@ -19,7 +19,7 @@ const STEP_NAMES: Dictionary = {
 signal step_changed(step: int)
 
 var current_day: int = 1
-var current_step: int = Step.RADIO
+var current_step: int = 0
 var interactables: Dictionary = {}
 
 func _ready():
@@ -49,6 +49,10 @@ func ask_bob() -> void:
 	var step_name = STEP_NAMES.get(current_step, "unknown")
 	var timeline = "day%d_%s_taskstart" % [current_day, step_name]
 	Dialogic.start(timeline)
+
+func next_day() -> void:
+	current_day += 1
+	current_step = 0
 
 func _on_timeline_ended() -> void:
 	# taskstart ended → world is now interactive

@@ -66,6 +66,9 @@ stream_3/stream = ExtResource("9_dk1vr")
 transform = Transform3D(0.99999976, -0.00022512084, -0.0006078875, 0.00022927535, 0.99997646, 0.0068647647, 0.0006063328, -0.006864901, 0.9999763, 0, 0, 0)
 script = ExtResource("1_xo3ru")
 SPEED = 2.0
+MOUSE_SENSITIVITY = null
+MOVEMENT_SMOOTHING = null
+CAMERA_SMOOTHING = null
 
 [node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=1526649180]
 transform = Transform3D(0.99999994, -8.185452e-12, -5.820766e-11, 4.5474735e-13, 0.99999994, 4.656613e-10, 0, -4.656613e-10, 0.99999994, 0, 0, 0)
