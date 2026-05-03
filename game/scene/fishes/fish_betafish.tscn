@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dcd6nmataffbd" path="res://import/3d/fishes/BetaFish.glb" id="1_afl5v"]
 [ext_resource type="Shader" uid="uid://lv6soat5xye6" path="res://resource/shader/fish_wobble.gdshader" id="2_xkbak"]
-[ext_resource type="Script" uid="uid://bt0j5gdwixkr1" path="res://scene/fishes/prey_fish.gd" id="2_yeg5k"]
+[ext_resource type="Script" uid="uid://bt0j5gdwixkr1" path="res://script/prey_fish.gd" id="2_yeg5k"]
 [ext_resource type="Texture2D" uid="uid://batij7sxeggjp" path="res://import/2d/fishes/BetaFish/BetaFishA.PNG" id="3_yeg5k"]
 [ext_resource type="Texture2D" uid="uid://chc5mdno3542u" path="res://import/2d/fishes/BetaFish/BetaFishB.png" id="4_fiuq1"]
 

@@ -10,7 +10,7 @@
 [ext_resource type="LabelSettings" uid="uid://b5mocer2sin2i" path="res://resource/standard_label.tres" id="10_tqoya"]
 [ext_resource type="Shader" uid="uid://csextprrxtyne" path="res://resource/shader/crt.gdshader" id="11_k65ib"]
 [ext_resource type="AudioStream" uid="uid://0wfqvf6o4sik" path="res://import/audio/track_002.ogg" id="11_wscrc"]
-[ext_resource type="PackedScene" uid="uid://dywql7cwr4cmq" path="res://scene/day_1.tscn" id="12_tv8i1"]
+[ext_resource type="PackedScene" path="res://scene/day_1.tscn" id="12_tv8i1"]
 [ext_resource type="FontFile" uid="uid://hdx4v8pw8765" path="res://import/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="16_gjnwh"]
 [ext_resource type="VideoStream" uid="uid://dhikx5iujqudf" path="res://import/video/export002.ogv" id="18_0vlqb"]
 
@@ -415,7 +415,7 @@ light_energy = 0.396
 
 [node name="Room" parent="Environment/LightmapGI" unique_id=1160661912 instance=ExtResource("5_0ha60")]
 
-[node name="Nightstand" parent="Environment/LightmapGI/Room" index="2" unique_id=680659053]
+[node name="Nightstand" parent="Environment/LightmapGI/Room" index="2" unique_id=614386915]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.4, 1.3235433, 0.59472466, 0.3905229)
 
 [node name="Day1" parent="Environment/LightmapGI" unique_id=666778257 instance=ExtResource("12_tv8i1")]

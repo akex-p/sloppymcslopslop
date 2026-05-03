@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://e2a7thwexs4j"]
 
-[ext_resource type="Script" uid="uid://bqcbbhwqrhqct" path="res://scene/hunting_piranha.gd" id="1_0rel7"]
+[ext_resource type="Script" uid="uid://bqcbbhwqrhqct" path="res://script/hunting_piranha.gd" id="1_0rel7"]
 [ext_resource type="PackedScene" uid="uid://kb7iellok8dg" path="res://scene/fishes/piranha_fish.tscn" id="1_idr0n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0rel7"]

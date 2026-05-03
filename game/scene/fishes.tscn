@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b57dhngxjxete"]
 
-[ext_resource type="Script" uid="uid://b12521pgq1sed" path="res://scene/fishes_path_follow.gd" id="1_jukrx"]
+[ext_resource type="Script" uid="uid://b12521pgq1sed" path="res://script/fishes_path_follow.gd" id="1_jukrx"]
 [ext_resource type="PackedScene" uid="uid://6vyh6cnhdwva" path="res://scene/fishes/fish_betafish.tscn" id="2_paxul"]
 [ext_resource type="PackedScene" uid="uid://ciukkslkobyml" path="res://scene/fishes/gold_fish.tscn" id="3_2plca"]
 [ext_resource type="PackedScene" uid="uid://pd8pm5o347pq" path="res://scene/fishes/moorish_idol_fish.tscn" id="4_ae4l5"]

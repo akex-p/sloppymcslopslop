@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://byfhpc025nyrt" path="res://import/3d/fishes/MoorishIdolFish.glb" id="1_n4td1"]
 [ext_resource type="Shader" uid="uid://lv6soat5xye6" path="res://resource/shader/fish_wobble.gdshader" id="2_2q57s"]
-[ext_resource type="Script" uid="uid://bt0j5gdwixkr1" path="res://scene/fishes/prey_fish.gd" id="2_2rc7r"]
+[ext_resource type="Script" uid="uid://bt0j5gdwixkr1" path="res://script/prey_fish.gd" id="2_2rc7r"]
 [ext_resource type="Texture2D" uid="uid://u70nr5ogiof" path="res://import/2d/fishes/MoorishIdol/MoorishIdolA.PNG" id="3_2rc7r"]
 [ext_resource type="Texture2D" uid="uid://bixoi33bb0nob" path="res://import/2d/fishes/MoorishIdol/MoorishIdolB.png" id="4_chgtt"]
 
