@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cjfao0vtm2olw"]
+
+[ext_resource type="PackedScene" uid="uid://db7k4peqnnukm" path="res://import/3d/EverythingCapsules/EverythingCapsules.glb" id="1_hndwe"]
+
+[node name="EverythingCapsules" unique_id=544956313 instance=ExtResource("1_hndwe")]
+
+[node name="Cylinder" parent="." index="0" unique_id=483703800]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

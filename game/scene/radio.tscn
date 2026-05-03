@@ -3,9 +3,7 @@
 [ext_resource type="Script" uid="uid://dkem7rpu2fp3c" path="res://script/radio.gd" id="1_a3dfu"]
 [ext_resource type="AudioStream" uid="uid://dn5m616p0c7wt" path="res://import/audio/track_001.ogg" id="2_a3dfu"]
 [ext_resource type="AudioStream" uid="uid://bpjlfjasgs6og" path="res://import/audio/clock.wav" id="3_osh7q"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_6yaaa"]
-size = Vector3(0.3, 0.3, 0.3)
+[ext_resource type="PackedScene" uid="uid://c7ystvxrr1t71" path="res://import/3d/radio/RADIOOOO.glb" id="4_kho8k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6yaaa"]
 size = Vector3(0.3, 0.3, 0.3)
@@ -18,9 +16,6 @@ collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_a3dfu")
 area_interact = NodePath("Area3D")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=316282081]
-mesh = SubResource("BoxMesh_6yaaa")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=923374784]
 shape = SubResource("BoxShape3D_6yaaa")
@@ -42,3 +37,6 @@ volume_db = -5.0
 unit_size = 1.0
 autoplay = true
 bus = &"Music"
+
+[node name="RADIOOOO" parent="." unique_id=1092301845 instance=ExtResource("4_kho8k")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
