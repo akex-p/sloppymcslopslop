@@ -1,2 +1,2 @@
-bob: Go to bed \:)
+bob: My indicators tell me that you should get some rest now.
 do GameManager.enable_current()

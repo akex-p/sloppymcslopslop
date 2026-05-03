@@ -1,1 +1,2 @@
-bob: NOIOIIOCEJIOJIOEIOIO GOOD NIGHT
+bob: Close your eyes and relax. BOB will provide you with dreams shortly.
+do GameManager.next_day()
