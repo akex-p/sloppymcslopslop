@@ -69,8 +69,8 @@ audio/channel_defaults={
 }
 }
 variables={
-"date": "",
-"time": "",
+"date": "0",
+"time": "0",
 "work_count": 0
 }
 layout/style_list=[]
