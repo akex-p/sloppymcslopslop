@@ -34,7 +34,6 @@ func _input(event):
 		_target_pitch = clamp(_target_pitch, deg_to_rad(-89), deg_to_rad(89))
 
 func _unhandled_input(event):
-
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		focused = false

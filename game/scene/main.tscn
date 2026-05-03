@@ -10,14 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://ng6q0qc7qjt5" path="res://import/3d/room_skeleton/room_skeleton.glb" id="5_0ha60"]
 [ext_resource type="PackedScene" uid="uid://pd8pm5o347pq" path="res://scene/fishes/moorish_idol_fish.tscn" id="5_smf0o"]
 [ext_resource type="PackedScene" uid="uid://cdxk2rt82suho" path="res://scene/player.tscn" id="6_b5f6u"]
-[ext_resource type="PackedScene" path="res://scene/fishes/neon_tetra_fish.tscn" id="6_tv8i1"]
-[ext_resource type="PackedScene" path="res://scene/fishes/piranha_fish.tscn" id="7_0vlqb"]
+[ext_resource type="PackedScene" uid="uid://botd7dfmej78w" path="res://scene/fishes/neon_tetra_fish.tscn" id="6_tv8i1"]
+[ext_resource type="PackedScene" uid="uid://kb7iellok8dg" path="res://scene/fishes/piranha_fish.tscn" id="7_0vlqb"]
 [ext_resource type="PackedScene" uid="uid://dx63ih5nbjb20" path="res://scene/radio.tscn" id="8_b5f6u"]
 [ext_resource type="LabelSettings" uid="uid://b5mocer2sin2i" path="res://resource/standard_label.tres" id="10_tqoya"]
-[ext_resource type="Shader" path="res://resource/shader/crt.gdshader" id="11_k65ib"]
+[ext_resource type="Shader" uid="uid://csextprrxtyne" path="res://resource/shader/crt.gdshader" id="11_k65ib"]
 [ext_resource type="AudioStream" uid="uid://0wfqvf6o4sik" path="res://import/audio/track_002.ogg" id="11_wscrc"]
 [ext_resource type="PackedScene" uid="uid://wnj2pupsycxg" path="res://scene/pills.tscn" id="13_mswub"]
-[ext_resource type="Script" uid="uid://dn1pslxkmf3c8" path="res://script/workstation.gd" id="15_tv8i1"]
+[ext_resource type="Script" path="res://script/workstation.gd" id="15_tv8i1"]
+[ext_resource type="VideoStream" uid="uid://dhikx5iujqudf" path="res://import/video/export002.ogv" id="18_0vlqb"]
 
 [sub_resource type="Environment" id="Environment_v0l8b"]
 glow_enabled = true
@@ -591,11 +592,11 @@ light_energy = 0.396
 
 [node name="Room" parent="Environment/LightmapGI" unique_id=114707768 instance=ExtResource("5_0ha60")]
 
-[node name="Tank" parent="Environment/LightmapGI/Room" index="6" unique_id=299847519]
+[node name="Tank" parent="Environment/LightmapGI/Room" index="6" unique_id=1075156473]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3327743, 0.69382423, -0.2473988)
 surface_material_override/0 = SubResource("ShaderMaterial_mswub")
 
-[node name="Tank_Sand" parent="Environment/LightmapGI/Room" index="7" unique_id=868683876]
+[node name="Tank_Sand" parent="Environment/LightmapGI/Room" index="7" unique_id=1741588955]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.225, -1.3754524, 0.54007435, 0.011415839)
 surface_material_override/0 = SubResource("StandardMaterial3D_tv8i1")
 
@@ -708,11 +709,27 @@ metadata/_edit_use_anchors_ = true
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_tqoya")
 
+[node name="Commercial" type="CanvasLayer" parent="." unique_id=1892777079]
+layer = 10
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Commercial" unique_id=1735349935]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("18_0vlqb")
+autoplay = true
+expand = true
+metadata/_edit_use_anchors_ = true
+
 [node name="Node" type="Node" parent="." unique_id=975526230]
 
 [node name="AudioPlayerWakeup" type="AudioStreamPlayer" parent="Node" unique_id=193470975]
 stream = ExtResource("11_wscrc")
 volume_db = -15.0
 bus = &"SFX"
+
+[connection signal="finished" from="Commercial/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
 
 [editable path="Environment/LightmapGI/Room"]
