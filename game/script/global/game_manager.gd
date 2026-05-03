@@ -2,7 +2,7 @@ extends Node
 
 signal step_changed(step: int)
 
-enum Step { WAKE_UP, RADIO, PILL, WINDOW, FISH_TANK, BED }
+enum Step { WAKE_UP, RADIO, PILL, WORK, FISH_TANK, BED }
 
 var current_step: int = Step.WAKE_UP
 var interactables: Dictionary = {}
@@ -39,5 +39,13 @@ func _on_dialogic_signal(argument):
 			current_step = Step.PILL
 			_enable_current()
 		# if pill is gone (already taken), dialog just continues
+
+	if argument == "need_more_work":
+		Dialogic.paused = true
+		current_step = Step.WORK
+		_enable_current()
 	
+	if argument == "work_done":
+		print(argument)
+		Dialogic.paused = false
 	
