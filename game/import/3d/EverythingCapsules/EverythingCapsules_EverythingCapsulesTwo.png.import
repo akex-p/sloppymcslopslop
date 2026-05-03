@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhea4c6qk4yx0"
-path.s3tc="res://.godot/imported/Radio1.png-b56b19a0795394f3eec42954c29fd757.s3tc.ctex"
+uid="uid://cpn2gui8mg4lb"
+path.s3tc="res://.godot/imported/EverythingCapsules_EverythingCapsulesTwo.png-b6860a659d4737485a4821407697d7da.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "49c2013ea8cffe72895eba18048e93a2"
+}
 
 [deps]
 
-source_file="res://Radio1.png"
-dest_files=["res://.godot/imported/Radio1.png-b56b19a0795394f3eec42954c29fd757.s3tc.ctex"]
+source_file="res://import/3d/EverythingCapsules/EverythingCapsules_EverythingCapsulesTwo.png"
+dest_files=["res://.godot/imported/EverythingCapsules_EverythingCapsulesTwo.png-b6860a659d4737485a4821407697d7da.s3tc.ctex"]
 
 [params]
 

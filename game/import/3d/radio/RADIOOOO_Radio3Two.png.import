@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhea4c6qk4yx0"
-path.s3tc="res://.godot/imported/Radio1.png-b56b19a0795394f3eec42954c29fd757.s3tc.ctex"
+uid="uid://4fsm3knwws6d"
+path.s3tc="res://.godot/imported/RADIOOOO_Radio3Two.png-c0f2b89e292b836d312cbc779b8989cc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "53577f0d8c2393f01da8fa78a8aabe5c"
+}
 
 [deps]
 
-source_file="res://Radio1.png"
-dest_files=["res://.godot/imported/Radio1.png-b56b19a0795394f3eec42954c29fd757.s3tc.ctex"]
+source_file="res://import/3d/radio/RADIOOOO_Radio3Two.png"
+dest_files=["res://.godot/imported/RADIOOOO_Radio3Two.png-c0f2b89e292b836d312cbc779b8989cc.s3tc.ctex"]
 
 [params]
 

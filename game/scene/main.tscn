@@ -7,13 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://xfnydqbg0jwr" path="res://import/2d/sand/SandTile.png" id="4_smf0o"]
 [ext_resource type="PackedScene" uid="uid://ng6q0qc7qjt5" path="res://import/3d/room_skeleton/room_skeleton.glb" id="5_0ha60"]
 [ext_resource type="PackedScene" uid="uid://cdxk2rt82suho" path="res://scene/player.tscn" id="6_b5f6u"]
+[ext_resource type="PackedScene" uid="uid://dx63ih5nbjb20" path="res://scene/radio.tscn" id="8_b5f6u"]
 [ext_resource type="LabelSettings" uid="uid://b5mocer2sin2i" path="res://resource/standard_label.tres" id="10_tqoya"]
 [ext_resource type="Shader" uid="uid://csextprrxtyne" path="res://resource/shader/crt.gdshader" id="11_k65ib"]
 [ext_resource type="AudioStream" uid="uid://0wfqvf6o4sik" path="res://import/audio/track_002.ogg" id="11_wscrc"]
 [ext_resource type="PackedScene" uid="uid://dywql7cwr4cmq" path="res://scene/day_1.tscn" id="12_tv8i1"]
 [ext_resource type="FontFile" uid="uid://hdx4v8pw8765" path="res://import/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="16_gjnwh"]
 [ext_resource type="VideoStream" uid="uid://dhikx5iujqudf" path="res://import/video/export002.ogv" id="18_0vlqb"]
-[ext_resource type="PackedScene" uid="uid://bxogckpuxydkq" path="res://scene/fishes.tscn" id="19_0vlqb"]
+[ext_resource type="PackedScene" path="res://scene/fishes.tscn" id="19_0vlqb"]
 
 [sub_resource type="Environment" id="Environment_v0l8b"]
 glow_normalized = true
@@ -595,11 +596,11 @@ light_energy = 0.396
 
 [node name="Room" parent="Environment/LightmapGI" unique_id=114707768 instance=ExtResource("5_0ha60")]
 
-[node name="Tank" parent="Environment/LightmapGI/Room" index="6" unique_id=1075156473]
+[node name="Tank" parent="Environment/LightmapGI/Room" index="6" unique_id=784592832]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3327743, 0.69382423, -0.2473988)
 surface_material_override/0 = SubResource("ShaderMaterial_mswub")
 
-[node name="Tank_Sand" parent="Environment/LightmapGI/Room" index="7" unique_id=1741588955]
+[node name="Tank_Sand" parent="Environment/LightmapGI/Room" index="7" unique_id=1215963969]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.225, -1.3754524, 0.54007435, 0.011415839)
 surface_material_override/0 = SubResource("StandardMaterial3D_tv8i1")
 
@@ -745,6 +746,9 @@ volume_db = -15.0
 bus = &"SFX"
 
 [node name="Fishes" parent="." unique_id=1932245005 instance=ExtResource("19_0vlqb")]
+
+[node name="Radio" parent="." unique_id=1794016338 instance=ExtResource("8_b5f6u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0256903, 0.78638405, 0.23589626)
 
 [connection signal="finished" from="Commercial/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
 [connection signal="timeout" from="Commercial/Timer" to="." method="_on_timer_timeout"]
