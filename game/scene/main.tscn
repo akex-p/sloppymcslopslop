@@ -4,20 +4,16 @@
 [ext_resource type="LightmapGIData" uid="uid://ch3ckbojir1l5" path="res://bake/main.lmbake" id="2_of57s"]
 [ext_resource type="Texture2D" uid="uid://b684tubkv0yrw" path="res://import/2d/sky/sky_001.png" id="3_p1hux"]
 [ext_resource type="Texture2D" uid="uid://cn7lfywl5ggqr" path="res://import/2d/sky/sky_002.png" id="4_b5f6u"]
-[ext_resource type="PackedScene" uid="uid://ciukkslkobyml" path="res://scene/fishes/gold_fish.tscn" id="4_jcbur"]
 [ext_resource type="Texture2D" uid="uid://xfnydqbg0jwr" path="res://import/2d/sand/SandTile.png" id="4_smf0o"]
-[ext_resource type="PackedScene" uid="uid://6vyh6cnhdwva" path="res://scene/fishes/fish_betafish.tscn" id="4_wscrc"]
 [ext_resource type="PackedScene" uid="uid://ng6q0qc7qjt5" path="res://import/3d/room_skeleton/room_skeleton.glb" id="5_0ha60"]
-[ext_resource type="PackedScene" uid="uid://pd8pm5o347pq" path="res://scene/fishes/moorish_idol_fish.tscn" id="5_smf0o"]
 [ext_resource type="PackedScene" uid="uid://cdxk2rt82suho" path="res://scene/player.tscn" id="6_b5f6u"]
-[ext_resource type="PackedScene" uid="uid://botd7dfmej78w" path="res://scene/fishes/neon_tetra_fish.tscn" id="6_tv8i1"]
-[ext_resource type="PackedScene" uid="uid://kb7iellok8dg" path="res://scene/fishes/piranha_fish.tscn" id="7_0vlqb"]
 [ext_resource type="LabelSettings" uid="uid://b5mocer2sin2i" path="res://resource/standard_label.tres" id="10_tqoya"]
 [ext_resource type="Shader" uid="uid://csextprrxtyne" path="res://resource/shader/crt.gdshader" id="11_k65ib"]
 [ext_resource type="AudioStream" uid="uid://0wfqvf6o4sik" path="res://import/audio/track_002.ogg" id="11_wscrc"]
-[ext_resource type="PackedScene" uid="uid://dvjhmo80f6g62" path="res://scene/day_1.tscn" id="12_tv8i1"]
+[ext_resource type="PackedScene" uid="uid://dywql7cwr4cmq" path="res://scene/day_1.tscn" id="12_tv8i1"]
 [ext_resource type="FontFile" uid="uid://hdx4v8pw8765" path="res://import/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="16_gjnwh"]
 [ext_resource type="VideoStream" uid="uid://dhikx5iujqudf" path="res://import/video/export002.ogv" id="18_0vlqb"]
+[ext_resource type="PackedScene" uid="uid://bxogckpuxydkq" path="res://scene/fishes.tscn" id="19_0vlqb"]
 
 [sub_resource type="Environment" id="Environment_v0l8b"]
 glow_normalized = true
@@ -607,21 +603,6 @@ surface_material_override/0 = SubResource("ShaderMaterial_mswub")
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.225, -1.3754524, 0.54007435, 0.011415839)
 surface_material_override/0 = SubResource("StandardMaterial3D_tv8i1")
 
-[node name="GoldFish" parent="Environment/LightmapGI/Room" unique_id=550094524 instance=ExtResource("4_jcbur")]
-transform = Transform3D(-0.12524663, 0, 0.99212563, 0, 1, 0, -0.99212563, 0, -0.12524663, -1.2168106, 0.7707779, -0.3031773)
-
-[node name="MoorishIdolFish" parent="Environment/LightmapGI/Room" unique_id=707864820 instance=ExtResource("5_smf0o")]
-transform = Transform3D(-0.12524663, 0, 0.99212563, 0, 1, 0, -0.99212563, 0, -0.12524663, -1.2168106, 0.8758537, 0.047628164)
-
-[node name="NeonTetraFish" parent="Environment/LightmapGI/Room" unique_id=1919137318 instance=ExtResource("6_tv8i1")]
-transform = Transform3D(-0.12524663, 0, 0.99212563, 0, 1, 0, -0.99212563, 0, -0.12524663, -1.0977521, 0.68022174, -0.11259298)
-
-[node name="PiranhaFish" parent="Environment/LightmapGI/Room" unique_id=1578015832 instance=ExtResource("7_0vlqb")]
-transform = Transform3D(-0.12524663, 0, 0.99212563, 0, 1, 0, -0.99212563, 0, -0.12524663, -1.2168106, 0.76686096, -0.06436406)
-
-[node name="BetaFish" parent="Environment/LightmapGI/Room" unique_id=1354260324 instance=ExtResource("4_wscrc")]
-transform = Transform3D(0.50279367, 0, 0.86440647, 0, 1, 0, -0.86440647, 0, 0.50279367, -1.2701054, 0.80520797, 0.15221432)
-
 [node name="SpriteCeiling" type="AnimatedSprite3D" parent="Environment/LightmapGI" unique_id=309090008]
 transform = Transform3D(1.5473832e-07, 1.18, -5.157944e-08, -1.8324697e-22, -5.157944e-08, -1.18, -1.18, 1.5473832e-07, -6.7638266e-15, 0, 2.1850085, 0)
 sprite_frames = SubResource("SpriteFrames_gn2wi")
@@ -762,6 +743,8 @@ wait_time = 3.0
 stream = ExtResource("11_wscrc")
 volume_db = -15.0
 bus = &"SFX"
+
+[node name="Fishes" parent="." unique_id=1932245005 instance=ExtResource("19_0vlqb")]
 
 [connection signal="finished" from="Commercial/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
 [connection signal="timeout" from="Commercial/Timer" to="." method="_on_timer_timeout"]
