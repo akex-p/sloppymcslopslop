@@ -14,10 +14,8 @@ class_name Main
 @onready var environment: Node3D = $Environment
 
 var ad_played: bool = false
-var day_node: Node3D
 
 func _ready() -> void:
-	day_node = $Environment/LightmapGI/Day1
 	GameManager.main = self
 	player.wake_up.connect(wake_up)
 	animation_player_overlay.play("fade_label")
@@ -30,6 +28,10 @@ func _unhandled_input(event):
 		else:
 			container_skip.visible = true
 			timer_skip.start()
+	
+	if event.is_action_pressed("reload_game"):
+		GameManager.reset()
+		get_tree().reload_current_scene()
 
 func wake_up():
 	if not ad_played: return

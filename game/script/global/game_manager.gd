@@ -54,9 +54,15 @@ func ask_bob() -> void:
 func next_day() -> void:
 	current_day += 1
 	current_step = 0
+	interactables.clear()
 	main.go_to_sleep()
 
 func _on_timeline_ended() -> void:
 	# taskstart ended → world is now interactive
 	# taskend ended → next step's taskstart will be triggered by ask_bob
 	pass
+
+func reset() -> void:
+	interactables.clear()
+	current_day = 1
+	current_step = 0
