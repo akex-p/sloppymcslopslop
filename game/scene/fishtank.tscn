@@ -8,13 +8,17 @@
 [ext_resource type="AudioStream" uid="uid://cfukh7o6g772a" path="res://import/audio/voice/bob5 - fish1.wav" id="6_p2ifn"]
 [ext_resource type="PackedScene" uid="uid://6vyh6cnhdwva" path="res://scene/fishes/fish_betafish.tscn" id="6_u1gco"]
 [ext_resource type="PackedScene" uid="uid://botd7dfmej78w" path="res://scene/fishes/neon_tetra_fish.tscn" id="7_hk0l4"]
+[ext_resource type="Texture2D" uid="uid://dc8wgvcwxk4xl" path="res://import/2d/fishes/BetaFish/BetaFishC.png" id="7_k8s28"]
 [ext_resource type="AudioStream" uid="uid://brqjjx68rntl6" path="res://import/audio/voice/bob5 - fish2.wav" id="7_trus2"]
 [ext_resource type="AudioStream" uid="uid://dy1jclfyvmo5u" path="res://import/audio/voice/bob5 - fish3.wav" id="8_gqa2o"]
 [ext_resource type="PackedScene" uid="uid://pd8pm5o347pq" path="res://scene/fishes/moorish_idol_fish.tscn" id="8_k8s28"]
+[ext_resource type="Texture2D" uid="uid://cmh8q22mbbpxh" path="res://import/2d/fishes/NeonTetra/NeonTetraC.png" id="9_hodie"]
 [ext_resource type="PackedScene" uid="uid://ciukkslkobyml" path="res://scene/fishes/gold_fish.tscn" id="9_nkd54"]
 [ext_resource type="AudioStream" uid="uid://drvuopd3rch0k" path="res://import/audio/voice/bob5 - fish4.wav" id="9_p7had"]
 [ext_resource type="AudioStream" uid="uid://cwew1sytmiyga" path="res://import/audio/voice/bob5 - fish5.wav" id="10_krybg"]
+[ext_resource type="Texture2D" uid="uid://ce3wqwuyfskqq" path="res://import/2d/fishes/MoorishIdol/MoorishIdolC.png" id="11_p0pup"]
 [ext_resource type="PackedScene" uid="uid://bwf1esb0feki0" path="res://scene/fishtank_decorations/rock.tscn" id="11_trus2"]
+[ext_resource type="Texture2D" uid="uid://bews2gry6iqfo" path="res://import/2d/fishes/GoldFish/GoldFishC.png" id="13_54hk2"]
 [ext_resource type="AudioStream" uid="uid://iolcw2ox1h5x" path="res://import/audio/cleaning.wav" id="17_hk0l4"]
 [ext_resource type="AudioStream" uid="uid://1trwvb4nbx35" path="res://import/audio/splash.mp3" id="18_k8s28"]
 
@@ -111,17 +115,21 @@ transform = Transform3D(0.26538137, 0, 0, 0, 0.21783847, 0, 0, 0, 0.22220445, -1
 [node name="FishesOutofTank" type="Node3D" parent="." unique_id=944409543]
 visible = false
 
-[node name="BetaFish" parent="FishesOutofTank" unique_id=1354260324 instance=ExtResource("6_u1gco")]
+[node name="BetaFish" parent="FishesOutofTank" unique_id=1571760342 instance=ExtResource("6_u1gco")]
 transform = Transform3D(0.49999756, -0.8660186, 3.785498e-08, 0, -4.3711037e-08, -0.99999493, 0.8660213, 0.499996, -2.1855584e-08, -0.6415942, 0.011893526, 0.096493065)
+new_texture = ExtResource("7_k8s28")
 
-[node name="NeonTetraFish" parent="FishesOutofTank" unique_id=1919137318 instance=ExtResource("7_hk0l4")]
+[node name="NeonTetraFish" parent="FishesOutofTank" unique_id=1671698379 instance=ExtResource("7_hk0l4")]
 transform = Transform3D(0.23467067, -0.26088122, -1.1403613e-08, 0, -1.533815e-08, 0.3509001, -0.26088443, -0.23466776, -1.0257773e-08, -0.59577507, 0.011015266, -0.1678098)
+new_texture = ExtResource("9_hodie")
 
-[node name="MoorishIdolFish" parent="FishesOutofTank" unique_id=707864820 instance=ExtResource("8_k8s28")]
+[node name="MoorishIdolFish" parent="FishesOutofTank" unique_id=865976934 instance=ExtResource("8_k8s28")]
 transform = Transform3D(-0.9901703, -0.13985229, 6.112938e-09, 0, -4.3707576e-08, -0.99988043, 0.13986439, -0.99008447, 4.3276557e-08, -0.81991744, 0.0067106336, -0.12030268)
+new_texture = ExtResource("11_p0pup")
 
-[node name="GoldFish" parent="FishesOutofTank" unique_id=550094524 instance=ExtResource("9_nkd54")]
+[node name="GoldFish" parent="FishesOutofTank" unique_id=1452327361 instance=ExtResource("9_nkd54")]
 transform = Transform3D(0.2121091, 0.9772386, -4.2716675e-08, 0, -4.371106e-08, -0.99999774, -0.9772443, 0.21210787, -9.271581e-09, -0.42575932, 0.013643146, -0.11160852)
+new_texture = ExtResource("13_54hk2")
 
 [node name="PiranhaSpawn" type="Node3D" parent="." unique_id=1237686096]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.346957, 0.7592341, -0.6156479)

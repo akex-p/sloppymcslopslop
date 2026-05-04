@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bbkyqknv437kk" path="res://scene/fishtank.tscn" id="4_u6nhe"]
 [ext_resource type="PackedScene" uid="uid://b43raf6hj1h73" path="res://scene/bed.tscn" id="5_s46gu"]
 [ext_resource type="PackedScene" uid="uid://clmtd51uharsh" path="res://import/3d/Box/Box.glb" id="7_1il6w"]
+[ext_resource type="Texture2D" uid="uid://b4t55buonge3l" path="res://import/2d/Decorations/Receipt.png" id="8_u6nhe"]
 
 [node name="Day3" type="Node3D" unique_id=666778257]
 script = ExtResource("1_2vd1w")
@@ -24,3 +25,8 @@ transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 2.17
 
 [node name="Box" parent="." unique_id=920141514 instance=ExtResource("7_1il6w")]
 transform = Transform3D(-0.8660254, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, -0.8660254, -1.1774647, 0.17486978, -1.2815726)
+
+[node name="Sprite3D4" type="Sprite3D" parent="Box" unique_id=118944244]
+transform = Transform3D(0.30805513, 0.30570912, 1.33629685e-08, 1.0328635e-16, -1.897074e-08, 0.434, 0.30570912, -0.30805513, -1.3465516e-08, 0.08914757, 0.17824447, 0.12665331)
+shaded = true
+texture = ExtResource("8_u6nhe")

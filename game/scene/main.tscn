@@ -19,6 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://dywql7cwr4cmq" path="res://scene/day_1.tscn" id="12_tv8i1"]
 [ext_resource type="FontFile" uid="uid://hdx4v8pw8765" path="res://import/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="16_gjnwh"]
 [ext_resource type="VideoStream" uid="uid://dhikx5iujqudf" path="res://import/video/export002.ogv" id="18_0vlqb"]
+[ext_resource type="Texture2D" uid="uid://cxvv4uinfbdv0" path="res://import/2d/Decorations/BOBCalander.png" id="20_gjnwh"]
+[ext_resource type="Texture2D" uid="uid://v4hrac2kc1kh" path="res://import/2d/Decorations/FishPoster.png" id="21_0d4pv"]
+[ext_resource type="Texture2D" uid="uid://bak5kp76n2bxh" path="res://import/2d/Decorations/FavoriteSongs.png" id="21_fdqew"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_of57s"]
 atlas = ExtResource("3_p1hux")
@@ -637,6 +640,21 @@ bus = &"SFX"
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=677954847]
 transform = Transform3D(0.91318303, -1.7814559e-08, 0.40754962, -0.40754962, -3.9916497e-08, 0.91318303, 0, -1, -4.371139e-08, -0.8570783, 1.6880724, -0.21486688)
 spot_angle = 36.22
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=887453260]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.4699249, 1.1984286, -0.45406747)
+shaded = true
+texture = ExtResource("20_gjnwh")
+
+[node name="Sprite3D3" type="Sprite3D" parent="." unique_id=1699162791]
+transform = Transform3D(0.9849981, 0.17256522, 0, -0.17256522, 0.9849981, 0, 0, 0, 1, 0.65839106, 1.1984286, 1.985265)
+shaded = true
+texture = ExtResource("21_0d4pv")
+
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=232033308]
+transform = Transform3D(0.30331802, 0.9528894, 2.839367e-08, 4.371139e-08, -4.371139e-08, 1, 0.9528894, -0.30331802, -5.4910572e-08, -0.23273939, 0.01713705, 1.6325989)
+shaded = true
+texture = ExtResource("21_fdqew")
 
 [connection signal="finished" from="Commercial/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
 [connection signal="timeout" from="Commercial/Timer" to="." method="_on_timer_timeout"]
