@@ -8,7 +8,7 @@ var piranha
 
 func _ready():
 	super()
-	prompt_text = "Feed Fish"
+	prompt_text = "Care for Fish"
 	GameManager.register(GameManager.Step.FISHTANK, self)
 
 func interact() -> void:

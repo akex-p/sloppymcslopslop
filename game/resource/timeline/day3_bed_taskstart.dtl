@@ -1,0 +1,2 @@
+bob: You must be feeling exhausted. Let's get you to bed.
+do GameManager.enable_current()

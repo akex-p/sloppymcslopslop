@@ -1,0 +1,3 @@
+bob: Your fish sure are looking awfully lonely. I've ordered you some friends for them.
+bob: They should be in that box behind you. Pick it up and introduce them to each other!
+do GameManager.enable_current()
