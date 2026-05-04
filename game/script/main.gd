@@ -78,4 +78,4 @@ func _on_timer_timeout() -> void:
 	container_skip.visible = false
 	
 func bob_offline() -> void:
-	print("offline")
+	Dialogic.start("bob_offline")
