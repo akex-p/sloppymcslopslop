@@ -3,13 +3,14 @@
 [ext_resource type="Script" uid="uid://bk2htbir1g8mb" path="res://script/fishtank.gd" id="1_fk8l4"]
 [ext_resource type="PackedScene" uid="uid://bqqsqocju2r2" path="res://import/3d/fishtank/fishtank.glb" id="2_b66a4"]
 [ext_resource type="PackedScene" uid="uid://e2a7thwexs4j" path="res://scene/fishes/hunting_piranha.tscn" id="2_gw6h2"]
-[ext_resource type="Shader" path="res://resource/shader/waterv4.gdshader" id="3_kribh"]
+[ext_resource type="Shader" uid="uid://bk7sls701ffko" path="res://resource/shader/waterv4.gdshader" id="3_kribh"]
 [ext_resource type="PackedScene" uid="uid://b57dhngxjxete" path="res://scene/fishes.tscn" id="4_b1avd"]
 [ext_resource type="AudioStream" uid="uid://cfukh7o6g772a" path="res://import/audio/voice/bob5 - fish1.wav" id="6_p2ifn"]
 [ext_resource type="AudioStream" uid="uid://brqjjx68rntl6" path="res://import/audio/voice/bob5 - fish2.wav" id="7_trus2"]
 [ext_resource type="AudioStream" uid="uid://dy1jclfyvmo5u" path="res://import/audio/voice/bob5 - fish3.wav" id="8_gqa2o"]
 [ext_resource type="AudioStream" uid="uid://drvuopd3rch0k" path="res://import/audio/voice/bob5 - fish4.wav" id="9_p7had"]
 [ext_resource type="AudioStream" uid="uid://cwew1sytmiyga" path="res://import/audio/voice/bob5 - fish5.wav" id="10_krybg"]
+[ext_resource type="PackedScene" uid="uid://bwf1esb0feki0" path="res://scene/fishtank_decorations/rock.tscn" id="11_trus2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fk8l4"]
 size = Vector3(0.6265869, 0.5569153, 1)
@@ -80,11 +81,11 @@ shape = SubResource("SphereShape3D_f8rg6")
 
 [node name="fishtank" parent="." unique_id=1492558571 instance=ExtResource("2_b66a4")]
 
-[node name="Tank" parent="fishtank" index="1" unique_id=1687478837]
+[node name="Tank" parent="fishtank" index="1" unique_id=2026675940]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3327743, 0.6972399, -0.2473988)
 surface_material_override/0 = SubResource("ShaderMaterial_b1avd")
 
-[node name="Tank_Sand" parent="fishtank" index="2" unique_id=628974498]
+[node name="Tank_Sand" parent="fishtank" index="2" unique_id=1189269228]
 transform = Transform3D(0.26538137, 0, 0, 0, 0.21783847, 0, 0, 0, 0.22220445, -1.3869835, 0.5347553, 0.0037623644)
 
 [node name="Fishes" parent="." unique_id=1932245005 instance=ExtResource("4_b1avd")]
@@ -94,7 +95,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.346957, 0.7592341, -0.6156
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=778910872]
 stream = SubResource("AudioStreamRandomizer_p2ifn")
-bus = &"Voice"
+
+[node name="rock" parent="." unique_id=121079087 instance=ExtResource("11_trus2")]
+transform = Transform3D(-0.00032828999, 0, 0.029998202, 0, 0.03, 0, -0.029998202, 0, -0.00032828999, -1.3271523, 0.53930974, -0.2624481)
+
+[node name="rock2" parent="." unique_id=186127728 instance=ExtResource("11_trus2")]
+transform = Transform3D(0.022783238, 0, 0.018341752, 0.002684992, 0.02992604, -0.0007664252, -0.03816742, 0.0021052298, 0.010894809, -1.5452205, 0.55646914, -0.40009427)
+
+[node name="rock3" parent="." unique_id=419624462 instance=ExtResource("11_trus2")]
+transform = Transform3D(0.015348691, 0, 0.025776302, 0, 0.017163463, 0, -0.025776302, 0, 0.015348691, -1.4209514, 0.59375834, 0.083122134)
 
 [editable path="fishtank"]
 [editable path="Fishes"]
