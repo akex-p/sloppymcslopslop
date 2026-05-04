@@ -3,14 +3,17 @@
 [ext_resource type="Script" uid="uid://dhkjnpc4dt0tf" path="res://script/main.gd" id="1_itxqv"]
 [ext_resource type="LightmapGIData" uid="uid://ch3ckbojir1l5" path="res://bake/main.lmbake" id="2_of57s"]
 [ext_resource type="Texture2D" uid="uid://b684tubkv0yrw" path="res://import/2d/sky/sky_001.png" id="3_p1hux"]
+[ext_resource type="PackedScene" uid="uid://cg6b8uv7xni44" path="res://scene/day_2.tscn" id="3_v2gmf"]
 [ext_resource type="Texture2D" uid="uid://cn7lfywl5ggqr" path="res://import/2d/sky/sky_002.png" id="4_b5f6u"]
+[ext_resource type="PackedScene" uid="uid://hc1dg1fx5h5t" path="res://scene/day_3.tscn" id="4_jcbur"]
 [ext_resource type="PackedScene" uid="uid://ng6q0qc7qjt5" path="res://import/3d/room_skeleton/room_skeleton.glb" id="5_0ha60"]
+[ext_resource type="PackedScene" uid="uid://dd6sb1fdy1ir6" path="res://scene/day_4.tscn" id="5_jcbur"]
 [ext_resource type="PackedScene" uid="uid://cdxk2rt82suho" path="res://scene/player.tscn" id="6_b5f6u"]
 [ext_resource type="FontFile" uid="uid://cotuy5tk7ulv0" path="res://import/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Bold.ttf" id="7_mswub"]
 [ext_resource type="LabelSettings" uid="uid://b5mocer2sin2i" path="res://resource/standard_label.tres" id="10_tqoya"]
 [ext_resource type="Shader" uid="uid://csextprrxtyne" path="res://resource/shader/crt.gdshader" id="11_k65ib"]
 [ext_resource type="AudioStream" uid="uid://0wfqvf6o4sik" path="res://import/audio/track_002.ogg" id="11_wscrc"]
-[ext_resource type="PackedScene" path="res://scene/day_1.tscn" id="12_tv8i1"]
+[ext_resource type="PackedScene" uid="uid://dywql7cwr4cmq" path="res://scene/day_1.tscn" id="12_tv8i1"]
 [ext_resource type="FontFile" uid="uid://hdx4v8pw8765" path="res://import/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="16_gjnwh"]
 [ext_resource type="VideoStream" uid="uid://dhikx5iujqudf" path="res://import/video/export002.ogv" id="18_0vlqb"]
 
@@ -381,7 +384,9 @@ _data = {
 [node name="Main" type="Node" unique_id=192885984]
 script = ExtResource("1_itxqv")
 day1_scene = ExtResource("12_tv8i1")
-day2_scene = ExtResource("12_tv8i1")
+day2_scene = ExtResource("3_v2gmf")
+day3_scene = ExtResource("4_jcbur")
+day4_scene = ExtResource("5_jcbur")
 
 [node name="Environment" type="Node3D" parent="." unique_id=112082376]
 
@@ -415,11 +420,8 @@ light_energy = 0.396
 
 [node name="Room" parent="Environment/LightmapGI" unique_id=1160661912 instance=ExtResource("5_0ha60")]
 
-[node name="Nightstand" parent="Environment/LightmapGI/Room" index="2" unique_id=614386915]
+[node name="Nightstand" parent="Environment/LightmapGI/Room" index="2" unique_id=680659053]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.4, 1.3235433, 0.59472466, 0.3905229)
-
-[node name="Day1" parent="Environment/LightmapGI" unique_id=666778257 instance=ExtResource("12_tv8i1")]
-transform = Transform3D(0.9999999, -0.00021647551, 0.0003316589, 0.00021656055, 0.99999994, -0.00022145805, -0.00033160337, 0.0002215412, 0.9999999, 0, 0, 0)
 
 [node name="Decoration" type="Node3D" parent="Environment/LightmapGI" unique_id=1502442482]
 
@@ -477,6 +479,9 @@ autoplay = "default"
 transform = Transform3D(-0.713, 6.233245e-08, 1.0766001e-07, 6.233245e-08, 0.713, -2.146682e-15, -1.0766001e-07, 7.265255e-15, -0.713, 0, 1.0807327, -2.1248112)
 sprite_frames = SubResource("SpriteFrames_p1hux")
 autoplay = "default"
+
+[node name="Day1" parent="Environment" unique_id=666778257 instance=ExtResource("12_tv8i1")]
+transform = Transform3D(0.9999999, -0.00021647551, 0.0003316589, 0.00021656055, 0.99999994, -0.00022145805, -0.00033160337, 0.0002215412, 0.9999999, 0, 0, 0)
 
 [node name="Collision" type="Node3D" parent="." unique_id=1379657883]
 

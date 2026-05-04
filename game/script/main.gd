@@ -11,10 +11,13 @@ class_name Main
 @onready var audio_player_wakeup: AudioStreamPlayer = $Node/AudioPlayerWakeup
 @onready var container_skip: PanelContainer = $Commercial/SkipContainer
 @onready var timer_skip: Timer = $Commercial/Timer
+@onready var environment: Node3D = $Environment
 
 var ad_played: bool = false
+var day_node: Node3D
 
 func _ready() -> void:
+	day_node = $Environment/LightmapGI/Day1
 	GameManager.main = self
 	player.wake_up.connect(wake_up)
 	animation_player_overlay.play("fade_label")
@@ -46,9 +49,8 @@ func go_to_sleep():
 	$Player.reset(Vector3(0.551, 0.894, 0.838), 0.0)
 	
 	# delete stuff
-	var old = $Environment/LightmapGI/Day1
-	old.queue_free()
-	await old.tree_exited
+	day_node.queue_free()
+	await day_node.tree_exited
 	
 	var new_scene: PackedScene
 	match GameManager.current_day:
@@ -58,7 +60,8 @@ func go_to_sleep():
 		4: new_scene = day4_scene
 	
 	var new_node = new_scene.instantiate()
-	add_child(new_node)
+	environment.add_child(new_node)
+	day_node = new_node
 	
 	wake_up()
 
