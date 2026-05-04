@@ -47,6 +47,8 @@ func disable_all() -> void:
 			interactables[step].enabled = false
 
 func ask_bob() -> void:
+	if current_day == 4:
+		Dialogic.start("bob_offline")
 	var step_name = STEP_NAMES.get(current_step, "unknown")
 	var timeline = "day%d_%s_taskstart" % [current_day, step_name]
 	Dialogic.start(timeline)

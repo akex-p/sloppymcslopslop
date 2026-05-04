@@ -40,6 +40,10 @@ func wake_up():
 	animation_player_overlay.play("fade")
 	await get_tree().create_timer(2.6).timeout
 	$Player/HUD/Misc.visible = true
+	
+	if GameManager.current_day == 4:
+		player.make_bob_loading()
+		return
 	Dialogic.start("wake_up")
 
 func go_to_sleep():
@@ -67,8 +71,6 @@ func go_to_sleep():
 	environment.add_child(new_node)
 	
 	wake_up()
-	if new_scene == day4_scene:
-		bob_offline()
 
 func _on_video_stream_player_finished() -> void:
 	ad_played = true
@@ -76,6 +78,3 @@ func _on_video_stream_player_finished() -> void:
 
 func _on_timer_timeout() -> void:
 	container_skip.visible = false
-	
-func bob_offline() -> void:
-	Dialogic.start("bob_offline")

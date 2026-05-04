@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://xii4q5pxsrb" path="res://script/ui_control.gd" id="2_s4jxa"]
 [ext_resource type="Texture2D" uid="uid://cy43v2whb1ko2" path="res://import/2d/bob/BOBBlush2.png" id="3_2fvbb"]
 [ext_resource type="LabelSettings" uid="uid://b5mocer2sin2i" path="res://resource/standard_label.tres" id="3_oh5ij"]
+[ext_resource type="Texture2D" uid="uid://d33p8rixend26" path="res://import/2d/bob/BOBNuteral.png" id="4_j4wxg"]
 [ext_resource type="Texture2D" uid="uid://bbm7tqmcbdqdo" path="res://import/2d/bob/BOBBlush.png" id="4_ml7e8"]
 [ext_resource type="Texture2D" uid="uid://p1efxlj2lmvl" path="res://import/2d/arm/hand_normal_low.png" id="5_g2vtq"]
 [ext_resource type="AudioStream" uid="uid://bils3xg75pjxv" path="res://import/audio/steps/hard-footstep1.wav" id="6_2fvbb"]
@@ -72,15 +73,106 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("4_j4wxg")
+}],
+"loop": true,
+"name": &"loading",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("3_2fvbb")
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_ml7e8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2fvbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ml7e8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2fvbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ml7e8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2fvbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ml7e8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2fvbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ml7e8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2fvbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ml7e8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2fvbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ml7e8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2fvbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ml7e8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2fvbb")
 }],
-"loop": true,
+"loop": false,
 "name": &"talking",
 "speed": 8.0
 }]
+
+[sub_resource type="Animation" id="Animation_j4wxg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Normal:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_bup7g"]
+resource_name = "rotating"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Normal:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ja17"]
+_data = {
+&"RESET": SubResource("Animation_j4wxg"),
+&"rotating": SubResource("Animation_bup7g")
+}
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_34jf3"]
 streams_count = 4
@@ -180,14 +272,18 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HUD/Bob/BobContainer/MarginContainer" unique_id=1957801036]
+[node name="Normal" type="AnimatedSprite2D" parent="HUD/Bob/BobContainer/MarginContainer" unique_id=1957801036]
 position = Vector2(76, 74)
 scale = Vector2(5.38, 5.38)
 sprite_frames = SubResource("SpriteFrames_2fvbb")
-frame_progress = 0.5103428
+animation = &"talking"
+frame = 16
+frame_progress = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Bob/BobContainer/MarginContainer" unique_id=783074796]
+libraries/ = SubResource("AnimationLibrary_4ja17")
 
 [node name="Misc" type="Control" parent="HUD" unique_id=565593282]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -237,9 +333,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -215.0
-offset_top = -148.0
+offset_top = -570.0
 offset_right = 215.0
-offset_bottom = -85.0
+offset_bottom = -507.0
 grow_horizontal = 2
 grow_vertical = 0
 

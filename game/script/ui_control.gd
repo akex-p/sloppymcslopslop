@@ -19,9 +19,6 @@ func _ready():
 
 func _process(_delta):
 	update_time()
-	
-	if Input.is_action_just_pressed("grow_bob_delete_later"):
-		advance_day()
 
 func update_time():
 	var t = Time.get_time_dict_from_system()
@@ -30,7 +27,7 @@ func update_time():
 	time_label.text = "%02d:%02d" % [t.hour, t.minute]
 	
 	# Date uses game day instead of real date
-	date_label.text = "%02d/%02d/%04d" % [game_day, game_month, game_year]
+	date_label.text = "%02d/%02d/%04d" % [GameManager.current_day, game_month, game_year]
 	
 	# Keep Dialogic variables in sync
 	Dialogic.VAR.date = "%02d/%02d/%04d" % [game_day, game_month, game_year]

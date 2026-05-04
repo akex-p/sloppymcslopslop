@@ -31,21 +31,21 @@ script = ExtResource("1_a3dfu")
 area_interact = NodePath("Area3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=923374784]
-transform = Transform3D(0.9356228, 0, 0.35300133, 0, 1, 0, -0.35300133, 0, 0.9356228, 1.2526857, 0.7370433, 0.5971042)
+transform = Transform3D(0.9356228, 0, 0.35300133, 0, 1, 0, -0.35300133, 0, 0.9356228, 1.2526857, 0.7370433, 0.53216803)
 shape = SubResource("BoxShape3D_6yaaa")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=622664198]
-transform = Transform3D(0.9356228, 0, 0.35300133, 0, 1, 0, -0.35300133, 0, 0.9356228, 1.252307, 0.7317272, 0.60066533)
+transform = Transform3D(0.9356228, 0, 0.35300133, 0, 1, 0, -0.35300133, 0, 0.9356228, 1.252307, 0.7317272, 0.53572917)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=71477644]
 shape = SubResource("SphereShape3D_f8rg6")
 
 [node name="RADIOOOO" parent="." unique_id=1092301845 instance=ExtResource("4_kho8k")]
-transform = Transform3D(1.8712456, 0, 0.70600265, 0, 2, 0, -0.70600265, 0, 1.8712456, 1.252307, 0.7317272, 0.60066533)
+transform = Transform3D(1.8712456, 0, 0.70600265, 0, 2, 0, -0.70600265, 0, 1.8712456, 1.252307, 0.7317272, 0.53572917)
 
 [node name="AudioPlayerMusic" type="AudioStreamPlayer3D" parent="." unique_id=783273892]
 stream = ExtResource("2_a3dfu")
-volume_db = -5.0
+volume_db = -9.0
 unit_size = 2.0
 bus = &"Music"
 

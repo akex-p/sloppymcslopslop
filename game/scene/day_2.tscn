@@ -1,17 +1,24 @@
 [gd_scene format=3 uid="uid://cg6b8uv7xni44"]
 
+[ext_resource type="Script" uid="uid://byt3ab6pou84p" path="res://script/day_2.gd" id="1_tx1xu"]
 [ext_resource type="PackedScene" uid="uid://wnj2pupsycxg" path="res://scene/pills.tscn" id="1_xct22"]
 [ext_resource type="PackedScene" uid="uid://dx63ih5nbjb20" path="res://scene/radio.tscn" id="2_tx1xu"]
 [ext_resource type="PackedScene" uid="uid://c58gegw6uwag3" path="res://scene/workstation.tscn" id="3_pyq6x"]
 [ext_resource type="PackedScene" uid="uid://bbkyqknv437kk" path="res://scene/fishtank.tscn" id="4_8c2me"]
 [ext_resource type="PackedScene" uid="uid://b43raf6hj1h73" path="res://scene/bed.tscn" id="5_1p284"]
+[ext_resource type="PackedScene" uid="uid://buralnurv8h5k" path="res://import/3d/FishChow/FishChow.glb" id="7_pyq6x"]
 
 [node name="Day2" type="Node3D" unique_id=666778257]
+script = ExtResource("1_tx1xu")
 
 [node name="Pills" parent="." unique_id=1794016338 instance=ExtResource("1_xct22")]
-transform = Transform3D(0.9999871, -0.004659611, -0.0019992886, 0.004657628, 0.9999887, -0.000994616, 0.0020039028, 0.0009852864, 0.9999975, 1.3522351, 0.8264863, 0.18981469)
+visible = false
+
+[node name="FishChow" parent="Pills" unique_id=2028270661 instance=ExtResource("7_pyq6x")]
+transform = Transform3D(6.030103, 0, 2.6828847, 0, 6.600002, 0, -2.6828847, 0, 6.030103, 1.1952835, 0.75028104, 0.1767137)
 
 [node name="Radio" parent="." unique_id=255350206 instance=ExtResource("2_tx1xu")]
+transform = Transform3D(0.9394536, 0, -0.3426761, 0, 1, 0, 0.3426761, 0, 0.9394536, 0.30217546, 0, -0.38558847)
 
 [node name="Workstation" parent="." unique_id=1191043786 instance=ExtResource("3_pyq6x")]
 

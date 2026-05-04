@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://hc1dg1fx5h5t" path="res://scene/day_3.tscn" id="4_jcbur"]
 [ext_resource type="PackedScene" uid="uid://ng6q0qc7qjt5" path="res://import/3d/room_skeleton/room_skeleton.glb" id="5_0ha60"]
 [ext_resource type="PackedScene" uid="uid://dd6sb1fdy1ir6" path="res://scene/day_4.tscn" id="5_jcbur"]
+[ext_resource type="Environment" uid="uid://do8725w64v3ta" path="res://resource/new_environment.tres" id="6_0vlqb"]
 [ext_resource type="PackedScene" uid="uid://cdxk2rt82suho" path="res://scene/player.tscn" id="6_b5f6u"]
 [ext_resource type="FontFile" uid="uid://cotuy5tk7ulv0" path="res://import/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Bold.ttf" id="7_mswub"]
 [ext_resource type="LabelSettings" uid="uid://b5mocer2sin2i" path="res://resource/standard_label.tres" id="10_tqoya"]
@@ -18,14 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://dywql7cwr4cmq" path="res://scene/day_1.tscn" id="12_tv8i1"]
 [ext_resource type="FontFile" uid="uid://hdx4v8pw8765" path="res://import/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="16_gjnwh"]
 [ext_resource type="VideoStream" uid="uid://dhikx5iujqudf" path="res://import/video/export002.ogv" id="18_0vlqb"]
-
-[sub_resource type="Environment" id="Environment_v0l8b"]
-glow_normalized = true
-glow_strength = 1.5
-glow_bloom = 0.5
-fog_enabled = true
-fog_light_color = Color(0, 0, 0, 1)
-fog_density = 0.15
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_of57s"]
 atlas = ExtResource("3_p1hux")
@@ -295,7 +288,7 @@ shader_parameter/roll_speed = 0.785
 shader_parameter/roll_size = 0.0
 shader_parameter/roll_variation = 4.31000020146512
 shader_parameter/distort_intensity = 0.05
-shader_parameter/aberration = 0.03
+shader_parameter/aberration = 0.010000047974999982
 shader_parameter/noise_opacity = 0.4
 shader_parameter/noise_speed = 5.0
 shader_parameter/static_noise_intensity = 0.06
@@ -393,7 +386,7 @@ day4_scene = ExtResource("5_jcbur")
 [node name="Environment" type="Node3D" parent="." unique_id=112082376]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=746910441]
-environment = SubResource("Environment_v0l8b")
+environment = ExtResource("6_0vlqb")
 
 [node name="LightmapGI" type="LightmapGI" parent="Environment" unique_id=678975291]
 supersampling = true
@@ -422,7 +415,7 @@ light_energy = 0.396
 
 [node name="Room" parent="Environment/LightmapGI" unique_id=1160661912 instance=ExtResource("5_0ha60")]
 
-[node name="Nightstand" parent="Environment/LightmapGI/Room" index="2" unique_id=614386915]
+[node name="Nightstand" parent="Environment/LightmapGI/Room" index="2" unique_id=680659053]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.4, 1.3235433, 0.59472466, 0.3905229)
 
 [node name="Decoration" type="Node3D" parent="Environment/LightmapGI" unique_id=1502442482]

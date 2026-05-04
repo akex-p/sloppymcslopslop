@@ -50,7 +50,14 @@ func _unhandled_input(event):
 			wake_up.emit()
 		else:
 			GameManager.ask_bob()
+			if $HUD/Bob/BobContainer/MarginContainer/Normal.is_playing():
+				$HUD/Bob/BobContainer/MarginContainer/Normal.set_frame_and_progress(0,0.0)
+			$HUD/Bob/BobContainer/MarginContainer/Normal.play("talking")
 			$AudioStreamPlayer.play()
+
+func make_bob_loading() -> void:
+	$HUD/Bob/BobContainer/MarginContainer/Normal.play("loading")
+	$HUD/Bob/BobContainer/MarginContainer/AnimationPlayer.play("rotating")
 
 func _physics_process(delta):
 	_update_prompt()

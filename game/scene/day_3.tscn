@@ -1,20 +1,26 @@
 [gd_scene format=3 uid="uid://hc1dg1fx5h5t"]
 
+[ext_resource type="Script" uid="uid://f32gam7siv4w" path="res://script/day_3.gd" id="1_2vd1w"]
 [ext_resource type="PackedScene" uid="uid://wnj2pupsycxg" path="res://scene/pills.tscn" id="1_vu1sr"]
 [ext_resource type="PackedScene" uid="uid://dx63ih5nbjb20" path="res://scene/radio.tscn" id="2_2vd1w"]
 [ext_resource type="PackedScene" uid="uid://c58gegw6uwag3" path="res://scene/workstation.tscn" id="3_1il6w"]
 [ext_resource type="PackedScene" uid="uid://bbkyqknv437kk" path="res://scene/fishtank.tscn" id="4_u6nhe"]
 [ext_resource type="PackedScene" uid="uid://b43raf6hj1h73" path="res://scene/bed.tscn" id="5_s46gu"]
+[ext_resource type="PackedScene" uid="uid://clmtd51uharsh" path="res://import/3d/Box/Box.glb" id="7_1il6w"]
 
 [node name="Day3" type="Node3D" unique_id=666778257]
+script = ExtResource("1_2vd1w")
 
 [node name="Pills" parent="." unique_id=1794016338 instance=ExtResource("1_vu1sr")]
-transform = Transform3D(0.9999871, -0.004659611, -0.0019992886, 0.004657628, 0.9999887, -0.000994616, 0.0020039028, 0.0009852864, 0.9999975, 1.3522351, 0.8264863, 0.18981469)
 
 [node name="Radio" parent="." unique_id=255350206 instance=ExtResource("2_2vd1w")]
 
 [node name="Workstation" parent="." unique_id=1191043786 instance=ExtResource("3_1il6w")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 2.1761136, -0.39014804, -0.6240642)
 
 [node name="Fishtank" parent="." unique_id=422449267 instance=ExtResource("4_u6nhe")]
 
 [node name="Bed" parent="." unique_id=1159569930 instance=ExtResource("5_s46gu")]
+
+[node name="Box" parent="." unique_id=920141514 instance=ExtResource("7_1il6w")]
+transform = Transform3D(-0.8660254, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, -0.8660254, -1.1774647, 0.17486978, -1.2815726)

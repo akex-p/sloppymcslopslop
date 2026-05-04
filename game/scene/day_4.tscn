@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dd6sb1fdy1ir6"]
 
 [ext_resource type="PackedScene" uid="uid://wnj2pupsycxg" path="res://scene/pills.tscn" id="1_mplxn"]
+[ext_resource type="Script" uid="uid://b5qbq8e3a4yyc" path="res://script/day_4.gd" id="1_xfukr"]
 [ext_resource type="PackedScene" uid="uid://dx63ih5nbjb20" path="res://scene/radio.tscn" id="2_gklei"]
 [ext_resource type="PackedScene" uid="uid://c58gegw6uwag3" path="res://scene/workstation.tscn" id="3_8j6jd"]
 [ext_resource type="Script" uid="uid://bk2htbir1g8mb" path="res://script/fishtank.gd" id="4_m3lli"]
@@ -8,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b43raf6hj1h73" path="res://scene/bed.tscn" id="5_xfukr"]
 [ext_resource type="PackedScene" uid="uid://bqqsqocju2r2" path="res://import/3d/fishtank/fishtank.glb" id="6_vltbx"]
 [ext_resource type="Shader" path="res://resource/shader/waterv4.gdshader" id="7_u711p"]
+[ext_resource type="PackedScene" uid="uid://clmtd51uharsh" path="res://import/3d/Box/Box.glb" id="10_v5tnh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fk8l4"]
 size = Vector3(0.6265869, 0.5569153, 1)
@@ -50,9 +52,9 @@ shader_parameter/water_transparency = 0.71999998390656
 shader_parameter/refraction_strength = 0.05
 
 [node name="Day4" type="Node3D" unique_id=666778257]
+script = ExtResource("1_xfukr")
 
 [node name="Pills" parent="." unique_id=1794016338 instance=ExtResource("1_mplxn")]
-transform = Transform3D(0.9999871, -0.004659611, -0.0019992886, 0.004657628, 0.9999887, -0.000994616, 0.0020039028, 0.0009852864, 0.9999975, 1.3522351, 0.8264863, 0.18981469)
 
 [node name="Radio" parent="." unique_id=255350206 instance=ExtResource("2_gklei")]
 
@@ -64,7 +66,7 @@ collision_mask = 0
 script = ExtResource("4_m3lli")
 piranha_scene = ExtResource("5_v5tnh")
 piranha_spawnpoint = NodePath("PiranhaSpawn")
-piranha_food = [NodePath(""), NodePath(""), NodePath(""), NodePath("")]
+piranha_food = [null, null, null, null]
 area_interact = NodePath("Area3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fishtank" unique_id=923374784]
@@ -90,5 +92,17 @@ transform = Transform3D(0.26538137, 0, 0, 0, 0.21783847, 0, 0, 0, 0.22220445, -1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.346957, 0.7592341, -0.6156479)
 
 [node name="Bed" parent="." unique_id=1159569930 instance=ExtResource("5_xfukr")]
+
+[node name="Box" parent="." unique_id=920141514 instance=ExtResource("10_v5tnh")]
+transform = Transform3D(-0.5, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.5, -1.1774647, 0.17486978, 1.4011083)
+
+[node name="Box2" parent="." unique_id=1146650850 instance=ExtResource("10_v5tnh")]
+transform = Transform3D(-0.9649662, 0, -0.26237443, 0, 1, 0, 0.26237443, 0, -0.9649662, -1.1774647, 0.5341589, 1.4011083)
+
+[node name="Box3" parent="." unique_id=752670678 instance=ExtResource("10_v5tnh")]
+transform = Transform3D(0.99974847, 0, -0.022425503, 0, 1, 0, 0.022425503, 0, 0.99974847, -1.1774647, 0.88882005, 1.4011083)
+
+[node name="Box4" parent="." unique_id=1218546609 instance=ExtResource("10_v5tnh")]
+transform = Transform3D(0.5716448, 0, -0.8205011, 0, 1, 0, 0.8205011, 0, 0.5716448, -1.1774647, 1.243344, 1.4011083)
 
 [editable path="Fishtank/fishtank"]
