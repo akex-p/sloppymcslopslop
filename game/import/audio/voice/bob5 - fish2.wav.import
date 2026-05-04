@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://brqjjx68rntl6"
+path="res://.godot/imported/bob5 - fish2.wav-1cde20a2ae29945f2e557997dd2a018a.sample"
+
+[deps]
+
+source_file="res://import/audio/voice/bob5 - fish2.wav"
+dest_files=["res://.godot/imported/bob5 - fish2.wav-1cde20a2ae29945f2e557997dd2a018a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

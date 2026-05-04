@@ -6,4 +6,5 @@ func _ready():
 	GameManager.register(GameManager.Step.BED, self)
 
 func interact() -> void:
+	$AudioStreamPlayer.play()
 	GameManager.advance_step()

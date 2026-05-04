@@ -1,13 +1,26 @@
 [gd_scene format=3 uid="uid://b43raf6hj1h73"]
 
-[ext_resource type="Script" path="res://script/bed.gd" id="1_af1er"]
+[ext_resource type="Script" uid="uid://bdy6xrob5ssy7" path="res://script/bed.gd" id="1_af1er"]
 [ext_resource type="PackedScene" uid="uid://bumyu3e1lpyxn" path="res://import/3d/bed/bed.glb" id="2_s25x3"]
+[ext_resource type="AudioStream" uid="uid://dths3ao6hie2q" path="res://import/audio/voice/bob5 - sleep1.wav" id="3_glnb7"]
+[ext_resource type="AudioStream" uid="uid://dgg2hoaqp2lkn" path="res://import/audio/voice/bob5 - sleep2.wav" id="4_qxmnj"]
+[ext_resource type="AudioStream" uid="uid://cbq0qgjdp5mgm" path="res://import/audio/voice/bob5 - sleep3.wav" id="5_ijb7t"]
+[ext_resource type="AudioStream" uid="uid://cs50s0rteo1pi" path="res://import/audio/voice/bob5 - sleep4.wav" id="6_sv58v"]
+[ext_resource type="AudioStream" uid="uid://p0tha763ilgo" path="res://import/audio/voice/bob5 - sleep5.wav" id="7_ymvw6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fk8l4"]
 size = Vector3(2, 0.5, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_f8rg6"]
 radius = 0.8877286
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fher6"]
+streams_count = 5
+stream_0/stream = ExtResource("3_glnb7")
+stream_1/stream = ExtResource("4_qxmnj")
+stream_2/stream = ExtResource("5_ijb7t")
+stream_3/stream = ExtResource("6_sv58v")
+stream_4/stream = ExtResource("7_ymvw6")
 
 [node name="Bed" type="StaticBody3D" unique_id=1794016338 node_paths=PackedStringArray("area_interact") groups=["Interactable"]]
 collision_layer = 4
@@ -27,3 +40,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.150311)
 shape = SubResource("SphereShape3D_f8rg6")
 
 [node name="bed" parent="." unique_id=1228602249 instance=ExtResource("2_s25x3")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=791535220]
+stream = SubResource("AudioStreamRandomizer_fher6")
+bus = &"Voice"

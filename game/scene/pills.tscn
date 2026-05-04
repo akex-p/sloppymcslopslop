@@ -30,3 +30,5 @@ shape = SubResource("CylinderShape3D_f8rg6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=71477644]
 shape = SubResource("SphereShape3D_f8rg6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=226369469]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://df24a5oxvosdt"
+path="res://.godot/imported/bob5 - bob1.wav-10aec28a1c8edfdbad33fdf30dd7fe37.sample"
+
+[deps]
+
+source_file="res://import/audio/voice/bob5 - bob1.wav"
+dest_files=["res://.godot/imported/bob5 - bob1.wav-10aec28a1c8edfdbad33fdf30dd7fe37.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

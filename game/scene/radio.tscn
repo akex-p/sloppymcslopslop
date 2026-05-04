@@ -4,12 +4,25 @@
 [ext_resource type="AudioStream" uid="uid://dn5m616p0c7wt" path="res://import/audio/track_001.ogg" id="2_a3dfu"]
 [ext_resource type="AudioStream" uid="uid://bpjlfjasgs6og" path="res://import/audio/clock.wav" id="3_osh7q"]
 [ext_resource type="PackedScene" uid="uid://c7ystvxrr1t71" path="res://import/3d/radio/RADIOOOO.glb" id="4_kho8k"]
+[ext_resource type="AudioStream" uid="uid://xnukv1s4vi7y" path="res://import/audio/voice/bob5 - tune1.wav" id="5_axy18"]
+[ext_resource type="AudioStream" uid="uid://dkedbygjpv4a3" path="res://import/audio/voice/bob5 - tune2.wav" id="6_1eqaw"]
+[ext_resource type="AudioStream" uid="uid://c8riuh0wb3jaq" path="res://import/audio/voice/bob5 - tune3.wav" id="7_8w3g6"]
+[ext_resource type="AudioStream" uid="uid://bounae21j8sb1" path="res://import/audio/voice/bob5 - tune4.wav" id="8_1hqps"]
+[ext_resource type="AudioStream" uid="uid://dj0ovo0qha31s" path="res://import/audio/voice/bob5 - tune5.wav" id="9_enonf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6yaaa"]
 size = Vector3(0.13212891, 0.124377444, 0.27299803)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_f8rg6"]
 radius = 0.71684575
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_l3jho"]
+streams_count = 5
+stream_0/stream = ExtResource("5_axy18")
+stream_1/stream = ExtResource("6_1eqaw")
+stream_2/stream = ExtResource("7_8w3g6")
+stream_3/stream = ExtResource("8_1hqps")
+stream_4/stream = ExtResource("9_enonf")
 
 [node name="Radio" type="StaticBody3D" unique_id=1794016338 node_paths=PackedStringArray("area_interact") groups=["Interactable"]]
 collision_layer = 4
@@ -33,12 +46,16 @@ transform = Transform3D(1.8712456, 0, 0.70600265, 0, 2, 0, -0.70600265, 0, 1.871
 [node name="AudioPlayerMusic" type="AudioStreamPlayer3D" parent="." unique_id=783273892]
 stream = ExtResource("2_a3dfu")
 volume_db = -5.0
-unit_size = 0.8
+unit_size = 2.0
 bus = &"Music"
 
 [node name="AudioPlayerClock" type="AudioStreamPlayer3D" parent="." unique_id=399786738]
 stream = ExtResource("3_osh7q")
 volume_db = -5.0
-unit_size = 0.8
+unit_size = 2.0
 autoplay = true
 bus = &"Music"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1663338750]
+stream = SubResource("AudioStreamRandomizer_l3jho")
+bus = &"Voice"

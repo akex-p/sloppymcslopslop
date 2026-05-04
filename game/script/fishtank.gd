@@ -12,6 +12,7 @@ func _ready():
 	GameManager.register(GameManager.Step.FISHTANK, self)
 
 func interact() -> void:
+	$AudioStreamPlayer.play()
 	GameManager.advance_step()
 
 func _release_the_piranha() -> void:

@@ -50,6 +50,7 @@ func _unhandled_input(event):
 			wake_up.emit()
 		else:
 			GameManager.ask_bob()
+			$AudioStreamPlayer.play()
 
 func _physics_process(delta):
 	_update_prompt()
