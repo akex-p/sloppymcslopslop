@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dn1pslxkmf3c8" path="res://script/workstation.gd" id="1_1u4rh"]
 [ext_resource type="PackedScene" uid="uid://du3rl0r162uw2" path="res://import/3d/button/button.glb" id="2_x3ubv"]
+[ext_resource type="AudioStream" uid="uid://ikt73ceyaxm" path="res://import/audio/button/click.1.ogg" id="3_5ukek"]
+[ext_resource type="AudioStream" uid="uid://d55b3y8om2ey" path="res://import/audio/button/click.2.ogg" id="4_8shqp"]
+[ext_resource type="AudioStream" uid="uid://bb6auf1grajo8" path="res://import/audio/button/click.5.ogg" id="5_hl6n0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d8gv1"]
 size = Vector3(0.28851318, 0.13134766, 0.48199463)
@@ -46,6 +49,12 @@ _data = {
 &"press": SubResource("Animation_x3ubv")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_s05jm"]
+streams_count = 3
+stream_0/stream = ExtResource("3_5ukek")
+stream_1/stream = ExtResource("4_8shqp")
+stream_2/stream = ExtResource("5_hl6n0")
+
 [node name="Workstation" type="StaticBody3D" unique_id=1794016338 node_paths=PackedStringArray("area_interact") groups=["Interactable"]]
 collision_layer = 4
 collision_mask = 0
@@ -69,5 +78,9 @@ one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=677401905]
 libraries/ = SubResource("AnimationLibrary_d8gv1")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1212934603]
+stream = SubResource("AudioStreamRandomizer_s05jm")
+bus = &"Room"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
