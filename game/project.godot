@@ -27,8 +27,7 @@ GameManager="*uid://cxyh4hhreav8g"
 [dialogic]
 
 directories/dch_directory={
-"bob": "res://character/bob.dch",
-"player": "res://character/player.dch"
+"bob": "res://character/bob.dch"
 }
 directories/dtl_directory={
 "day1_bed_taskend": "res://resource/timeline/day1_bed_taskend.dtl",
@@ -41,8 +40,20 @@ directories/dtl_directory={
 "day1_radio_taskstart": "res://resource/timeline/day1_radio_taskstart.dtl",
 "day1_workstation_taskend": "res://resource/timeline/day1_workstation_taskend.dtl",
 "day1_workstation_taskstart": "res://resource/timeline/day1_workstation_taskstart.dtl",
+"day2_bed_taskend": "res://resource/timeline/day2_bed_taskend.dtl",
+"day2_bed_taskstart": "res://resource/timeline/day2_bed_taskstart.dtl",
+"day2_fishtank_taskend": "res://resource/timeline/day2_fishtank_taskend.dtl",
+"day2_fishtank_taskstart": "res://resource/timeline/day2_fishtank_taskstart.dtl",
+"day2_pill_taskend": "res://resource/timeline/day2_pill_taskend.dtl",
+"day2_pill_taskstart": "res://resource/timeline/day2_pill_taskstart.dtl",
+"day2_radio_taskend": "res://resource/timeline/day2_radio_taskend.dtl",
+"day2_radio_taskstart": "res://resource/timeline/day2_radio_taskstart.dtl",
+"day2_workstation_taskend": "res://resource/timeline/day2_workstation_taskend.dtl",
+"day2_workstation_taskstart": "res://resource/timeline/day2_workstation_taskstart.dtl",
+"day3_radio_taskstart": "res://resource/timeline/day3_radio_taskstart.dtl",
 "first_day": "res://character/timeline/first_day.dtl",
-"second_day": "res://character/timeline/second_day.dtl"
+"second_day": "res://character/timeline/second_day.dtl",
+"wake_up": "res://resource/timeline/wake_up.dtl"
 }
 layout/style_directory={}
 extensions_folder="res://addons/dialogic_additions"
@@ -84,7 +95,6 @@ variables={
 "work_count": 0
 }
 layout/style_list=[]
-layout/default_style="Default"
 glossary/default_case_sensitive=true
 
 [display]

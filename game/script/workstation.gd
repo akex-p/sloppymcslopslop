@@ -5,7 +5,7 @@ extends Interactable
 
 func _ready():
 	super()
-	prompt_text = "Do Wrrk"
+	prompt_text = "Do Work"
 	GameManager.register(GameManager.Step.WORKSTATION, self)
 
 func interact() -> void:

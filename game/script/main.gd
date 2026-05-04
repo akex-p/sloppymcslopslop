@@ -38,6 +38,7 @@ func wake_up():
 	animation_player_overlay.play("fade")
 	await get_tree().create_timer(2.6).timeout
 	$Player/HUD/Misc.visible = true
+	Dialogic.start("wake_up")
 
 func go_to_sleep():
 	player.awake = false

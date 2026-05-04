@@ -1,0 +1,4 @@
+bob: Looks like it’s time to clean the fish tank! Fish are most happy in a clean environment.
+bob: Let's first remove the fish from the tank. You wouldn't want them drowning!
+bob: Why don't you reach on in and grab the fish and put it on to the floor?
+do GameManager.enable_current()
