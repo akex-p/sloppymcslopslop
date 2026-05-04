@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cg6b8uv7xni44"]
 
-[ext_resource type="Script" uid="uid://byt3ab6pou84p" path="res://script/day_2.gd" id="1_tx1xu"]
+[ext_resource type="Script" path="res://script/day_2.gd" id="1_tx1xu"]
 [ext_resource type="PackedScene" uid="uid://wnj2pupsycxg" path="res://scene/pills.tscn" id="1_xct22"]
 [ext_resource type="PackedScene" uid="uid://dx63ih5nbjb20" path="res://scene/radio.tscn" id="2_tx1xu"]
 [ext_resource type="PackedScene" uid="uid://c58gegw6uwag3" path="res://scene/workstation.tscn" id="3_pyq6x"]
@@ -12,7 +12,6 @@
 script = ExtResource("1_tx1xu")
 
 [node name="Pills" parent="." unique_id=1794016338 instance=ExtResource("1_xct22")]
-visible = false
 
 [node name="FishChow" parent="Pills" unique_id=2028270661 instance=ExtResource("7_pyq6x")]
 transform = Transform3D(6.030103, 0, 2.6828847, 0, 6.600002, 0, -2.6828847, 0, 6.030103, 1.1952835, 0.75028104, 0.1767137)
