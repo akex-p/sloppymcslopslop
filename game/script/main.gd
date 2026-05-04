@@ -48,8 +48,9 @@ func go_to_sleep():
 	$Player.reset(Vector3(0.551, 0.894, 0.838), 0.0)
 	
 	# delete stuff
-	day_node.queue_free()
-	await day_node.tree_exited
+	var old = $Environment/Day
+	old.queue_free()
+	await old.tree_exited
 	
 	var new_scene: PackedScene
 	match GameManager.current_day:
@@ -59,8 +60,8 @@ func go_to_sleep():
 		4: new_scene = day4_scene
 	
 	var new_node = new_scene.instantiate()
+	new_node.name = "Objects"
 	environment.add_child(new_node)
-	day_node = new_node
 	
 	wake_up()
 

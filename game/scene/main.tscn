@@ -480,7 +480,7 @@ transform = Transform3D(-0.713, 6.233245e-08, 1.0766001e-07, 6.233245e-08, 0.713
 sprite_frames = SubResource("SpriteFrames_p1hux")
 autoplay = "default"
 
-[node name="Day1" parent="Environment" unique_id=666778257 instance=ExtResource("12_tv8i1")]
+[node name="Objects" parent="Environment" unique_id=666778257 instance=ExtResource("12_tv8i1")]
 transform = Transform3D(0.9999999, -0.00021647551, 0.0003316589, 0.00021656055, 0.99999994, -0.00022145805, -0.00033160337, 0.0002215412, 0.9999999, 0, 0, 0)
 
 [node name="Collision" type="Node3D" parent="." unique_id=1379657883]
