@@ -17,6 +17,8 @@ var focused: bool = true
 var awake: bool = false
 var _target_yaw: float = 0.0
 var _target_pitch: float = 0.0
+var bob_disabled: bool = 0.0
+var waited_5_min: bool = false
 
 signal wake_up
 
@@ -49,15 +51,18 @@ func _unhandled_input(event):
 		if not awake:
 			wake_up.emit()
 		else:
-			GameManager.ask_bob()
+			GameManager.ask_bob(waited_5_min)
+			if bob_disabled: return
 			if $HUD/Bob/BobContainer/MarginContainer/Normal.is_playing():
 				$HUD/Bob/BobContainer/MarginContainer/Normal.set_frame_and_progress(0,0.0)
 			$HUD/Bob/BobContainer/MarginContainer/Normal.play("talking")
 			$AudioStreamPlayer.play()
 
 func make_bob_loading() -> void:
+	bob_disabled = true
 	$HUD/Bob/BobContainer/MarginContainer/Normal.play("loading")
 	$HUD/Bob/BobContainer/MarginContainer/AnimationPlayer.play("rotating")
+	$Timer.start()
 
 func _physics_process(delta):
 	_update_prompt()
@@ -117,3 +122,6 @@ func _update_prompt() -> void:
 			return
 	interact_prompt.visible = false
 	interact_container.visible = false
+
+func _on_timer_timeout() -> void:
+	waited_5_min = true

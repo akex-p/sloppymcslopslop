@@ -192,6 +192,9 @@ stream_3/stream = ExtResource("14_4ja17")
 transform = Transform3D(0.99999976, -0.00022512084, -0.0006078875, 0.00022927535, 0.99997646, 0.0068647647, 0.0006063328, -0.006864901, 0.9999763, 0, 0, 0)
 script = ExtResource("1_xo3ru")
 SPEED = 2.0
+MOUSE_SENSITIVITY = null
+MOVEMENT_SMOOTHING = null
+CAMERA_SMOOTHING = null
 
 [node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=1526649180]
 transform = Transform3D(0.99999994, -8.185452e-12, -5.820766e-11, 4.5474735e-13, 0.99999994, 4.656613e-10, 0, -4.656613e-10, 0.99999994, 0, 0, 0)
@@ -284,6 +287,7 @@ frame_progress = 1.0
 libraries/ = SubResource("AnimationLibrary_4ja17")
 
 [node name="Misc" type="Control" parent="HUD" unique_id=565593282]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -338,6 +342,7 @@ offset_right = 215.0
 offset_bottom = -507.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/Misc/InteractableContainer" unique_id=1403078399]
 layout_mode = 2
@@ -350,6 +355,36 @@ theme_override_constants/margin_bottom = 12
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "PRESS E TO INTERACT"
+label_settings = ExtResource("3_oh5ij")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CrosshairContainer" type="PanelContainer" parent="HUD/Misc" unique_id=486867682]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -31.5
+offset_right = 23.5
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Misc/CrosshairContainer" unique_id=605574735]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Label" type="Label" parent="HUD/Misc/CrosshairContainer/MarginContainer" unique_id=775053500]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "+"
 label_settings = ExtResource("3_oh5ij")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -379,3 +414,9 @@ bus = &"Room"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1937575737]
 stream = SubResource("AudioStreamRandomizer_v4iqv")
 bus = &"Voice"
+
+[node name="Timer" type="Timer" parent="." unique_id=234904801]
+wait_time = 300.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

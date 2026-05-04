@@ -46,9 +46,13 @@ func disable_all() -> void:
 		if is_instance_valid(interactables[step]):
 			interactables[step].enabled = false
 
-func ask_bob() -> void:
+func ask_bob(waited_5_min: bool = false) -> void:
 	if current_day == 4:
-		Dialogic.start("bob_offline")
+		if waited_5_min:
+			Dialogic.start("out_of_tokens")
+		else:
+			Dialogic.start("bob_offline")
+		return
 	var step_name = STEP_NAMES.get(current_step, "unknown")
 	var timeline = "day%d_%s_taskstart" % [current_day, step_name]
 	Dialogic.start(timeline)

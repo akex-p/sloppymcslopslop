@@ -63,6 +63,7 @@ directories/dtl_directory={
 "day3_workstation_taskend": "res://resource/timeline/day3_workstation_taskend.dtl",
 "day3_workstation_taskstart": "res://resource/timeline/day3_workstation_taskstart.dtl",
 "first_day": "res://character/timeline/first_day.dtl",
+"out_of_tokens": "res://resource/timeline/out_of_tokens.dtl",
 "second_day": "res://character/timeline/second_day.dtl",
 "wake_up": "res://resource/timeline/wake_up.dtl"
 }
