@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bk2htbir1g8mb" path="res://script/fishtank.gd" id="1_fk8l4"]
 [ext_resource type="PackedScene" uid="uid://bqqsqocju2r2" path="res://import/3d/fishtank/fishtank.glb" id="2_b66a4"]
 [ext_resource type="PackedScene" uid="uid://e2a7thwexs4j" path="res://scene/fishes/hunting_piranha.tscn" id="2_gw6h2"]
-[ext_resource type="Shader" path="res://resource/shader/waterv4.gdshader" id="3_kribh"]
+[ext_resource type="Shader" uid="uid://bk7sls701ffko" path="res://resource/shader/waterv4.gdshader" id="3_kribh"]
 [ext_resource type="PackedScene" uid="uid://b57dhngxjxete" path="res://scene/fishes.tscn" id="4_b1avd"]
 [ext_resource type="AudioStream" uid="uid://cfukh7o6g772a" path="res://import/audio/voice/bob5 - fish1.wav" id="6_p2ifn"]
 [ext_resource type="PackedScene" uid="uid://6vyh6cnhdwva" path="res://scene/fishes/fish_betafish.tscn" id="6_u1gco"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bews2gry6iqfo" path="res://import/2d/fishes/GoldFish/GoldFishC.png" id="13_54hk2"]
 [ext_resource type="AudioStream" uid="uid://iolcw2ox1h5x" path="res://import/audio/cleaning.wav" id="17_hk0l4"]
 [ext_resource type="AudioStream" uid="uid://1trwvb4nbx35" path="res://import/audio/splash.mp3" id="18_k8s28"]
+[ext_resource type="ArrayMesh" uid="uid://dwdmbfum47y3n" path="res://bubble.res" id="22_p0pup"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fk8l4"]
 size = Vector3(0.6265869, 0.5569153, 1)
@@ -103,11 +104,11 @@ shape = SubResource("SphereShape3D_f8rg6")
 
 [node name="fishtank" parent="." unique_id=1492558571 instance=ExtResource("2_b66a4")]
 
-[node name="Tank" parent="fishtank" index="1" unique_id=1687478837]
+[node name="Tank" parent="fishtank" index="1" unique_id=2026675940]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3327743, 0.6972399, -0.2473988)
 surface_material_override/0 = SubResource("ShaderMaterial_b1avd")
 
-[node name="Tank_Sand" parent="fishtank" index="2" unique_id=628974498]
+[node name="Tank_Sand" parent="fishtank" index="2" unique_id=1189269228]
 transform = Transform3D(0.26538137, 0, 0, 0, 0.21783847, 0, 0, 0, 0.22220445, -1.3869835, 0.5347553, 0.0037623644)
 
 [node name="Fishes" parent="." unique_id=1932245005 instance=ExtResource("4_b1avd")]
@@ -174,6 +175,17 @@ scale_amount_min = 0.05
 scale_amount_max = 0.07
 scale_amount_curve = SubResource("Curve_k8s28")
 color = Color(0.7557596, 0.5691873, 0.12458455, 1)
+
+[node name="Bubble Particles" type="CPUParticles3D" parent="." unique_id=702918085]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -1.6239444, 0.5358541, -0.43187496)
+lifetime = 3.6999999999999997
+lifetime_randomness = 0.2
+mesh = ExtResource("22_p0pup")
+emission_shape = 3
+emission_box_extents = Vector3(0.1, 0.1, 0.1)
+gravity = Vector3(0, 0.05, 0)
+scale_amount_min = 0.01
+scale_amount_max = 0.01
 
 [editable path="fishtank"]
 [editable path="Fishes"]
