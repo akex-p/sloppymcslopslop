@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://def6kdw6ukxwn" path="res://import/3d/fishes/GoldFish.glb" id="1_swfos"]
 [ext_resource type="Shader" uid="uid://lv6soat5xye6" path="res://resource/shader/fish_wobble.gdshader" id="2_q63x3"]
-[ext_resource type="Script" uid="uid://bt0j5gdwixkr1" path="res://scene/fishes/prey_fish.gd" id="2_vhwp3"]
+[ext_resource type="Script" uid="uid://bt0j5gdwixkr1" path="res://script/prey_fish.gd" id="2_vhwp3"]
 [ext_resource type="Texture2D" uid="uid://ckc854cxj2ju0" path="res://import/2d/fishes/GoldFish/GoldFishA.png.png" id="3_vhwp3"]
 [ext_resource type="Texture2D" uid="uid://ct874tu6eqcg8" path="res://import/2d/fishes/GoldFish/GoldFishB.png" id="4_bvxtn"]
 

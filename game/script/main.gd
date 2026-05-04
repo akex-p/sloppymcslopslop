@@ -11,6 +11,7 @@ class_name Main
 @onready var audio_player_wakeup: AudioStreamPlayer = $Node/AudioPlayerWakeup
 @onready var container_skip: PanelContainer = $Commercial/SkipContainer
 @onready var timer_skip: Timer = $Commercial/Timer
+@onready var environment: Node3D = $Environment
 
 var ad_played: bool = false
 
@@ -27,6 +28,10 @@ func _unhandled_input(event):
 		else:
 			container_skip.visible = true
 			timer_skip.start()
+	
+	if event.is_action_pressed("reload_game"):
+		GameManager.reset()
+		get_tree().reload_current_scene()
 
 func wake_up():
 	if not ad_played: return
@@ -35,6 +40,7 @@ func wake_up():
 	animation_player_overlay.play("fade")
 	await get_tree().create_timer(2.6).timeout
 	$Player/HUD/Misc.visible = true
+	Dialogic.start("wake_up")
 
 func go_to_sleep():
 	player.awake = false
@@ -45,7 +51,7 @@ func go_to_sleep():
 	$Player.reset(Vector3(0.551, 0.894, 0.838), 0.0)
 	
 	# delete stuff
-	var old = $Objects
+	var old = $Environment/Objects
 	old.queue_free()
 	await old.tree_exited
 	
@@ -57,9 +63,12 @@ func go_to_sleep():
 		4: new_scene = day4_scene
 	
 	var new_node = new_scene.instantiate()
-	add_child(new_node)
+	new_node.name = "Objects"
+	environment.add_child(new_node)
 	
 	wake_up()
+	if new_scene == day4_scene:
+		bob_offline()
 
 func _on_video_stream_player_finished() -> void:
 	ad_played = true
@@ -67,3 +76,6 @@ func _on_video_stream_player_finished() -> void:
 
 func _on_timer_timeout() -> void:
 	container_skip.visible = false
+	
+func bob_offline() -> void:
+	Dialogic.start("bob_offline")

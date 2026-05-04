@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://wnj2pupsycxg"]
 
 [ext_resource type="Script" uid="uid://cgqe6gk8aa3q5" path="res://script/pills.gd" id="1_ldtu6"]
+[ext_resource type="AudioStream" uid="uid://dpbggq7eqdebo" path="res://import/audio/apple_bite.ogg" id="2_ldtu6"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_f8rg6"]
 top_radius = 0.1
@@ -30,3 +31,8 @@ shape = SubResource("CylinderShape3D_f8rg6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=71477644]
 shape = SubResource("SphereShape3D_f8rg6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=226369469]
+stream = ExtResource("2_ldtu6")
+pitch_scale = 2.0
+bus = &"Room"

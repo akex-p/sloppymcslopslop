@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dyrnjcmg2xfgi"]
+
+[ext_resource type="PackedScene" uid="uid://b5ov3ep27wb7k" path="res://import/3d/fishtank_decorations/plant.glb" id="1_gmqrh"]
+[ext_resource type="Texture2D" uid="uid://bombryqtljtoc" path="res://import/2d/fishtank_decorations/Plant1.png" id="2_7jmqe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dv2rw"]
+cull_mode = 2
+albedo_texture = ExtResource("2_7jmqe")
+texture_filter = 0
+
+[node name="plant" unique_id=1793699386 instance=ExtResource("1_gmqrh")]
+
+[node name="Empty_001" parent="." index="0" unique_id=878825765]
+surface_material_override/0 = SubResource("StandardMaterial3D_dv2rw")

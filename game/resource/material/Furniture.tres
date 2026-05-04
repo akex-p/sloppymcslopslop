@@ -3,6 +3,5 @@
 [resource]
 resource_name = "Furniture"
 cull_mode = 2
-vertex_color_use_as_albedo = true
 albedo_color = Color(0.33871946, 0.66702086, 0.9556758, 1)
 roughness = 0.12878788

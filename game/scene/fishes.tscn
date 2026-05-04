@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://b57dhngxjxete"]
 
-[ext_resource type="Script" uid="uid://b12521pgq1sed" path="res://scene/fishes_path_follow.gd" id="1_jukrx"]
+[ext_resource type="Script" uid="uid://b12521pgq1sed" path="res://script/fishes_path_follow.gd" id="1_jukrx"]
 [ext_resource type="PackedScene" uid="uid://6vyh6cnhdwva" path="res://scene/fishes/fish_betafish.tscn" id="2_paxul"]
 [ext_resource type="PackedScene" uid="uid://ciukkslkobyml" path="res://scene/fishes/gold_fish.tscn" id="3_2plca"]
 [ext_resource type="PackedScene" uid="uid://pd8pm5o347pq" path="res://scene/fishes/moorish_idol_fish.tscn" id="4_ae4l5"]
 [ext_resource type="PackedScene" uid="uid://botd7dfmej78w" path="res://scene/fishes/neon_tetra_fish.tscn" id="5_xy7iu"]
-[ext_resource type="PackedScene" uid="uid://e2a7thwexs4j" path="res://scene/hunting_piranha.tscn" id="6_5k0qc"]
 
 [sub_resource type="Curve3D" id="Curve3D_tv8i1"]
 closed = true
@@ -88,7 +87,3 @@ speed = 0.2
 
 [node name="NeonTetraFish" parent="Path_4/PathFollow3D" unique_id=1919137318 instance=ExtResource("5_xy7iu")]
 transform = Transform3D(-1.4901161e-08, 1.8626451e-09, -0.3509034, -1.8626451e-09, 0.3509034, 0, 0.35090345, 9.313226e-10, -1.4901161e-08, 0, 0, 0)
-
-[node name="Piranha" parent="." unique_id=766760212 node_paths=PackedStringArray("targets") instance=ExtResource("6_5k0qc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.346957, 0.7592341, -0.6156479)
-targets = [NodePath("../Path_1/PathFollow3D/BetaFish"), NodePath("../Path_2/PathFollow3D/GoldFish"), NodePath("../Path_3/PathFollow3D/MoorishIdolFish"), NodePath("../Path_4/PathFollow3D/NeonTetraFish")]

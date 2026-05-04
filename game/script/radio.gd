@@ -10,4 +10,5 @@ func _ready():
 
 func interact() -> void:
 	audio_player_music.play()
+	$AudioStreamPlayer.play()
 	GameManager.advance_step()

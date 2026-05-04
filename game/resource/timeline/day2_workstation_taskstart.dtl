@@ -1,0 +1,2 @@
+bob: Alright, enough dilly-dallying. Let's get some work done.
+do GameManager.enable_current()

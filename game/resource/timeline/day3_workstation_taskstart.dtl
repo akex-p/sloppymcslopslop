@@ -1,0 +1,2 @@
+bob: Time for work!
+do GameManager.enable_current()

@@ -1,2 +1,3 @@
-bob: Your fish sure are looking hungry. Why don't we give them something to eat?
+bob: Your fish sure are looking hungry. Why don't we feed them?
+bob: Go ahead and give them two shakes of the new and improved FISHCHOW! The most nutritious and delicious meal any fish could think of...
 do GameManager.enable_current()

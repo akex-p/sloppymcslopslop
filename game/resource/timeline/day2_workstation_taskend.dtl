@@ -1,0 +1,4 @@
+if {work_count} > 5.0:
+	bob: What an incredible job you did today! Let's keep up the amazing work tomorrow as well..
+else:
+	bob: Nice job today. But I think we should work more next day...
