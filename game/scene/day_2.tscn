@@ -12,7 +12,6 @@
 script = ExtResource("1_tx1xu")
 
 [node name="Pills" parent="." unique_id=1794016338 instance=ExtResource("1_xct22")]
-visible = false
 
 [node name="FishChow" parent="Pills" unique_id=2028270661 instance=ExtResource("7_pyq6x")]
 transform = Transform3D(6.030103, 0, 2.6828847, 0, 6.600002, 0, -2.6828847, 0, 6.030103, 1.1952835, 0.75028104, 0.1767137)
