@@ -27,7 +27,8 @@ GameManager="*uid://cxyh4hhreav8g"
 [dialogic]
 
 directories/dch_directory={
-"bob": "res://character/bob.dch"
+"bob": "res://character/bob.dch",
+"player": "res://character/player.dch"
 }
 directories/dtl_directory={
 "day1_bed_taskend": "res://resource/timeline/day1_bed_taskend.dtl",
@@ -95,6 +96,7 @@ variables={
 "work_count": 0
 }
 layout/style_list=[]
+layout/default_style="Default"
 glossary/default_case_sensitive=true
 
 [display]
