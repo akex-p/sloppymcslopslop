@@ -82,6 +82,7 @@ func go_to_sleep():
 func _on_video_stream_player_finished() -> void:
 	ad_played = true
 	$Commercial.visible = false
+	$Environment/Objects/Radio/AudioPlayerClock.play()
 
 func _on_timer_timeout() -> void:
 	container_skip.visible = false
