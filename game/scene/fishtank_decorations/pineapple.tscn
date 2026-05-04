@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bmejyocrdqdfo"]
+
+[ext_resource type="PackedScene" uid="uid://ihc0py4vgevx" path="res://import/3d/fishtank_decorations/pineapple.glb" id="1_wekoc"]
+[ext_resource type="Texture2D" uid="uid://bo58xdvgcmtuu" path="res://import/2d/fishtank_decorations/Pineapple.png" id="2_wgqj1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vbygk"]
+cull_mode = 2
+albedo_texture = ExtResource("2_wgqj1")
+texture_filter = 0
+
+[node name="pineapple2" unique_id=367006335 instance=ExtResource("1_wekoc")]
+
+[node name="pineapple" parent="." index="0" unique_id=102942398]
+surface_material_override/0 = SubResource("StandardMaterial3D_vbygk")

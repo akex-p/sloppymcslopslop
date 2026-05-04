@@ -12,7 +12,9 @@
 [ext_resource type="FontFile" uid="uid://cotuy5tk7ulv0" path="res://import/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Bold.ttf" id="7_mswub"]
 [ext_resource type="LabelSettings" uid="uid://b5mocer2sin2i" path="res://resource/standard_label.tres" id="10_tqoya"]
 [ext_resource type="Shader" uid="uid://csextprrxtyne" path="res://resource/shader/crt.gdshader" id="11_k65ib"]
+[ext_resource type="PackedScene" uid="uid://bmejyocrdqdfo" path="res://scene/fishtank_decorations/pineapple.tscn" id="11_smf0o"]
 [ext_resource type="AudioStream" uid="uid://0wfqvf6o4sik" path="res://import/audio/track_002.ogg" id="11_wscrc"]
+[ext_resource type="PackedScene" uid="uid://dyrnjcmg2xfgi" path="res://scene/fishtank_decorations/plant.tscn" id="12_0vlqb"]
 [ext_resource type="PackedScene" uid="uid://dywql7cwr4cmq" path="res://scene/day_1.tscn" id="12_tv8i1"]
 [ext_resource type="FontFile" uid="uid://hdx4v8pw8765" path="res://import/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="16_gjnwh"]
 [ext_resource type="VideoStream" uid="uid://dhikx5iujqudf" path="res://import/video/export002.ogv" id="18_0vlqb"]
@@ -420,7 +422,7 @@ light_energy = 0.396
 
 [node name="Room" parent="Environment/LightmapGI" unique_id=1160661912 instance=ExtResource("5_0ha60")]
 
-[node name="Nightstand" parent="Environment/LightmapGI/Room" index="2" unique_id=680659053]
+[node name="Nightstand" parent="Environment/LightmapGI/Room" index="2" unique_id=614386915]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.4, 1.3235433, 0.59472466, 0.3905229)
 
 [node name="Decoration" type="Node3D" parent="Environment/LightmapGI" unique_id=1502442482]
@@ -479,6 +481,27 @@ autoplay = "default"
 transform = Transform3D(-0.713, 6.233245e-08, 1.0766001e-07, 6.233245e-08, 0.713, -2.146682e-15, -1.0766001e-07, 7.265255e-15, -0.713, 0, 1.0807327, -2.1248112)
 sprite_frames = SubResource("SpriteFrames_p1hux")
 autoplay = "default"
+
+[node name="pineapple2" parent="Environment/LightmapGI/Decoration" unique_id=367006335 instance=ExtResource("11_smf0o")]
+transform = Transform3D(0.034643013, 0.07203672, -0.01048989, -0.010803363, -0.0061876974, -0.080000095, -0.07017229, 0.036516078, 0.0071377, -1.5603881, 0.7234462, -0.63644826)
+
+[node name="plant" parent="Environment/LightmapGI/Decoration" unique_id=1793699386 instance=ExtResource("12_0vlqb")]
+transform = Transform3D(-0.0015853631, 0.04997486, -2.1844704e-09, 0, -2.1855695e-09, -0.05, -0.04997486, -0.0015853631, 6.929842e-11, -1.5888859, 0.693938, 0.07937032)
+
+[node name="plant2" parent="Environment/LightmapGI/Decoration" unique_id=7543020 instance=ExtResource("12_0vlqb")]
+transform = Transform3D(-0.053837914, 0.030335559, -1.2543097e-09, 0, -2.3105027e-09, -0.05, -0.03772993, -0.043286677, 1.7898101e-09, -1.3703338, 0.6790136, 0.09505901)
+
+[node name="plant3" parent="Environment/LightmapGI/Decoration" unique_id=680203585 instance=ExtResource("12_0vlqb")]
+transform = Transform3D(0.032573815, 0.037933446, -1.6581235e-09, 0, -2.1855695e-09, -0.05, -0.037933446, 0.032573815, -1.4238467e-09, -1.4788663, 0.6225133, 0.032907665)
+
+[node name="plant4" parent="Environment/LightmapGI/Decoration" unique_id=1411594292 instance=ExtResource("12_0vlqb")]
+transform = Transform3D(-0.028645929, 0.04098061, -1.7913194e-09, 0, -2.1855695e-09, -0.05, -0.04098061, -0.028645929, 1.2521533e-09, -1.5698266, 0.59385395, -0.41488656)
+
+[node name="plant5" parent="Environment/LightmapGI/Decoration" unique_id=1779795458 instance=ExtResource("12_0vlqb")]
+transform = Transform3D(-0.0017103106, 0.050099805, -1.5687384e-09, 0, -2.1910338e-09, -0.03590661, -0.053913537, -0.0015893268, 4.9765424e-11, -1.2000757, 0.6269859, -0.053968385)
+
+[node name="plant6" parent="Environment/LightmapGI/Decoration" unique_id=867112937 instance=ExtResource("12_0vlqb")]
+transform = Transform3D(-0.030453987, 0.03965545, -1.2411256e-09, 8.4021284e-20, -2.1855697e-09, -0.03580044, -0.03965545, -0.030453987, 9.531409e-10, -1.340695, 0.6093306, -0.57851243)
 
 [node name="Objects" parent="Environment" unique_id=666778257 instance=ExtResource("12_tv8i1")]
 transform = Transform3D(0.9999999, -0.00021647551, 0.0003316589, 0.00021656055, 0.99999994, -0.00022145805, -0.00033160337, 0.0002215412, 0.9999999, 0, 0, 0)
@@ -617,6 +640,10 @@ wait_time = 3.0
 stream = ExtResource("11_wscrc")
 volume_db = -15.0
 bus = &"SFX"
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=677954847]
+transform = Transform3D(0.91318303, -1.7814559e-08, 0.40754962, -0.40754962, -3.9916497e-08, 0.91318303, 0, -1, -4.371139e-08, -0.8570783, 1.6880724, -0.21486688)
+spot_angle = 36.22
 
 [connection signal="finished" from="Commercial/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
 [connection signal="timeout" from="Commercial/Timer" to="." method="_on_timer_timeout"]
