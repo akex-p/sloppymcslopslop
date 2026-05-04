@@ -9,7 +9,11 @@ func _ready():
 	GameManager.register(GameManager.Step.WORKSTATION, self)
 
 func interact() -> void:
-	animation_player.play("press")
+	if animation_player.is_playing():
+		animation_player.seek(0.0)
+	else:
+		animation_player.play("press")
+	$AudioStreamPlayer3D.play()
 	timer.start()
 	Dialogic.VAR.work_count += 1
 
