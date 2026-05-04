@@ -67,6 +67,8 @@ func go_to_sleep():
 	environment.add_child(new_node)
 	
 	wake_up()
+	if new_scene == day4_scene:
+		bob_offline()
 
 func _on_video_stream_player_finished() -> void:
 	ad_played = true
@@ -74,3 +76,6 @@ func _on_video_stream_player_finished() -> void:
 
 func _on_timer_timeout() -> void:
 	container_skip.visible = false
+	
+func bob_offline() -> void:
+	print("offline")

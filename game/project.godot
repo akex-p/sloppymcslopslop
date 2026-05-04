@@ -31,6 +31,7 @@ directories/dch_directory={
 "player": "res://character/player.dch"
 }
 directories/dtl_directory={
+"bob_offline": "res://resource/timeline/bob_offline.dtl",
 "day1_bed_taskend": "res://resource/timeline/day1_bed_taskend.dtl",
 "day1_bed_taskstart": "res://resource/timeline/day1_bed_taskstart.dtl",
 "day1_fishtank_taskend": "res://resource/timeline/day1_fishtank_taskend.dtl",
