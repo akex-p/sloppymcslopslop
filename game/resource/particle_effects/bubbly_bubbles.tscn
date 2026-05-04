@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cr2vqvi46oacd"]
+
+[ext_resource type="Texture2D" uid="uid://cpufey4eki0cd" path="res://import/2d/fishtank_decorations/Bubble.png" id="1_g0m0f"]
+[ext_resource type="ArrayMesh" uid="uid://bqkxkaktlwws3" path="res://bubble.res" id="2_n3mwh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72dgu"]
+cull_mode = 2
+albedo_texture = ExtResource("1_g0m0f")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g0m0f"]
+lifetime_randomness = 0.3
+emission_shape = 3
+emission_box_extents = Vector3(0.5, 0.5, 0.5)
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 0.29999998
+initial_velocity_max = 0.39999998
+gravity = Vector3(0, 0.1, 0)
+scale_min = 0.099999994
+scale_max = 0.19999999
+
+[node name="bubbly_bubbles" type="Node3D" unique_id=1608135097]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1524627003]
+transform = Transform3D(-2.9802322e-08, 1.0000001, 0, -1.0000001, -2.9802322e-08, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_72dgu")
+lifetime = 30.0
+process_material = SubResource("ParticleProcessMaterial_g0m0f")
+draw_pass_1 = ExtResource("2_n3mwh")
